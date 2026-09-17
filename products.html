@@ -1,0 +1,1529 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CofeLang Menu - Browse our wide selection of pastries, pizza, pasta, rice meals, drinks, and more."
+    />
+    <meta name="author" content="CofeLang Web Development Team" />
+    <title>CofeLang - Products</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .filter-input {
+        display: none;
+      }
+      .category-filter label {
+        display: inline-block;
+        padding: 10px 25px;
+        margin: 5px;
+        border: 2px solid #4e342e;
+        color: #4e342e;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 0.95em;
+        transition: all 0.3s ease;
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+      .category-filter label:hover {
+        background-color: #4e342e;
+        color: #fff;
+      }
+      #f-all:checked ~ .category-filter label[for='f-all'],
+      #f-pastry:checked ~ .category-filter label[for='f-pastry'],
+      #f-pizza:checked ~ .category-filter label[for='f-pizza'],
+      #f-pasta:checked ~ .category-filter label[for='f-pasta'],
+      #f-rice:checked ~ .category-filter label[for='f-rice'],
+      #f-starter:checked ~ .category-filter label[for='f-starter'],
+      #f-hotcoffee:checked ~ .category-filter label[for='f-hotcoffee'],
+      #f-hottea:checked ~ .category-filter label[for='f-hottea'],
+      #f-milktea:checked ~ .category-filter label[for='f-milktea'],
+      #f-icedcoffee:checked ~ .category-filter label[for='f-icedcoffee'],
+      #f-frappe:checked ~ .category-filter label[for='f-frappe'],
+      #f-fruittea:checked ~ .category-filter label[for='f-fruittea'],
+      #f-sparkle:checked ~ .category-filter label[for='f-sparkle'],
+      #f-addons:checked ~ .category-filter label[for='f-addons'] {
+        background-color: #4e342e;
+        color: #fff;
+      }
+      #f-all:checked ~ .products-grid .product-card,
+      #f-pastry:checked ~ .products-grid .product-card.cat-pastry,
+      #f-pizza:checked ~ .products-grid .product-card.cat-pizza,
+      #f-pasta:checked ~ .products-grid .product-card.cat-pasta,
+      #f-rice:checked ~ .products-grid .product-card.cat-rice,
+      #f-starter:checked ~ .products-grid .product-card.cat-starter,
+      #f-hotcoffee:checked ~ .products-grid .product-card.cat-hotcoffee,
+      #f-hottea:checked ~ .products-grid .product-card.cat-hottea,
+      #f-milktea:checked ~ .products-grid .product-card.cat-milktea,
+      #f-icedcoffee:checked ~ .products-grid .product-card.cat-icedcoffee,
+      #f-frappe:checked ~ .products-grid .product-card.cat-frappe,
+      #f-fruittea:checked ~ .products-grid .product-card.cat-fruittea,
+      #f-sparkle:checked ~ .products-grid .product-card.cat-sparkle,
+      #f-addons:checked ~ .products-grid .product-card.cat-addons {
+        display: block;
+      }
+      #f-pastry:checked ~ .products-grid .product-card:not(.cat-pastry),
+      #f-pizza:checked ~ .products-grid .product-card:not(.cat-pizza),
+      #f-pasta:checked ~ .products-grid .product-card:not(.cat-pasta),
+      #f-rice:checked ~ .products-grid .product-card:not(.cat-rice),
+      #f-starter:checked ~ .products-grid .product-card:not(.cat-starter),
+      #f-hotcoffee:checked ~ .products-grid .product-card:not(.cat-hotcoffee),
+      #f-hottea:checked ~ .products-grid .product-card:not(.cat-hottea),
+      #f-milktea:checked ~ .products-grid .product-card:not(.cat-milktea),
+      #f-icedcoffee:checked ~ .products-grid .product-card:not(.cat-icedcoffee),
+      #f-frappe:checked ~ .products-grid .product-card:not(.cat-frappe),
+      #f-fruittea:checked ~ .products-grid .product-card:not(.cat-fruittea),
+      #f-sparkle:checked ~ .products-grid .product-card:not(.cat-sparkle),
+      #f-addons:checked ~ .products-grid .product-card:not(.cat-addons) {
+        display: none;
+      }
+      .product-count {
+        text-align: center;
+        color: #795548;
+        margin-bottom: 25px;
+        font-size: 0.95em;
+      }
+      .cart-hint {
+        text-align: center;
+        color: #795548;
+        font-style: italic;
+        margin-bottom: 15px;
+        font-size: 0.95em;
+      }
+      .size-note {
+        font-size: 0.8em;
+        color: #8d6e63;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="CofeLang Logo" />
+          <div class="logo-text">
+            <h1>CofeLang</h1>
+            <p>Brew &amp; Bytes for Students</p>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="developers.html">Developers</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section
+      class="hero full-width"
+      style="min-height: 300px; padding: 80px 20px"
+    >
+      <h2>Our Menu</h2>
+      <p>Explore our wide selection of food and drinks crafted just for you.</p>
+    </section>
+    <section>
+      <h2 class="section-title">Delicious Menu</h2>
+      <p class="section-subtitle">
+        Browse through our complete menu of 79 items
+      </p>
+      <input
+        type="radio"
+        name="filter"
+        id="f-all"
+        class="filter-input"
+        checked
+      />
+      <input type="radio" name="filter" id="f-pastry" class="filter-input" />
+      <input type="radio" name="filter" id="f-pizza" class="filter-input" />
+      <input type="radio" name="filter" id="f-pasta" class="filter-input" />
+      <input type="radio" name="filter" id="f-rice" class="filter-input" />
+      <input type="radio" name="filter" id="f-starter" class="filter-input" />
+      <input type="radio" name="filter" id="f-hotcoffee" class="filter-input" />
+      <input type="radio" name="filter" id="f-hottea" class="filter-input" />
+      <input type="radio" name="filter" id="f-milktea" class="filter-input" />
+      <input
+        type="radio"
+        name="filter"
+        id="f-icedcoffee"
+        class="filter-input"
+      />
+      <input type="radio" name="filter" id="f-frappe" class="filter-input" />
+      <input type="radio" name="filter" id="f-fruittea" class="filter-input" />
+      <input type="radio" name="filter" id="f-sparkle" class="filter-input" />
+      <input type="radio" name="filter" id="f-addons" class="filter-input" />
+      <div class="category-filter">
+        <label for="f-all">All</label>
+        <label for="f-pastry">Pastries</label>
+        <label for="f-pizza">Pizza</label>
+        <label for="f-pasta">Pasta</label>
+        <label for="f-rice">Rice Meals</label>
+        <label for="f-starter">Starters</label>
+        <label for="f-hotcoffee">Hot Coffee</label>
+        <label for="f-hottea">Hot Tea</label>
+        <label for="f-milktea">Milk Tea</label>
+        <label for="f-icedcoffee">Iced Coffee</label>
+        <label for="f-frappe">Frappe</label>
+        <label for="f-fruittea">Fruit Tea</label>
+        <label for="f-sparkle">Sparkle</label>
+        <label for="f-addons">Add-ons</label>
+      </div>
+      <p class="product-count">
+        Showing all <strong>79</strong> items &mdash; choose a category above to
+        filter.
+      </p>
+      <p class="cart-hint">
+        Found something you like? Head over to our
+        <a
+          href="cart.html"
+          style="
+            color: #e65100;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #e65100;
+          "
+          >Cart</a
+        >
+        to place your order.
+      </p>
+      <div class="products-grid" id="productsGrid">
+        <!-- PASTRIES -->
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
+            alt="Blueberry Cheesecake"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Blueberry Cheesecake</h3>
+            <p>
+              Creamy New York-style cheesecake topped with sweet blueberry
+              compote. Rich, smooth, and perfectly tangy.
+            </p>
+            <p class="product-price">
+              &#8369;160.00 <span class="size-note">/slice</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/oreo-cheesecake-4.jpg"
+            alt="Cookies and Cream Cheesecake"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Cookies &amp; Cream Cheesecake</h3>
+            <p>
+              Velvety cheesecake loaded with crushed chocolate sandwich cookies.
+              A cookies lover's dream dessert.
+            </p>
+            <p class="product-price">
+              &#8369;160.00 <span class="size-note">/slice</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/classic-brownies.jpg"
+            alt="Classic Brownie"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Classic Brownie</h3>
+            <p>
+              Dense, fudgy chocolate brownie with a crackly top. Deep chocolate
+              flavor in every bite.
+            </p>
+            <p class="product-price">&#8369;55.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/caramel-bar.jpg"
+            alt="Chewy Caramel Bar"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Chewy Caramel Bar</h3>
+            <p>
+              Soft, chewy bar with buttery caramel filling. Sweet, gooey, and
+              utterly irresistible.
+            </p>
+            <p class="product-price">&#8369;60.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/cinnamon-bun.jpg"
+            alt="Sticky Cinnamon Bun"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Sticky Cinnamon Bun</h3>
+            <p>
+              Warm, soft bun swirled with cinnamon sugar and glazed with cream
+              cheese frosting. Pure comfort.
+            </p>
+            <p class="product-price">&#8369;90.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/chocolate-chip.jpg"
+            alt="Chocolate Chip Cookie"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Chocolate Chip Cookie</h3>
+            <p>
+              Classic chewy cookie loaded with semi-sweet chocolate chips.
+              Crispy edges, soft center.
+            </p>
+            <p class="product-price">&#8369;60.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pastry">
+          <img
+            src="assets/products/Pastries/pastries/chocolate-chip-cookie-walnut.webp"
+            alt="Chocolate Chip Cookie with Walnut"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pastries</span>
+            <h3>Chocolate Chip Cookie w/ Walnut</h3>
+            <p>
+              Chewy chocolate chip cookie with crunchy walnut pieces. Nutty,
+              chocolatey, and perfectly balanced.
+            </p>
+            <p class="product-price">&#8369;65.00</p>
+          </div>
+        </article>
+        <!-- PIZZA -->
+        <article class="product-card cat-pizza">
+          <img
+            src="assets/products/Pizza/pizza/hawaiian-pizza.jpg"
+            alt="Hawaiian Pizza"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pizza</span>
+            <h3>Hawaiian Pizza</h3>
+            <p>
+              Solo size (6.5") pizza topped with ham, pineapple chunks, and
+              mozzarella cheese. Sweet and savory.
+            </p>
+            <p class="product-price">
+              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-pizza">
+          <img
+            src="assets/products/Pizza/pizza/pepperoni-pizzaa.jpg"
+            alt="Pepperoni Pizza"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pizza</span>
+            <h3>Pepperoni Pizza</h3>
+            <p>
+              Solo size (6.5") pizza loaded with spicy pepperoni slices and
+              melted mozzarella. A timeless classic.
+            </p>
+            <p class="product-price">
+              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-pizza">
+          <img
+            src="assets/products/Pizza/pizza/bacon-mushroom-pizza.jpg"
+            alt="Bacon Mushroom Pizza"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pizza</span>
+            <h3>Bacon Mushroom Pizza</h3>
+            <p>
+              Solo size (6.5") pizza with crispy bacon, sautéed mushrooms, and
+              mozzarella. Smoky and earthy.
+            </p>
+            <p class="product-price">
+              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-pizza">
+          <img
+            src="assets/products/Pizza/pizza/spinach-w-cream-cheese-pizza.jpg"
+            alt="Spinach with Cream Cheese Pizza"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pizza</span>
+            <h3>Spinach w/ Cream Cheese Pizza</h3>
+            <p>
+              Solo size (6.5") pizza with fresh spinach, creamy cream cheese,
+              and mozzarella. Unique and delicious.
+            </p>
+            <p class="product-price">
+              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
+            </p>
+          </div>
+        </article>
+        <!-- PASTA -->
+        <article class="product-card cat-pasta">
+          <img
+            src="assets/products/Pasta/pasta/tuna-pesto.jpg"
+            alt="Tuna Pesto"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pasta</span>
+            <h3>Tuna Pesto</h3>
+            <p>
+              Al dente pasta tossed in homemade basil pesto with flaky tuna
+              chunks. Herbaceous and savory.
+            </p>
+            <p class="product-price">&#8369;125.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pasta">
+          <img
+            src="assets/products/Pasta/pasta/lasgna.webp"
+            alt="Lasagna"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pasta</span>
+            <h3>Lasagna</h3>
+            <p>
+              Layers of pasta sheets, rich meat sauce, béchamel, and melted
+              cheese. Baked until golden and bubbly.
+            </p>
+            <p class="product-price">&#8369;125.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-pasta">
+          <img
+            src="assets/products/Pasta/pasta/carbonara.jpg"
+            alt="Carbonara"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Pasta</span>
+            <h3>Carbonara</h3>
+            <p>
+              Creamy pasta with bacon bits, parmesan cheese, and egg-based
+              sauce. Rich, silky, and indulgent.
+            </p>
+            <p class="product-price">&#8369;125.00</p>
+          </div>
+        </article>
+        <!-- RICE MEALS -->
+        <article class="product-card cat-rice">
+          <img
+            src="assets/products/Rice Meal/rice-meal/chicken-ala-king.jpg"
+            alt="Chicken Ala King"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Rice Meals</span>
+            <h3>Chicken Ala King</h3>
+            <p>
+              Tender chicken pieces in creamy sauce with vegetables, served over
+              steaming white rice. Hearty and filling.
+            </p>
+            <p class="product-price">&#8369;140.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-rice">
+          <img
+            src="assets/products/Rice Meal/rice-meal/beef-&-mushroom--rice-meal.jpg"
+            alt="Beef and Mushroom"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Rice Meals</span>
+            <h3>Beef &amp; Mushroom</h3>
+            <p>
+              Sliced beef sautéed with mushrooms in a savory brown sauce, served
+              with rice. Rich and satisfying.
+            </p>
+            <p class="product-price">&#8369;140.00</p>
+          </div>
+        </article>
+        <!-- STARTERS -->
+        <article class="product-card cat-starter">
+          <img
+            src="assets/products/Starters/starter/french-fries.jpg"
+            alt="French Fries"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Starters</span>
+            <h3>French Fries</h3>
+            <p>
+              Golden, crispy potato fries seasoned to perfection. The ultimate
+              comfort snack.
+            </p>
+            <p class="product-price">&#8369;110.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-starter">
+          <img
+            src="assets/products/Starters/starter/mozzarella-sticks.jpg"
+            alt="Mozzarella Sticks"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Starters</span>
+            <h3>Mozzarella Sticks</h3>
+            <p>
+              Golden-fried mozzarella sticks with a crispy breadcrumb coating.
+              Gooey cheese inside, crunchy outside.
+            </p>
+            <p class="product-price">&#8369;170.00</p>
+          </div>
+        </article>
+        <!-- HOT COFFEE -->
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/hazelnut-hot.jpg"
+            alt="Hazelnut Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Hazelnut</h3>
+            <p>Rich hazelnut-flavored hot coffee. Nutty, warm, and aromatic.</p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/vanillla-latte.jpg"
+            alt="Vanilla Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Vanilla</h3>
+            <p>
+              Sweet vanilla-infused hot coffee. Smooth, fragrant, and
+              comforting.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
+            alt="Caramel Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Caramel</h3>
+            <p>
+              Buttery caramel-flavored hot coffee. Sweet, rich, and indulgent.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/mocha-hot.jpg"
+            alt="Mocha Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Mocha</h3>
+            <p>
+              Chocolate and espresso blended with steamed milk. A classic mocha
+              lovers' favorite.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/butterscotch-hot.jpg"
+            alt="Butterscotch Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Butterscotch</h3>
+            <p>
+              Sweet butterscotch-flavored hot coffee. Creamy, caramelized, and
+              delightful.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/double-chocolate.jpg"
+            alt="Double Chocolate Hot Coffee"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Double Chocolate</h3>
+            <p>
+              Double dose of rich chocolate blended with hot coffee. Deep,
+              intense, and chocolatey.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-hotcoffee">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/hot-chocolate.jpg"
+            alt="Hot Chocolate"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Coffee</span>
+            <h3>Hot Chocolate</h3>
+            <p>
+              Premium cocoa blended with steamed milk. Warm, velvety, and pure
+              chocolate bliss.
+            </p>
+            <p class="product-price">
+              &#8369;80.00 / &#8369;90.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <!-- HOT TEA -->
+        <article class="product-card cat-hottea">
+          <img
+            src="assets/products/hot-tea/jasmine-tea.jpg"
+            alt="Jasmine Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Tea</span>
+            <h3>Jasmine Tea</h3>
+            <p>
+              Fragrant jasmine-scented green tea. Floral, light, and soothing.
+            </p>
+            <p class="product-price">&#8369;80.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-hottea">
+          <img
+            src="assets/products/hot-tea/green-tea.jpg"
+            alt="Green Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Tea</span>
+            <h3>Green Tea</h3>
+            <p>
+              Premium Japanese green tea. Earthy, refreshing, and packed with
+              antioxidants.
+            </p>
+            <p class="product-price">&#8369;80.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-hottea">
+          <img
+            src="assets/products/hot-tea/peppermint-tea.jpg"
+            alt="Peppermint Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Tea</span>
+            <h3>Peppermint Tea</h3>
+            <p>
+              Cool peppermint leaves steeped in hot water. Minty, refreshing,
+              and calming.
+            </p>
+            <p class="product-price">&#8369;80.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-hottea">
+          <img
+            src="assets/products/hot-tea/chamomile-tea.jpg"
+            alt="Chamomile Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Hot Tea</span>
+            <h3>Chamomile Tea</h3>
+            <p>
+              Gentle chamomile flower tea. Relaxing, floral, and perfect for
+              winding down.
+            </p>
+            <p class="product-price">&#8369;80.00</p>
+          </div>
+        </article>
+        <!-- MILK TEA -->
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/classic-mtea.jpg"
+            alt="Classic Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Classic Milk Tea</h3>
+            <p>
+              The original milk tea. Smooth black tea blended with creamy milk.
+              Simple yet satisfying.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;120.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/wintermelon-mtea.jpg"
+            alt="Wintermelon Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Wintermelon Milk Tea</h3>
+            <p>
+              Sweet wintermelon syrup blended with milk tea. Fruity, unique, and
+              refreshing.
+            </p>
+            <p class="product-price">
+              &#8369;105.00 / &#8369;125.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/matcha.jpg"
+            alt="Matcha Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Matcha Milk Tea</h3>
+            <p>
+              Premium matcha blended with creamy milk tea. Earthy, smooth, and
+              antioxidant-rich.
+            </p>
+            <p class="product-price">
+              &#8369;110.00 / &#8369;130.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/okininam-mtea.jpg"
+            alt="Okinawa Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Okinawa Milk Tea</h3>
+            <p>
+              Roasted Okinawa brown sugar milk tea. Caramel-like, rich, and
+              deeply satisfying.
+            </p>
+            <p class="product-price">
+              &#8369;110.00 / &#8369;130.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/dark-choco-mtea.jpg"
+            alt="Dark Choco Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Dark Choco Milk Tea</h3>
+            <p>
+              Intense dark chocolate blended with milk tea. Bold, cocoa-rich,
+              and indulgent.
+            </p>
+            <p class="product-price">
+              &#8369;110.00 / &#8369;130.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/thai-mtea.jpg"
+            alt="Thai Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Thai Milk Tea</h3>
+            <p>
+              Traditional Thai tea blended with milk. Vibrant orange color,
+              sweet and aromatic.
+            </p>
+            <p class="product-price">
+              &#8369;110.00 / &#8369;130.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-milktea">
+          <img
+            src="assets/products/milktea/caramel-mtea.jpg"
+            alt="Caramel Milk Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Milk Tea</span>
+            <h3>Caramel Milk Tea</h3>
+            <p>
+              Buttery caramel blended with creamy milk tea. Sweet, smooth, and
+              heavenly.
+            </p>
+            <p class="product-price">
+              &#8369;110.00 / &#8369;130.00
+              <span class="size-note">Classic / Large</span>
+            </p>
+          </div>
+        </article>
+        <!-- ICED COFFEE -->
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/dark-special.jpg"
+            alt="Dark Special"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Dark Special</h3>
+            <p>
+              Bold dark-roasted iced coffee with a rich, full-bodied flavor. For
+              the true coffee lover.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/dark-special.jpg"
+            alt="Original Blend"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Original Blend</h3>
+            <p>
+              Our signature iced coffee blend. Smooth, balanced, and perfectly
+              chilled.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/choco-twist.jpg"
+            alt="Choco Twist"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Choco Twist</h3>
+            <p>
+              Chocolate-infused iced coffee with a twist. Sweet, creamy, and
+              refreshing.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/caramel-espresso.jpg"
+            alt="Caramel Espresso"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Caramel Espresso</h3>
+            <p>
+              Caramel-flavored espresso over ice with a splash of milk. Sweet
+              and energizing.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/hazelnut-latite.jpg"
+            alt="Hazelnut Latte"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Hazelnut Latte</h3>
+            <p>
+              Toasted hazelnut-flavored iced latte. Nutty, smooth, and
+              refreshing.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/tiramissu.jpg"
+            alt="Tiramisu"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Tiramisu</h3>
+            <p>
+              Tiramisu-flavored iced coffee with cocoa and cream. Dessert in a
+              cup.
+            </p>
+            <p class="product-price">
+              &#8369;130.00 / &#8369;140.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-icedcoffee">
+          <img
+            src="assets/products/iced-coffee/dark-mocha.jpg"
+            alt="Dark Mocha"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Iced Coffee</span>
+            <h3>Dark Mocha</h3>
+            <p>
+              Dark chocolate blended with espresso and milk over ice. Rich and
+              indulgent.
+            </p>
+            <p class="product-price">
+              &#8369;140.00 / &#8369;150.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <!-- FRAPPE -->
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/orig.jpg"
+            alt="Original Blend Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Original Blend Frappe</h3>
+            <p>
+              Our signature coffee blended with ice and milk. Smooth, creamy,
+              and perfectly chilled.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/choco-twist.jpg"
+            alt="Choco Twist Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Choco Twist Frappe</h3>
+            <p>
+              Chocolate-flavored blended ice coffee. Sweet, chocolaty, and
+              refreshing.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/orig.jpg"
+            alt="Caramel Espresso Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Caramel Espresso Frappe</h3>
+            <p>
+              Caramel-flavored espresso blended with ice. Sweet, frosty, and
+              energizing.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/hazelnut.jpg"
+            alt="Hazelnut Latte Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Hazelnut Latte Frappe</h3>
+            <p>
+              Toasted hazelnut blended with ice and milk. Nutty, creamy, and
+              delightful.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/tiramisu.jpg"
+            alt="Tiramisu Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Tiramisu Frappe</h3>
+            <p>
+              Tiramisu-flavored blended drink with cocoa and cream. Dessert in a
+              glass.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/dark-mocha.jpg"
+            alt="Dark Mocha Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Dark Mocha Frappe</h3>
+            <p>
+              Dark chocolate blended with espresso and ice. Rich, bold, and
+              indulgent.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-frappe">
+          <img
+            src="assets/products/frappe/java.jpg"
+            alt="Java Chip Frappe"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Frappe</span>
+            <h3>Java Chip Frappe</h3>
+            <p>
+              Chocolate chips blended with coffee and ice. Crunchy, creamy, and
+              irresistible.
+            </p>
+            <p class="product-price">&#8369;160.00</p>
+          </div>
+        </article>
+        <!-- FRUIT TEA -->
+        <article class="product-card cat-fruittea">
+          <img
+            src="assets/products/fruit-tea/lychee.jpg"
+            alt="Lychee Fruit Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Fruit Tea</span>
+            <h3>Lychee Fruit Tea</h3>
+            <p>
+              Sweet lychee fruit tea with real lychee pieces. Tropical,
+              refreshing, and naturally sweet.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;110.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-fruittea">
+          <img
+            src="assets/products/fruit-tea/mango.jpg"
+            alt="Mango Fruit Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Fruit Tea</span>
+            <h3>Mango Fruit Tea</h3>
+            <p>
+              Fresh mango blended with tea. Tropical, sweet, and utterly
+              delicious.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;110.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-fruittea">
+          <img
+            src="assets/products/fruit-tea/green-apple.jpg"
+            alt="Green Apple Fruit Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Fruit Tea</span>
+            <h3>Green Apple Fruit Tea</h3>
+            <p>
+              Tart green apple blended with tea. Crisp, refreshing, and tangy.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;110.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-fruittea">
+          <img
+            src="assets/products/fruit-tea/strawberry.jpg"
+            alt="Strawberry Fruit Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Fruit Tea</span>
+            <h3>Strawberry Fruit Tea</h3>
+            <p>
+              Fresh strawberry tea with real fruit pieces. Sweet, fruity, and
+              refreshing.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;110.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <article class="product-card cat-fruittea">
+          <img
+            src="assets/products/fruit-tea/passion-fruit.jpg"
+            alt="Passionfruit Fruit Tea"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Fruit Tea</span>
+            <h3>Passionfruit Fruit Tea</h3>
+            <p>
+              Tropical passionfruit blended with tea. Tart, aromatic, and
+              exotic.
+            </p>
+            <p class="product-price">
+              &#8369;100.00 / &#8369;110.00
+              <span class="size-note">Regular / Large</span>
+            </p>
+          </div>
+        </article>
+        <!-- SPARKLE SERIES -->
+        <article class="product-card cat-sparkle">
+          <img
+            src="assets/products/sparkle-series/sparkle-sakura.jpg"
+            alt="Sweet Sakura"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Sparkle Series</span>
+            <h3>Sweet Sakura</h3>
+            <p>
+              Delicate cherry blossom-flavored sparkling drink. Floral, sweet,
+              and effervescent.
+            </p>
+            <p class="product-price">&#8369;130.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-sparkle">
+          <img
+            src="assets/products/sparkle-series/rouge-punch.jpg"
+            alt="Rouge Punch"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Sparkle Series</span>
+            <h3>Rouge Punch</h3>
+            <p>
+              Bold berry-flavored sparkling punch. Fruity, vibrant, and
+              refreshing.
+            </p>
+            <p class="product-price">&#8369;130.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-sparkle">
+          <img
+            src="assets/products/sparkle-series/sour-candy.jpg"
+            alt="Sour Candy"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Sparkle Series</span>
+            <h3>Sour Candy</h3>
+            <p>Sour candy-flavored sparkling drink. Tangy, sweet, and fun.</p>
+            <p class="product-price">&#8369;130.00</p>
+          </div>
+        </article>
+        <!-- ADD-ONS -->
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/milktea/matcha.jpg"
+            alt="Milk add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Milk</h3>
+            <p>Add creamy milk to any drink.</p>
+            <p class="product-price">&#8369;15.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/fruit-tea/lychee.jpg"
+            alt="Nata add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Nata</h3>
+            <p>Chewy nata de coco topping.</p>
+            <p class="product-price">&#8369;15.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/milktea/classic-mtea.jpg"
+            alt="Pearl add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Pearl</h3>
+            <p>Classic tapioca boba pearls.</p>
+            <p class="product-price">&#8369;15.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/fruit-tea/strawberry.jpg"
+            alt="Yakult add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Yakult</h3>
+            <p>Probiotic Yakult shot.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/frappe/dark-mocha.jpg"
+            alt="Oreos add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Oreos</h3>
+            <p>Crushed Oreo cookie topping.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
+            alt="Caramel drizzle add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Caramel Drizzle</h3>
+            <p>Sweet caramel sauce drizzle.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
+            alt="Cheesecake bits add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Cheesecake Bits</h3>
+            <p>Creamy cheesecake chunks.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
+            alt="Cream cheese add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Cream Cheese</h3>
+            <p>Creamy cheese foam topping.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/fruit-tea/mango.jpg"
+            alt="Popping boba add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Popping Boba</h3>
+            <p>Fruit-flavored popping boba.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/frappe/choco-twist.jpg"
+            alt="Chocolate syrup add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Choco Syrup</h3>
+            <p>Rich chocolate syrup drizzle.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/hot-tea/green-tea.jpg"
+            alt="Stevia add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Stevia</h3>
+            <p>Natural stevia sweetener.</p>
+            <p class="product-price">&#8369;10.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
+            alt="Muscovado add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Muscovado</h3>
+            <p>Raw muscovado sugar.</p>
+            <p class="product-price">&#8369;10.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Pastries/pastries/classic-brownies.jpg"
+            alt="Chocolate brownie bits add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Choco Brownie Bits</h3>
+            <p>Crumbled brownie pieces.</p>
+            <p class="product-price">&#8369;20.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Hot Coffee/hot-coffee/double-chocolate.jpg"
+            alt="Espresso shot add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Espresso Shot</h3>
+            <p>Extra shot of espresso.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/hot-tea/jasmine-tea.jpg"
+            alt="Chia seeds add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Chia Seeds</h3>
+            <p>Healthy chia seeds topping.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/frappe/dark-mocha.jpg"
+            alt="Hershey's chocolate syrup add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Hershey's Choco Syrup</h3>
+            <p>Hershey's chocolate syrup drizzle.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/fruit-tea/lychee.jpg"
+            alt="Honey add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Honey</h3>
+            <p>Natural honey sweetener.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/iced-coffee/dark-special.jpg"
+            alt="Coffee jelly add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Coffee Jelly</h3>
+            <p>Chewy coffee jelly cubes.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/frappe/tiramisu.jpg"
+            alt="Whipped cream add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Whipped Cream</h3>
+            <p>Fluffy whipped cream topping.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+        <article class="product-card cat-addons">
+          <img
+            src="assets/products/Pastries/pastries/chocolate-chip.jpg"
+            alt="Chocolate kisses add-on"
+            class="product-img"
+          />
+          <div class="product-info">
+            <span class="product-category">Add-ons</span>
+            <h3>Choco Kisses</h3>
+            <p>Mini chocolate kisses topping.</p>
+            <p class="product-price">&#8369;25.00</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section>
+      <div class="highlight-box">
+        <strong>References:</strong><br />
+        Product descriptions and prices are from the official CofeLang menu.
+        Unsplash (https://unsplash.com) was used for background images under the
+        Unsplash License. All beverage and food categories are inspired by cafe
+        menus available in the Philippines.
+      </div>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CofeLang</h4>
+          <p>
+            A student-friendly cafe offering quality brews, refreshing drinks,
+            and delicious snacks at affordable prices.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a><a href="about.html">About Us</a
+          ><a href="products.html">Products</a><a href="cart.html">Cart</a
+          ><a href="developers.html">Developers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>123 University Ave., near campus</p>
+          <p>+63 912 345 6789</p>
+          <p>info@cofelang.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
+          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
+          Development Team
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

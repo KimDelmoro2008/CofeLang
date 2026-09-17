@@ -1,0 +1,203 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn more about CofeLang - our mission, vision, and story."
+    />
+    <meta name="author" content="CofeLang Web Development Team" />
+    <title>CofeLang - About Us</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Internal CSS -->
+    <style>
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .value-item {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+      .value-item span {
+        font-size: 2.5em;
+        display: none;
+        margin-bottom: 10px;
+      }
+      .value-item h4 {
+        color: #4e342e;
+        margin-bottom: 8px;
+      }
+      .value-item p {
+        color: #6d4c41;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="CofeLang Logo" />
+          <div class="logo-text">
+            <h1>CofeLang</h1>
+            <p>Brew &amp; Bytes for Students</p>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="developers.html">Developers</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section
+      class="hero full-width"
+      style="min-height: 300px; padding: 80px 20px"
+    >
+      <h2>About CofeLang</h2>
+      <p>Learn about our story, mission, and the passion behind every cup.</p>
+    </section>
+
+    <!-- Company Background -->
+    <section>
+      <h2 class="section-title">Our Story</h2>
+      <p class="section-subtitle">How CofeLang came to be</p>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>The Beginning</h3>
+          <p>
+            CofeLang started as a small dream among IT students who wanted to
+            create a space where their fellow students could enjoy quality
+            coffee and snacks without worrying about their budget. Founded in
+            2026, the name "CofeLang" is a combination of "Coffee" and "Lang" (a
+            Filipino term for conversation), symbolizing our belief that every
+            cup of coffee brings people together.
+          </p>
+          <p>
+            What began as a small stall near the university campus quickly grew
+            into a beloved cafe known for its warm atmosphere, friendly staff,
+            and affordable menu. Today, CofeLang serves hundreds of students
+            daily, providing them with the perfect environment to study,
+            socialize, and recharge.
+          </p>
+
+          <h3>What We Stand For</h3>
+          <p>
+            At CofeLang, we believe that every student deserves access to
+            quality beverages and a comfortable space to thrive. Our cafe is
+            more than just a place to grab coffee &mdash; it's a community hub
+            where friendships are formed, ideas are born, and memories are made.
+          </p>
+          <p>
+            We are committed to maintaining a safe, clean, and inclusive
+            environment where every student feels welcome. Our team is
+            passionate about delivering excellent service and continuously
+            improving our menu to cater to diverse tastes and preferences.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500"
+            alt="CofeLang cafe interior"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values -->
+    <section>
+      <h2 class="section-title">Our Core Values</h2>
+      <p class="section-subtitle">The principles that guide everything we do</p>
+      <div class="values-grid">
+        <article class="value-item">
+          <h4>Quality</h4>
+          <p>
+            We use only the finest ingredients to ensure every product meets our
+            high standards.
+          </p>
+        </article>
+        <article class="value-item">
+          <h4>Affordability</h4>
+          <p>
+            Great taste shouldn't break the bank. Our prices are designed for
+            student budgets.
+          </p>
+        </article>
+        <article class="value-item">
+          <h4>Inclusivity</h4>
+          <p>
+            Everyone is welcome at CofeLang regardless of background or
+            identity.
+          </p>
+        </article>
+        <article class="value-item">
+          <h4>Innovation</h4>
+          <p>
+            We continuously improve our menu and services to better serve our
+            community.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CofeLang</h4>
+          <p>
+            A student-friendly cafe offering quality brews, refreshing drinks,
+            and delicious snacks at affordable prices.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+          <a href="developers.html">Developers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>123 University Ave., near campus</p>
+          <p>+63 912 345 6789</p>
+          <p>info@cofelang.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
+          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
+          Development Team
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

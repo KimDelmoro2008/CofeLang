@@ -1,0 +1,161 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Your CofeLang order has been placed successfully!"
+    />
+    <title>CofeLang - Order Successful</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .success-section {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 24px;
+      }
+      .success-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 56px 48px;
+        text-align: center;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        max-width: 520px;
+        width: 100%;
+      }
+      .success-icon {
+        font-size: 4em;
+        margin-bottom: 20px;
+        display: block;
+      }
+      .success-card h2 {
+        color: #3e2723;
+        font-size: 2em;
+        margin-bottom: 14px;
+      }
+      .success-card p {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: #6d4c41;
+        margin-bottom: 10px;
+        line-height: 1.7;
+        font-size: 1em;
+      }
+      .success-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+      .btn-outline {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 2px solid #4e342e;
+        color: #4e342e;
+        text-decoration: none;
+        border-radius: 30px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 0.95em;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-outline:hover {
+        background-color: #4e342e;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="CofeLang Logo" />
+          <div class="logo-text">
+            <h1>CofeLang</h1>
+            <p>Brew &amp; Bytes for Students</p>
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="developers.html">Developers</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Success Section -->
+    <section class="success-section">
+      <div class="success-card">
+        <span class="success-icon"></span>
+        <h2>Order Placed Successfully!</h2>
+        <p>
+          Thank you for ordering from <strong>CofeLang</strong>. Your order is
+          being prepared and will be ready shortly.
+        </p>
+        <p>
+          You will receive a confirmation shortly. If you have any questions,
+          feel free to contact us at <strong>info@cofelang.com</strong>.
+        </p>
+        <div class="success-actions">
+          <a href="index.html" class="hero-btn">Return Home</a>
+          <a href="products.html" class="btn-outline">Browse Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>CofeLang</h4>
+          <p>
+            A student-friendly cafe offering quality brews, refreshing drinks,
+            and delicious snacks at affordable prices.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="cart.html">Cart</a>
+          <a href="developers.html">Developers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p>123 University Ave., near campus</p>
+          <p>+63 912 345 6789</p>
+          <p>info@cofelang.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
+          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
+          Development Team
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
