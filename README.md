@@ -2,273 +2,204 @@
   <img src="assets/logo.svg" alt="CofeLang Logo" width="160">
 </p>
 
-<<<<<<< HEAD
-**Brew & Bytes for Students** — a student-friendly cafe website beside TIP on Aurora Blvd, Quezon City.
+# CofeLang
 
-CofeLang is the Group 5 final project: a static, multi-page cafe site with a working cart and checkout. It uses **only HTML, CSS and vanilla JavaScript**. There is no backend, no database, no framework and no build step, so it runs anywhere static files can be served (including Vercel).
+### Brew & Bytes for Students
+
+CofeLang is a student-friendly café website developed as a group project by BS Information Technology students at the Technological Institute of the Philippines, Quezon City.
+
+The project presents a café concept designed for students who want affordable food and drinks in a comfortable place to study, relax, and spend time with friends.
+
+**Live Website:** [Visit CofeLang](https://cofe-lang-three.vercel.app/)
+
+## Table of Contents
+
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Project Limitations](#project-limitations)
+- [Developers](#developers)
+- [License](#license)
+
+## About the Project
+
+CofeLang was created as a school project to apply our knowledge of web development using HTML, CSS, and JavaScript.
+
+The website introduces a café concept near the Technological Institute of the Philippines in Quezon City. It provides a simple online menu and an ordering interface where visitors can browse products, manage their cart, and complete a sample checkout process.
+
+The project also allows our team to practice website design, page organization, user interaction, and teamwork.
 
 ## Features
 
-- **Menu of 78 items** with live search, category filter buttons and sorting (price low to high, high to low, or name).
-- **Allergen notes** (milk, nuts, gluten, egg) on relevant items.
-- **Working cart** saved in `localStorage`: add items, choose a size (Regular/Large or Classic/Large), edit quantities (1 to 50), remove items or clear the cart. A live item count shows next to "Cart" in the nav on every page.
-- **Checkout** for pickup or dine-in with inline form validation (no alert boxes). Orders are saved in the browser, and a confirmation page shows the order number.
-- **Bill breakdown**: subtotal, an optional **20% student discount** (student ID is checked at the counter), **12% tax** and the total. The customer types the **cash** they will pay with and sees their **change**. The full bill is saved with each order and shown on the confirmation page, My Orders and the staff dashboard.
-- **My Orders** page listing past orders from this device.
-- **Demo login and staff dashboard**: log in with any email. An email ending in `@tip.edu.ph` is treated as staff and goes straight to `dashboard.html`, an order board for this browser's orders: status tracking (New → Preparing → Done) with buttons to update each order, status filters with counts, search by order number, name or phone, and a live update when a new order arrives from another tab. Customers see the status on their My Orders page. Other emails are customers and go to the home page. **This is a front-end demo, not real security** (see below).
-- **Responsive and accessible**: mobile hamburger menu that works with the keyboard, skip link, landmarks, visible focus styles, `aria-current` on the active link, stacked tables on phones.
-- **SEO basics**: unique titles and descriptions, Open Graph tags, `robots.txt`, `sitemap.xml`, and a styled `404.html`.
-- **About page contact form** (demo only: nothing is sent), plus Privacy and Terms placeholder pages and a Developers page.
+### Home Page
+Introduces CofeLang, its concept, and its main features.
 
-## Screenshots
+### About Us
+Presents the café's background, purpose, and core values.
 
-> Screenshots coming soon. Add images to a `docs/` folder and link them here, for example:
->
-> `![Home page](docs/home.png)`
+### Product Menu
+- Displays food and drinks from different categories.
+- Allows users to search for products.
+- Provides category filters and sorting options.
+- Shows product prices and relevant allergen information.
 
-## Tech stack
+### Shopping Cart
+- Allows users to add products to their cart.
+- Supports product size selection and quantity changes.
+- Allows users to remove items or clear the cart.
+- Updates the cart total.
 
-| Layer | What we used |
+### Checkout
+- Supports sample dine-in and pickup orders.
+- Checks required form information.
+- Calculates the subtotal, student discount, tax, total, and change.
+- Displays an order confirmation after checkout.
+
+### Order History
+Displays previous sample orders saved in the user's browser.
+
+### Staff Dashboard
+Provides a demonstration of an order management page. Staff users can view orders, search for specific orders, filter order statuses, and update an order's progress.
+
+### Additional Pages
+- Developers page featuring the project team.
+- Login page for the demonstration.
+- Privacy Policy and Terms of Service pages.
+- Custom page for unavailable website addresses.
+
+## Technologies Used
+
+| Technology | Purpose |
 | --- | --- |
-| Markup | HTML5 (semantic elements, ARIA where needed) |
-| Styling | One shared `styles.css` (CSS custom properties, Grid, Flexbox) |
-| Behaviour | One shared `script.js` (vanilla JavaScript, `localStorage`) |
-| Fonts | Playfair Display via Google Fonts |
-| Hosting | Vercel (static) |
+| HTML5 | Creates the structure and content of each page. |
+| CSS3 | Handles the layout, colors, styling, and responsive design. |
+| JavaScript | Adds interactive features, cart functions, checkout calculations, and order management. |
+| Local Storage | Saves sample cart data, orders, and login information in the browser. |
+| Google Fonts | Provides the typography used on the website. |
+| Vercel | Hosts the website online. |
+| GitHub | Stores the source code and tracks project changes. |
 
-No npm packages, no database, no server code.
-
-## Folder structure
-
-```text
-CofeLang/
-├── index.html              Home
-├── about.html              About + demo contact form
-├── products.html           Menu with search, filter, sort, Add to Cart
-├── cart.html               Cart + checkout form
-├── checkout-success.html   Order confirmation
-├── orders.html             My Orders (order history)
-├── login.html              Demo login (customer or staff)
-├── dashboard.html          Staff dashboard (demo)
-├── developers.html         Team
-├── privacy.html            Privacy Policy (placeholder)
-├── terms.html              Terms of Service (placeholder)
-├── 404.html                Not-found page
-├── styles.css              All styles
-├── script.js               All behaviour
-├── robots.txt
-├── sitemap.xml
-├── LICENSE                 GPL-3.0
-├── .gitignore
-└── assets/
-    ├── logo.svg
-    ├── og-image.png        Social sharing image
-    ├── cozy-cafe-interior.avif
-    ├── icon/logo.ico       Favicon
-    ├── developers/         Team photos
-    └── products/           One lowercase folder per menu category
-        ├── pastries/  pizza/  pasta/  rice-meals/  starters/
-        └── hot-coffee/  hot-tea/  milk-tea/  iced-coffee/
-            frappe/  fruit-tea/  sparkle/
-```
-
-All file and folder names are lowercase with no spaces, because Vercel serves from Linux and paths are case-sensitive.
-
-## How the bill is calculated
-
-1. **Subtotal** = sum of (unit price × quantity).
-2. **Student discount** (only if ticked) = 20% of the subtotal.
-3. **Tax** = 12% of the subtotal after the discount.
-4. **Total** = subtotal − discount + tax.
-5. **Change** = cash − total. The cash must be at least the total.
-
-Amounts are worked out in centavos (whole numbers) and rounded to the nearest centavo, so there are no floating-point errors. The rates are the constants `STUDENT_DISCOUNT_RATE` and `TAX_RATE` at the top of `script.js`.
-
-## How data is stored
-
-Everything lives in the visitor's own browser (`localStorage`):
-
-| Key | Contents |
-| --- | --- |
-| `cofelang.cart.v1` | `[{ id, name, size, category, price, qty }]` |
-| `cofelang.orders.v1` | `[{ orderNumber, account, status, createdAt, customer, items, total }]` |
-| `cofelang.session.v1` | `{ email, at }` (demo login; the role is worked out from the email each time) |
-
-Clearing site data in the browser, or using the **Clear Cart** and **Clear Order History** buttons, removes it. Orders are demos: nothing is sent anywhere and no payment is taken.
-
-## About the demo login and dashboard
-
-The site has no server, so the login and dashboard are a **classroom simulation**:
-
-- There is no password, and "staff" simply means the email ends with `@tip.edu.ph`. Anyone can type such an email, or edit their own browser storage, and open the dashboard.
-- The dashboard only shows orders saved in **the same browser** it is opened in. Orders placed on a customer's phone never reach a staff computer.
-- Do not use this approach to protect real data. A real version needs a backend (for example a hosted database with verified sign-in) so staff roles are enforced on a server.
-
-## Run locally
-
-**Option 1: open the file.** Double-click `index.html`. Everything works from `file://`.
-
-**Option 2: use a simple static server** (closer to how Vercel serves it). From the project folder, run one of:
-
-```bash
-python3 -m http.server 8000
-# or
-npx serve .
-```
-
-Then open <http://localhost:8000>.
-
-> The 404 page uses `<base href="/">` so it works at any missing URL on a server. When opened directly as a file, its links will not resolve; that is expected.
-
-## Deploy on Vercel
-
-1. Push the project to GitHub (repo `KimDelmoro2008/CofeLang`).
-2. Sign in at [vercel.com](https://vercel.com) and choose **Add New… → Project**, then import the repository.
-3. Settings: **Framework Preset: Other**, leave **Build Command** and **Output Directory** empty, and keep the **Root Directory** as the repo root.
-4. Click **Deploy**. Vercel serves `index.html` at the root URL and automatically uses `404.html` for missing pages.
-
-No `vercel.json` is needed. Every internal link uses a plain `.html` path, so the site also works when opened locally.
-
-### Before going live: update the site URL
-
-`robots.txt`, `sitemap.xml` and each page's `og:image` tag use the placeholder domain `https://cofelang.vercel.app`. If your real Vercel domain is different, search and replace it in those files.
-
-## Content notes to confirm
-
-- The phone number (`+63 900 000 0000`) and email (`hello@cofelang.example`) are **sample values** and are marked "(sample)" in the footer.
-- The **allergen tags** on the menu are a best guess based on the item descriptions. The cafe should verify them before they are relied on.
-
-## Team
-
-CofeLang Web Development Team (Technological Institute of the Philippines):
-
-| Name | Role |
-| --- | --- |
-=======
-<h1 align="center">CofeLang</h1>
-<p align="center"><em>Brew &amp; Bytes for Students</em></p>
-
-<p align="center">
-  <a href="https://group-5-final-project-website.vercel.app">🔗 Live Site</a> ·
-  <a href="#pages">Pages</a> ·
-  <a href="#menu">Menu</a> ·
-  <a href="#tech-stack">Tech Stack</a> ·
-  <a href="#developers">Developers</a> ·
-  <a href="#license">License</a>
-</p>
-
----
-
-## About
-
-**CofeLang** is a static, multi-page website for a student-friendly cafe concept located beside the **Technological Institute of the Philippines (TIP)**, Aurora Blvd, Quezon City. The site was built as a Group 5 final project by a team of BS Information Technology students at TIP.
-
-The name **"CofeLang"** combines *"Coffee"* with *"Lang"* — a Filipino word used in casual conversation — symbolizing the idea that every cup of coffee brings people together. Founded (in-story) in 2026, CofeLang grew from a small campus stall into a cafe known for its warm atmosphere, friendly staff, and student-friendly prices.
-
-- 📍 **Location:** Aurora Blvd, beside TIP, Quezon City
-- ⏰ **Hours:** Mon–Fri 7:00 AM–10:00 PM · Sat–Sun 8:00 AM–11:00 PM
-- ✉️ **Contact:** info@cofelang.com
-
-### Core Values
-
-| Value | What it means |
-|---|---|
-| **Quality** | Only the finest ingredients, for a consistently high standard. |
-| **Affordability** | Prices designed to fit a student's budget. |
-| **Inclusivity** | A safe, welcoming space for everyone, regardless of background. |
-| **Innovation** | A menu and service that keep improving to fit the community's needs. |
-
-## Pages
-
-| Page | Description |
-|---|---|
-| `index.html` | Home page — hero banner, "Why CofeLang?" intro, feature highlights, best-seller products, and an embedded map to the branch. |
-| `about.html` | About Us — CofeLang's origin story and core values. |
-| `products.html` | Full menu — 79 items across 13 categories, with a pure-CSS (no JavaScript) category filter. |
-| `cart.html` | Shopping cart page with order form elements. |
-| `checkout-success.html` | Order confirmation page shown after checkout. |
-| `developers.html` | Meet the team behind the site, their roles, and the tools used to build it. |
-
-## Menu
-
-The menu (`products.html`) is organized into 13 filterable categories:
-
-Pastries · Pizza · Pasta · Rice Meals · Starters · Hot Coffee · Hot Tea · Milk Tea · Iced Coffee · Frappe · Fruit Tea · Sparkle · Add-ons
-
-Category filtering is done entirely with a CSS-only radio button/label technique — no JavaScript required.
-
-## Tech Stack
-
-CofeLang is built with **plain HTML5 and CSS3** — no frameworks, no build step.
-
-- **HTML5** — semantic markup, forms, and an embedded Google Maps iframe for geolocation
-- **CSS3** — Flexbox, Grid, gradients, transitions, CSS-only filtering, and responsive design (`styles.css`)
-- **Google Fonts** — Playfair Display
-- **Visual Studio Code** — primary editor used throughout development
+The project uses basic web technologies without a front-end framework, a database, or a separate backend server.
 
 ## Getting Started
 
-This is a static site, so no installation or build process is required.
+You do not need to install additional packages to run the website locally.
 
-```bash
-git clone https://github.com/KimDelmoro2008/CofeLang.git
-cd CofeLang
-```
+### Requirements
 
-Then simply open `index.html` in your browser, or serve the folder with any static file server, e.g.:
+- A modern web browser.
+- Git, if you want to clone the repository.
+- A code editor such as Visual Studio Code, if you want to view or edit the source code.
 
-```bash
-npx serve .
-```
+### Installation
 
-The live version is deployed on Vercel: **[group-5-final-project-website.vercel.app](https://group-5-final-project-website.vercel.app)**
+1. Clone the repository.
+
+   ```bash
+   git clone https://github.com/KimDelmoro2008/CofeLang.git
+   ```
+
+2. Open the project folder.
+
+   ```bash
+   cd CofeLang
+   ```
+
+3. Open `index.html` in your browser.
+
+You can also open the project folder in Visual Studio Code and use a local development server to view the website.
 
 ## Project Structure
 
-```
+```text
 CofeLang/
-├── assets/                  # Images, product photos, developer photos, logo, favicon
-├── index.html                # Home page
-├── about.html                 # About Us page
-├── products.html              # Menu / product catalog (79 items, 13 categories)
-├── cart.html                  # Shopping cart page
-├── checkout-success.html      # Order confirmation page
-├── developers.html            # Meet the team page
-├── styles.css                 # Shared stylesheet for all pages
-├── logo.svg                   # CofeLang logo
-└── LICENSE                    # GPL-3.0 license
+├── assets/
+│   ├── developers/
+│   └── products/
+├── index.html
+├── about.html
+├── products.html
+├── cart.html
+├── checkout-success.html
+├── orders.html
+├── login.html
+├── dashboard.html
+├── developers.html
+├── privacy.html
+├── terms.html
+├── styles.css
+├── script.js
+├── logo.svg
+├── LICENSE
+└── README.md
 ```
+
+### Main Files
+
+| File | Description |
+| --- | --- |
+| `index.html` | Main page of the website. |
+| `about.html` | Provides information about CofeLang. |
+| `products.html` | Displays the product menu. |
+| `cart.html` | Contains the shopping cart and checkout form. |
+| `checkout-success.html` | Displays order confirmation. |
+| `orders.html` | Shows the user's saved order history. |
+| `login.html` | Provides the demonstration login page. |
+| `dashboard.html` | Displays the staff order dashboard. |
+| `developers.html` | Introduces the project developers. |
+| `styles.css` | Contains the website's styles and layouts. |
+| `script.js` | Handles the website's interactive features. |
+| `LICENSE` | Contains the project's license. |
+
+## Project Limitations
+
+CofeLang is an educational front-end project. Its ordering and account features are demonstrations rather than a complete commercial system.
+
+- Orders and cart information are stored in the user's browser.
+- The website does not process real payments.
+- The demonstration login does not provide secure authentication.
+- The staff dashboard does not receive orders from other devices through a shared server.
+- The contact form does not send messages to a real email account.
+- The Privacy Policy and Terms of Service pages serve as placeholders for the project.
+
+These limitations reflect the project's current use of HTML, CSS, JavaScript, and browser storage without a backend or database.
 
 ## Developers
 
-Built by the **CofeLang Web Development Team**, IT students at the Technological Institute of the Philippines:
+CofeLang was developed by a group of BS Information Technology students from the Technological Institute of the Philippines, Quezon City.
 
-| Name | Role |
-|---|---|
->>>>>>> 9ca6e828a57c1f0e546b81a36505872b1096c9c6
-| Kim Delmoro | Founder & Lead Developer |
-| Raniel Magpatoc | Front-End Developer & Co-Founder |
-| Wadanhyll Shaun Tolentino | Web Designer & Co-Founder |
-| John Dexter Miraflor | Back-End Developer |
-| Madelaine Lano | UI Designer & Logo Designer |
-<<<<<<< HEAD
-| Cleo Ken Miguel Ramos | Logo Designer |
-| Justin Kobe Litonjua | Web Tester |
-| Lance Jairus Jamito | Documentation Lead |
+| Developer | Role | Contribution |
+| --- | --- | --- |
+| Kim Delmoro | Project Leader and Lead Developer | Led the team, helped organize the development process, and worked on the website's main structure and pages. |
+| Raniel Magpatoc | Founder and Idea Originator | Proposed the original CofeLang concept and helped define the café's purpose and website features. |
+| Wadanhyll Shaun Tolentino | Web Designer | Contributed to the website's layout, visual design, and presentation. |
+| John Dexter Miraflor | JavaScript Developer | Contributed to the website's interactive features and ordering process. |
+| Madelaine Lano | UI and Logo Designer | Helped design the user interface, logo, and visual elements. |
+| Cleo Ken Miguel Ramos | Branding and Content Designer | Contributed to the café's branding and website content. |
+| Justin Kobe Litonjua | Website Tester | Helped test the website's pages, navigation, and interactive features. |
+| Lance Jairus Jamito | Documentation Lead | Helped organize the project's documentation and technical information. |
 
-## License
-
-Released under the **GNU General Public License v3.0**. See [LICENSE](LICENSE) for the full text.
-=======
-| Cleo Ken Miguel Ramos | Content Strategist |
-| Justin Kobe Litonjua | Web Tester |
-| Lance Jairus Jamito | Documentation Lead |
-
-See [`developers.html`](developers.html) for full bios.
+Visit the [Developers page](developers.html) to learn more about the team.
 
 ## License
 
-This project is licensed under the **GPL-3.0 License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for the full license terms.
+
+## Acknowledgment
+
+CofeLang was created as a group academic project to practice the fundamentals of web development, apply classroom lessons, and gain experience working together on a website.
+
+All team members contributed to the development of the project through their assigned tasks and collaborative work.
+
+---
+
+**CofeLang**  
+Brew & Bytes for Students  
+Technological Institute of the Philippines, Quezon City
+
+Developed for educational purposes.
 
 ---
 
