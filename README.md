@@ -179,7 +179,6 @@ CofeLang was developed by a group of BS Information Technology students from the
 | Madelaine Lano | UI and Logo Designer | Helped design the user interface, logo, and visual elements. |
 | Cleo Ken Miguel Ramos | Branding and Content Designer | Contributed to the café's branding and website content. |
 | Justin Kobe Litonjua | Website Tester | Helped test the website's pages, navigation, and interactive features. |
-| Lance Jairus Jamito | Documentation Lead | Helped organize the project's documentation and technical information. |
 
 Visit the [Developers page](developers.html) to learn more about the team.
 
