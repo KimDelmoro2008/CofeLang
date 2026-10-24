@@ -1,206 +1,285 @@
-<p align="center">
-  <img src="assets/logo.svg" alt="CofeLang Logo" width="160">
-</p>
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<div align="center">
 
-# CofeLang
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=CofeLang&fontSize=64&fontColor=FFF3E0&fontAlignY=38&desc=Brew%20%26%20Bytes%20for%20Students&descSize=20&descAlignY=60&animation=fadeIn" alt="CofeLang banner" width="100%" />
 
-### Brew & Bytes for Students
+<img src="logo.svg" alt="CofeLang logo" width="110" />
 
-CofeLang is a student-friendly café website developed as a group project by BS Information Technology students at the Technological Institute of the Philippines, Quezon City.
+### A student-friendly café website, built from scratch with pure HTML5 &amp; CSS3.
 
-The project presents a café concept designed for students who want affordable food and drinks in a comfortable place to study, relax, and spend time with friends.
+*Where great taste meets student-friendly prices. Chill, study, and hang out with friends.*
 
-**Live Website:** [Visit CofeLang](https://cofelang.vercel.app/)
+<br />
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-4E342E?style=for-the-badge&labelColor=FFCC80&logo=vercel&logoColor=4E342E)](https://group-5-final-project-website.vercel.app)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-8D6E63?style=for-the-badge&labelColor=4E342E)](LICENSE)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+![Google Fonts](https://img.shields.io/badge/Font-Playfair_Display-4285F4?style=flat-square&logo=googlefonts&logoColor=white)
+![Responsive](https://img.shields.io/badge/Design-Responsive-6D4C41?style=flat-square)
+![Made by Group 5](https://img.shields.io/badge/Made_by-Group_5-FFCC80?style=flat-square&labelColor=4E342E)
+
+<br />
+
+[**Live Demo**](https://group-5-final-project-website.vercel.app) &nbsp;·&nbsp;
+[**Features**](#features) &nbsp;·&nbsp;
+[**Pages**](#pages) &nbsp;·&nbsp;
+[**Getting Started**](#getting-started) &nbsp;·&nbsp;
+[**Team**](#meet-the-team)
+
+</div>
+
+<br />
+
+---
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)
+- [About](#about)
 - [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
+- [Pages](#pages)
+- [Menu Highlights](#menu-highlights)
+- [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
-- [Project Limitations](#project-limitations)
-- [Developers](#developers)
+- [Getting Started](#getting-started)
+- [Design System](#design-system)
+- [Meet the Team](#meet-the-team)
+- [Contributing](#contributing)
 - [License](#license)
 
-## About the Project
+---
 
-CofeLang was created as a school project to apply our knowledge of web development using HTML, CSS, and JavaScript.
+## About
 
-The website introduces a café concept near the Technological Institute of the Philippines in Quezon City. It provides a simple online menu and an ordering interface where visitors can browse products, manage their cart, and complete a sample checkout process.
+**CofeLang** is a fictional student café located beside the **Technological Institute of the Philippines (TIP)** along Aurora Blvd, Quezon City. Its mission is simple: give students a warm, welcoming space to enjoy quality drinks and snacks without breaking the bank.
 
-The project also allows our team to practice website design, page organization, user interaction, and teamwork.
+This repository contains the café's official website, designed and developed by **Group 5**, a team of IT students, as an academic project. The entire site is handcrafted using **only HTML5 and CSS3**: no frameworks, no build tools, no dependencies.
+
+> **The idea:** bring CofeLang's menu to the digital world and make it easier for students to browse and order their favorite drinks.
+
+<div align="center">
+
+<!--  Add a screenshot of your homepage here:
+<img src="assets/screenshots/home.png" alt="CofeLang home page" width="90%" />
+-->
+
+</div>
+
+---
 
 ## Features
 
-### Home Page
-Introduces CofeLang, its concept, and its main features.
+<table>
+  <tr>
+    <td width="50%" valign="top">
 
-### About Us
-Presents the café's background, purpose, and core values.
+### Warm, Cozy Design
+A coffee-inspired palette, elegant **Playfair Display** typography, and soft gradients that make the site feel like the café itself.
 
-### Product Menu
-- Displays food and drinks from different categories.
-- Allows users to search for products.
-- Provides category filters and sorting options.
-- Shows product prices and relevant allergen information.
+  </td>
+    <td width="50%" valign="top">
 
-### Shopping Cart
-- Allows users to add products to their cart.
-- Supports product size selection and quantity changes.
-- Allows users to remove items or clear the cart.
-- Updates the cart total.
+### Fully Responsive
+Built with **Flexbox** and **CSS Grid** so every page adapts smoothly from phones to widescreen desktops.
 
-### Checkout
-- Supports sample dine-in and pickup orders.
-- Checks required form information.
-- Calculates the subtotal, student discount, tax, total, and change.
-- Displays an order confirmation after checkout.
+  </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
 
-### Order History
-Displays previous sample orders saved in the user's browser.
+### Product Showcase
+A full menu with categorized product cards, images, descriptions, and student-friendly prices in ₱.
 
-### Staff Dashboard
-Provides a demonstration of an order management page. Staff users can view orders, search for specific orders, filter order statuses, and update an order's progress.
+  </td>
+    <td width="50%" valign="top">
 
-### Additional Pages
-- Developers page featuring the project team.
-- Login page for the demonstration.
-- Privacy Policy and Terms of Service pages.
-- Custom page for unavailable website addresses.
+### Cart &amp; Checkout Flow
+A cart page with form elements and an order summary table, plus a dedicated checkout success page.
 
-## Technologies Used
+  </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+
+### Find Us on the Map
+An embedded Google Map that points visitors straight to the café near TIP, Aurora Blvd.
+
+  </td>
+    <td width="50%" valign="top">
+
+### Accessible &amp; Semantic
+Semantic HTML5 structure, descriptive `alt` text, and proper meta tags for accessibility and SEO basics.
+
+  </td>
+  </tr>
+</table>
+
+---
+
+## Pages
+
+| Page | File | What's inside |
+| :--- | :--- | :--- |
+| **Home** | [`index.html`](index.html) | Hero banner, why CofeLang, what we offer, best sellers, and the location map |
+| **About Us** | [`about.html`](about.html) | The CofeLang story and mission |
+| **Products** | [`products.html`](products.html) | The complete menu, organized by category |
+| **Cart** | [`cart.html`](cart.html) | Order form and order summary table |
+| **Checkout Success** | [`checkout-success.html`](checkout-success.html) | Order confirmation screen |
+| **Developers** | [`developers.html`](developers.html) | Meet the team behind the site |
+
+---
+
+## Menu Highlights
+
+A taste of our student-favorite best sellers:
+
+| Category | Item | Price |
+| :--- | :--- | ---: |
+| Frappe | Caramel Espresso Frappe | ₱160 |
+| Milk Tea | Matcha Milk Tea | ₱110 / ₱130 |
+| Iced Coffee | Dark Mocha | ₱140 / ₱150 |
+| Pizza | Pepperoni Pizza (6.5" solo) | ₱125 |
+| Pasta | Carbonara | ₱125 |
+| Pastries | Blueberry Cheesecake | ₱160 / slice |
+
+*Explore the full menu on the [Products page](https://group-5-final-project-website.vercel.app/products.html).*
+
+---
+
+## Tech Stack
+
+<div align="center">
 
 | Technology | Purpose |
-| --- | --- |
-| HTML5 | Creates the structure and content of each page. |
-| CSS3 | Handles the layout, colors, styling, and responsive design. |
-| JavaScript | Adds interactive features, cart functions, checkout calculations, and order management. |
-| Local Storage | Saves sample cart data, orders, and login information in the browser. |
-| Google Fonts | Provides the typography used on the website. |
-| Vercel | Hosts the website online. |
-| GitHub | Stores the source code and tracks project changes. |
+| :---: | :--- |
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | Semantic structure, forms, and embedded content |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | Flexbox, Grid, transitions, gradients, and responsive layout |
+| ![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white) | Playfair Display typography |
+| ![Google Maps](https://img.shields.io/badge/Google_Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white) | Embedded location map |
+| ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white) | Code editor |
+| ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) | Hosting and deployment |
 
-The project uses basic web technologies without a front-end framework, a database, or a separate backend server.
+</div>
 
-## Getting Started
-
-You do not need to install additional packages to run the website locally.
-
-### Requirements
-
-- A modern web browser.
-- Git, if you want to clone the repository.
-- A code editor such as Visual Studio Code, if you want to view or edit the source code.
-
-### Installation
-
-1. Clone the repository.
-
-   ```bash
-   git clone https://github.com/KimDelmoro2008/CofeLang.git
-   ```
-
-2. Open the project folder.
-
-   ```bash
-   cd CofeLang
-   ```
-
-3. Open `index.html` in your browser.
-
-You can also open the project folder in Visual Studio Code and use a local development server to view the website.
+---
 
 ## Project Structure
 
 ```text
 CofeLang/
-├── assets/
-│   ├── developers/
-│   └── products/
-├── index.html
-├── about.html
-├── products.html
-├── cart.html
-├── checkout-success.html
-├── orders.html
-├── login.html
-├── dashboard.html
-├── developers.html
-├── privacy.html
-├── terms.html
-├── styles.css
-├── script.js
-├── logo.svg
-├── LICENSE
+├── assets/                 # Images, icons, product photos, developer photos
+├── index.html              # Home
+├── about.html              # About Us
+├── products.html           # Menu / Products
+├── cart.html               # Cart & order form
+├── checkout-success.html   # Order confirmation
+├── developers.html         # Meet the team
+├── styles.css              # Shared external stylesheet
+├── logo.svg                # CofeLang logo
+├── LICENSE                 # GPL-3.0
 └── README.md
 ```
 
-### Main Files
+---
 
-| File | Description |
-| --- | --- |
-| `index.html` | Main page of the website. |
-| `about.html` | Provides information about CofeLang. |
-| `products.html` | Displays the product menu. |
-| `cart.html` | Contains the shopping cart and checkout form. |
-| `checkout-success.html` | Displays order confirmation. |
-| `orders.html` | Shows the user's saved order history. |
-| `login.html` | Provides the demonstration login page. |
-| `dashboard.html` | Displays the staff order dashboard. |
-| `developers.html` | Introduces the project developers. |
-| `styles.css` | Contains the website's styles and layouts. |
-| `script.js` | Handles the website's interactive features. |
-| `LICENSE` | Contains the project's license. |
+## Getting Started
 
-## Project Limitations
+No installation, no build step. Just clone and open.
 
-CofeLang is an educational front-end project. Its ordering and account features are demonstrations rather than a complete commercial system.
+### 1. Clone the repository
 
-- Orders and cart information are stored in the user's browser.
-- The website does not process real payments.
-- The demonstration login does not provide secure authentication.
-- The staff dashboard does not receive orders from other devices through a shared server.
-- The contact form does not send messages to a real email account.
-- The Privacy Policy and Terms of Service pages serve as placeholders for the project.
+```bash
+git clone https://github.com/KimDelmoro2008/CofeLang.git
+cd CofeLang
+```
 
-These limitations reflect the project's current use of HTML, CSS, JavaScript, and browser storage without a backend or database.
+### 2. Run it
 
-## Developers
+**Option A: open directly**
 
-CofeLang was developed by a group of BS Information Technology students from the Technological Institute of the Philippines, Quezon City.
+Double-click `index.html`, or open it in your browser.
 
-| Developer | Role | Contribution |
-| --- | --- | --- |
-| Kim Delmoro | Project Leader and Lead Developer | Led the team, helped organize the development process, and worked on the website's main structure and pages. |
-| Raniel Magpatoc | Founder and Idea Originator | Proposed the original CofeLang concept and helped define the café's purpose and website features. |
-| Wadanhyll Shaun Tolentino | Web Designer | Contributed to the website's layout, visual design, and presentation. |
-| John Dexter Miraflor | JavaScript Developer | Contributed to the website's interactive features and ordering process. |
-| Madelaine Lano | UI and Logo Designer | Helped design the user interface, logo, and visual elements. |
-| Cleo Ken Miguel Ramos | Branding and Content Designer | Contributed to the café's branding and website content. |
-| Justin Kobe Litonjua | Website Tester | Helped test the website's pages, navigation, and interactive features. |
+**Option B: use a local server** (recommended)
 
-Visit the [Developers page](developers.html) to learn more about the team.
+```bash
+# Python
+python -m http.server 8000
+
+# or Node.js
+npx serve .
+```
+
+Then visit **http://localhost:8000** 
+
+### 3. Deploy
+
+The project is a static site, so it deploys anywhere (Vercel, Netlify, GitHub Pages). It is currently hosted on **Vercel**.
+
+---
+
+## Design System
+
+CofeLang uses a warm, coffee-inspired palette.
+
+| Swatch | Hex | Usage |
+| :---: | :---: | :--- |
+| ![#4E342E](https://img.shields.io/badge/-%20%20%20%20%20-4E342E?style=flat-square) | `#4E342E` | Headings, primary text, deep espresso |
+| ![#6D4C41](https://img.shields.io/badge/-%20%20%20%20%20-6D4C41?style=flat-square) | `#6D4C41` | Secondary text |
+| ![#8D6E63](https://img.shields.io/badge/-%20%20%20%20%20-8D6E63?style=flat-square) | `#8D6E63` | Muted text and accents |
+| ![#FFCC80](https://img.shields.io/badge/-%20%20%20%20%20-FFCC80?style=flat-square) | `#FFCC80` | Tags and highlights |
+| ![#D7CCC8](https://img.shields.io/badge/-%20%20%20%20%20-D7CCC8?style=flat-square) | `#D7CCC8` | Soft backgrounds and placeholders |
+
+**Typography:** [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) (400 · 600 · 700)
+
+---
+
+## Meet the Team
+
+We are IT students and co-founders of CofeLang, and **Group 5** built every page from scratch.
+
+| Member | Role | Contributions |
+| :--- | :--- | :--- |
+| **Kim Delmoro** ([@KimDelmoro2008](https://github.com/KimDelmoro2008)) | Founder &amp; Lead Developer | Site structure, semantic HTML5 layout, team coordination, Home &amp; About pages |
+| **Raniel Magpatoc** | Front-End Developer &amp; Co-Founder | CSS styling, responsive design, Products &amp; Cart pages |
+| **Wadanhyll Shaun Tolentino** | Web Designer &amp; Co-Founder | Visual design, color scheme, Developers page |
+| **John Dexter Miraflor** | Back-End Developer | Cart &amp; checkout pages, form validation structure, order summary table |
+| **Madelaine Lano** | UI &amp; Logo Designer | Visual design, color scheme, logo creation |
+| **Cleo Ken Miguel Ramos** | Content Strategist | Product descriptions, About page narrative, meta descriptions |
+| **Justin Kobe Litonjua** | Web Tester | Cross-browser and cross-device testing, accessibility checks |
+| **Lance Jairus Jamito** | Documentation Lead | Project documentation, technical report, milestone coordination |
+
+---
+
+## Contributing
+
+Contributions, issues, and feature ideas are welcome!
+
+1. **Fork** the project
+2. **Create** your feature branch: `git checkout -b feature/amazing-feature`
+3. **Commit** your changes: `git commit -m "Add amazing feature"`
+4. **Push** to the branch: `git push origin feature/amazing-feature`
+5. **Open** a Pull Request
+
+Found a bug? [Open an issue](https://github.com/KimDelmoro2008/CofeLang/issues).
+
+---
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for the full license terms.
-
-## Acknowledgment
-
-CofeLang was created as a group academic project to practice the fundamentals of web development, apply classroom lessons, and gain experience working together on a website.
-
-All team members contributed to the development of the project through their assigned tasks and collaborative work.
+Distributed under the **GNU General Public License v3.0**. See [`LICENSE`](LICENSE) for details.
 
 ---
 
-**CofeLang**  
-Brew & Bytes for Students  
-Technological Institute of the Philippines, Quezon City
+<div align="center">
 
-Developed for educational purposes.
+### Made with love, caffeine, and a lot of `<div>`s by **Group 5**
 
----
+If you like this project, consider giving it a star
 
-<p align="center">© 2026 CofeLang. All rights reserved.</p>
->>>>>>> 9ca6e828a57c1f0e546b81a36505872b1096c9c6
+<br />
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=120&section=footer" alt="footer wave" width="100%" />
+
+</div>
