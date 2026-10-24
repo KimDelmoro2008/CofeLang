@@ -1,557 +1,208 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Meet the web developers behind the CofeLang website."
-      
-    />
+    <title>Developers – CofeLang Web Development Team</title>
+    <meta name="description" content="Meet the eight IT students behind the CofeLang website: their roles, short bios and skills." />
     <meta name="author" content="CofeLang Web Development Team" />
-    <title>CofeLang - Developers</title>
-    <link rel="icon" type="assets/icon/x-icon" href="assets/icon/logo.ico" />
-    <!-- Google Fonts -->
+    <meta name="theme-color" content="#3e2723" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="Developers – CofeLang Web Development Team" />
+    <meta property="og:description" content="Meet the eight IT students behind the CofeLang website: their roles, short bios and skills." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- External CSS Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Internal CSS -->
-    <style>
-      .dev-photo-placeholder {
-        width: 100%;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: #8d6e63;
-        background: linear-gradient(135deg, #d7ccc8, #bcaaa4);
-      }
-      .team-intro {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 20px;
-        color: #5d4037;
-        line-height: 1.8;
-      }
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-        margin-top: 15px;
-      }
-      .tech-tag {
-        background-color: #ffcc80;
-        color: #4e342e;
-        padding: 4px 12px;
-        border-radius: 15px;
-        font-size: 0.8em;
-        font-weight: bold;
-      }
-      .edu-timeline {
-        margin-top: 40px;
-        text-align: center;
-      }
-      .edu-timeline h3 {
-        color: #4e342e;
-        margin-bottom: 20px;
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
       <div class="header-container">
         <a href="index.html" class="logo">
-          <img src="logo.svg" alt="CofeLang Logo" />
-          <div class="logo-text">
-            <h1>CofeLang</h1>
-            <p>Brew &amp; Bytes for Students</p>
-          </div>
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
         </a>
-        <nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="developers.html" class="active">Developers</a></li>
+            <li><a href="cart.html">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html" aria-current="page">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Page Banner -->
-    <section
-      class="hero full-width"
-      style="min-height: 300px; padding: 80px 20px"
-    >
-      <h2>Meet the Developers</h2>
-      <p>
-        The CofeLang Web Development Team &mdash; IT students who built this
-        website.
-      </p>
-    </section>
+    <main id="main" tabindex="-1">
+      <section class="hero hero--page">
+        <h1>Meet the Developers</h1>
+        <p>The CofeLang Web Development Team &mdash; IT students who built this website.</p>
+      </section>
 
-    <!-- Team Introduction -->
-    <section>
-      <h2 class="section-title">Our Team</h2>
-      <p class="team-intro">
-        We are IT students and proud co-founders of CofeLang. As part of our
-        academic project and real-world preparation, we designed and developed
-        this website from scratch using only HTML5 and CSS3. Our goal is to
-        bring CofeLang's offerings to the digital world and make it easier for
-        students to browse and order their favorite drinks.
-      </p>
-    </section>
-
-    <!-- Developer Profiles -->
-    <section>
-      <div class="developers-grid">
-        <!-- Developer 1 -->
+      <section class="section">
+        <h2 class="section-title">Our Team</h2>
+        <p class="team-intro">
+          We are IT students and proud co-founders of CofeLang. As part of our
+          academic project and real-world preparation, we designed and
+          developed this website from scratch using HTML5, CSS3 and vanilla
+          JavaScript. Our goal is to bring CofeLang's offerings to the digital
+          world and make it easier for students to browse and order their
+          favorite drinks.
+        </p>
+        <div class="developers-grid">
         <article class="developer-card">
-          <img
-            src="assets/developers/kim.jpg"
-            alt="Kim Delmoro Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/kim.jpg" alt="Photo of Kim Delmoro" class="dev-photo" width="768" height="1344" loading="lazy" />
           <div class="dev-info">
             <h3>Kim Delmoro</h3>
-            <span class="dev-role">Founder & Lead Developer</span>
-            <p>Antipolo, Rizal</p>
-            <p>kimdelmoro2008@cofelang.com</p>
-            <p>+63 966 369 4619</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">UI/UX Design</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Responsible for the overall website structure, HTML5 semantic
-              layout, and coordinating the development team. Designed the home
-              page and about page.
-            </p>
+            <p class="dev-role">Leader</p>
+            <p class="dev-bio">Responsible for the overall website structure, HTML5 semantic layout, and coordinating the development team. Designed the home page and about page.</p>
+            <ul class="tech-stack" aria-label="Skills of Kim Delmoro"><li class="tech-tag">HTML</li><li class="tech-tag">CSS</li><li class="tech-tag">Javascript</li></ul>
           </div>
         </article>
-
-        <!-- Developer Magpatoc -->
         <article class="developer-card">
-          <img
-            src="assets/developers/raniel.jpg"
-            alt="Raniel Magpatoc Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/raniel.jpg" alt="Photo of Raniel Magpatoc" class="dev-photo" width="480" height="480" loading="lazy" />
           <div class="dev-info">
             <h3>Raniel Magpatoc</h3>
-            <span class="dev-role">Front-End Developer & Co-Founder</span>
-            <p>Quezon City, Philippines</p>
-            <p>ranielmagpatoc@cofelang.com</p>
-            <p>+63 917 890 1234</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Responsive Design</span>
-              <span class="tech-tag">Web Accessibility</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Responsible for the CSS styling, responsive design, and external
-              stylesheet. Designed the products page and cart page with form
-              elements.
-            </p>
+            <p class="dev-role">Front-End Developer &amp; Co-Founder</p>
+            <p class="dev-bio">Responsible for the CSS styling, responsive design, and external stylesheet. Designed the products page and cart page with form elements.</p>
+            <ul class="tech-stack" aria-label="Skills of Raniel Magpatoc"><li class="tech-tag">HTML</li><li class="tech-tag">CSS</li><li class="tech-tag">Javascript</li></ul>
           </div>
         </article>
-
-        <!-- Developer Tolentino -->
         <article class="developer-card">
-          <img
-            src="assets/developers/shaun.jpg"
-            alt="WADANHYLL SHAUN TOLENTNO Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/shaun.jpg" alt="Photo of Wadanhyll Shaun Tolentino" class="dev-photo" width="1402" height="1407" loading="lazy" />
           <div class="dev-info">
             <h3>Wadanhyll Shaun Tolentino</h3>
-            <span class="dev-role">Web Designer &amp; Co-Founder</span>
-            <p>Angono, Rizal</p>
-            <p>wadanhyll.shaun@cofelang.com</p>
-            <p>+63 928 654 3210</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Graphic Design</span>
-              <span class="tech-tag">Logo Design</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Responsible for the visual design, color scheme, and developers
-              page.
-            </p>
+            <p class="dev-role">Web Designer &amp; Co-Founder</p>
+            <p class="dev-bio">Responsible for the visual design, color scheme, and developers page.</p>
+            <ul class="tech-stack" aria-label="Skills of Wadanhyll Shaun Tolentino"><li class="tech-tag">HTML5</li><li class="tech-tag">CSS3</li><li class="tech-tag">Graphic Design</li><li class="tech-tag">Logo Design</li></ul>
           </div>
         </article>
-
-        <!-- Developer Miraflor -->
         <article class="developer-card">
-          <img
-            src="assets/developers/dexter.jpg"
-            alt="John Dexter Miraflor Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/dexter.jpg" alt="Photo of John Dexter Miraflor" class="dev-photo" width="433" height="577" loading="lazy" />
           <div class="dev-info">
             <h3>John Dexter Miraflor</h3>
-            <span class="dev-role">Back-End Developer</span>
-            <p>Santolan, Marikina</p>
-            <p>john.dexter.miraflor@cofelang.com</p>
-            <p>+63 935 112 4567</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Web Forms</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Handled the cart and checkout pages, form validation structure,
-              and the order summary table layout.
-            </p>
+            <p class="dev-role">Back-End Developer</p>
+            <p class="dev-bio">Handled the cart and checkout pages, form validation structure, and the order summary table layout.</p>
+            <ul class="tech-stack" aria-label="Skills of John Dexter Miraflor"><li class="tech-tag">HTML5</li><li class="tech-tag">CSS3</li><li class="tech-tag">Web Forms</li></ul>
           </div>
         </article>
-
-        <!-- Developer Lano -->
         <article class="developer-card">
-          <img
-            src="assets/developers/lano.jpg"
-            alt="Madelaine Lano Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/lano.jpg" alt="Photo of Madelaine Lano" class="dev-photo" width="600" height="600" loading="lazy" />
           <div class="dev-info">
             <h3>Madelaine Lano</h3>
-            <span class="dev-role">UI Designer</span>
-            <span class="dev-role">Logo Designer</span>
-            <p>Marikina City, Philippines</p>
-            <p>madeline.lano@cofelang.com</p>
-            <p>+63 919 876 5432</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">UI Design</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Responsible for the visual design, color scheme, logo creation,
-              and developers page.
-            </p>
+            <p class="dev-role">UI Designer &amp; Logo Designer</p>
+            <p class="dev-bio">Responsible for the visual design, color scheme, logo creation, and developers page.</p>
+            <ul class="tech-stack" aria-label="Skills of Madelaine Lano"><li class="tech-tag">HTML5</li><li class="tech-tag">CSS3</li><li class="tech-tag">UI Design</li></ul>
           </div>
         </article>
-
-        <!-- Developer Ramos -->
         <article class="developer-card">
-          <img
-            src="assets/developers/ramos.jpg"
-            alt="Cleo Ken Miguel Ramos Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/ramos.jpg" alt="Photo of Cleo Ken Miguel Ramos" class="dev-photo" width="2048" height="2048" loading="lazy" />
           <div class="dev-info">
             <h3>Cleo Ken Miguel Ramos</h3>
-            <span class="dev-role">Logo Designer</span>
-            <p>San Juan, Philippines</p>
-            <p>cleo.ken.miguel@cofelang.com</p>
-            <p>+63 947 334 8891</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Copywriting</span>
-              <span class="tech-tag">SEO Basics</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Responsible for creating and maintaining the website's visual identity,
-              including the logo and brand elements.
-            </p>
+            <p class="dev-role">Logo Designer</p>
+            <p class="dev-bio">Responsible for creating and maintaining the website&#x27;s visual identity, including the logo and brand elements.</p>
+            <ul class="tech-stack" aria-label="Skills of Cleo Ken Miguel Ramos"><li class="tech-tag">HTML5</li><li class="tech-tag">Javascript</li><li class="tech-tag">Copywriting</li><li class="tech-tag">SEO Basics</li></ul>
           </div>
         </article>
-
-        <!-- Developer Litonjua -->
         <article class="developer-card">
-          <img
-            src="assets/developers/justin.jpg"
-            alt="Justin Kobe Litonjua Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
+          <img src="assets/developers/justin.png" alt="Photo of Justin Kobe Litonjua" class="dev-photo" width="1761" height="2048" loading="lazy" />
           <div class="dev-info">
             <h3>Justin Kobe Litonjua</h3>
-            <span class="dev-role">Web Tester</span>
-            <p>Quezon City, Philippines</p>
-            <p>justin.litonjua@cofelang.com</p>
-            <p>+63 926 450 2278</p>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Web Design</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Tested all pages across different browsers and screen sizes,
-              identified layout issues, and ensured the site meets accessibility
-              standards.
-            </p>
+            <p class="dev-role">Web Tester</p>
+            <p class="dev-bio">Tested all pages across different browsers and screen sizes, identified layout issues, and ensured the site meets accessibility standards.</p>
+            <ul class="tech-stack" aria-label="Skills of Justin Kobe Litonjua"><li class="tech-tag">HTML5</li><li class="tech-tag">CSS3</li><li class="tech-tag">Web Design</li></ul>
           </div>
         </article>
+        </div>
+      </section>
 
-        <!-- Developer Jamito -->
-        <article class="developer-card">
-          <img
-            src="assets/developers/lance.jpg"
-            alt="Lance Jairus Jamito Photo"
-            style="width: 100%; height: 300px; object-fit: cover"
-          />
-          <div class="dev-info">
-            <h3>Lance Jairus Jamito</h3>
-            <span class="dev-role">Documentation Lead</span>
-            <p>Mandaluyong City, Philippines</p>
-            <p>lance.jamito@cofelang.com</p>
-            <p>+63 908 761 3345</p>
+      <section class="section">
+        <h2 class="section-title">Tools &amp; Technologies Used</h2>
+        <p class="section-subtitle">Built with plain web standards, no frameworks</p>
+        <div class="features">
+          <article class="feature-card">
+            <h3>HTML5</h3>
+            <p>Semantic elements, accessible forms, and landmarks for every page.</p>
+          </article>
+          <article class="feature-card">
+            <h3>CSS3</h3>
+            <p>Flexbox, CSS Grid, custom properties, responsive layouts, and a single shared stylesheet.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Vanilla JavaScript</h3>
+            <p>The cart, checkout, order history and menu search all run in the browser with localStorage.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Visual Studio Code</h3>
+            <p>Code editor used for writing and testing all of the project's code.</p>
+          </article>
+        </div>
+      </section>
+    </main>
 
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Education
-            </h4>
-            <ul>
-              <li><strong>Degree:</strong> BS Information Technology</li>
-              <li>
-                <strong>University:</strong> Technological Institute of the
-                Philippines
-              </li>
-              <li><strong>Year:</strong> 3rd Year (2028)</li>
-            </ul>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Skills
-            </h4>
-            <div class="tech-stack">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Project Management</span>
-            </div>
-
-            <h4 style="color: #4e342e; margin-top: 15px; margin-bottom: 5px">
-              Role in the Project
-            </h4>
-            <p>
-              Managed project documentation, prepared the technical report, and
-              coordinated milestone deliverables across the team.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Tools and Technologies -->
-    <section>
-      <h2 class="section-title">Tools &amp; Technologies Used</h2>
-      <p class="section-subtitle">Built with only HTML5 and CSS3</p>
-      <div class="features">
-        <article class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>HTML5</h3>
-          <p>
-            Semantic elements, forms, audio/video tags, geolocation API, and
-            accessibility features.
-          </p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>CSS3</h3>
-          <p>
-            Flexbox, CSS Grid, transitions, gradients, responsive design, and
-            external stylesheets.
-          </p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon"></div>
-          <h3>Visual Studio Code</h3>
-          <p>
-            Code editor used for writing and testing all HTML and CSS code
-            throughout the project.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
-          <h4>CofeLang</h4>
+          <h2 class="footer-title">CofeLang</h2>
           <p>
             A student-friendly cafe offering quality brews, refreshing drinks,
             and delicious snacks at affordable prices.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="products.html">Products</a>
-          <a href="cart.html">Cart</a>
-          <a href="developers.html">Developers</a>
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>123 University Ave., near campus</p>
-          <p>+63 912 345 6789</p>
-          <p>info@cofelang.com</p>
+          <h2 class="footer-title">Contact Us</h2>
+          <p>Aurora Blvd, beside TIP, Quezon City</p>
+          <p>+63 955 078 6293 </p>
+          <p>Cofelang@gmail.com</p>
         </div>
         <div class="footer-col">
-          <h4>Hours</h4>
-          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
-          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
-          Development Team
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
         </p>
       </div>
     </footer>

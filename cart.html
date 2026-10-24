@@ -1,15 +1,21 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CofeLang Shopping Cart - Order your favorite drinks and snacks online."
-    />
+    <title>Your Cart – CofeLang</title>
+    <meta name="description" content="Review the drinks and food in your CofeLang cart, enter your details and place a pickup or dine-in order." />
     <meta name="author" content="CofeLang Web Development Team" />
-    <title>CofeLang - Cart</title>
-    <link rel="icon" type="assets/icon/x-icon" href="assets/icon/logo.ico" />
+    <meta name="theme-color" content="#3e2723" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="Your Cart – CofeLang" />
+    <meta property="og:description" content="Review the drinks and food in your CofeLang cart, enter your details and place a pickup or dine-in order." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,1292 +23,197 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .cart-items-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 0 0 28px 0;
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-      }
-      .cart-items-table th,
-      .cart-items-table td {
-        padding: 12px 18px;
-        text-align: left;
-        border-bottom: 1px solid #efebe9;
-      }
-      .cart-items-table th {
-        background-color: #4e342e;
-        color: #fff;
-        font-size: 0.9em;
-      }
-      .cart-items-table tr:last-child td {
-        border-bottom: none;
-      }
-      .cart-items-table tr {
-        transition: background 0.2s ease;
-      }
-      .cart-items-table tr:hover td {
-        background: #faf6f1;
-      }
-      .cart-items-table input[type='number'] {
-        width: 60px;
-        padding: 6px;
-        border: 1px solid #d7ccc8;
-        border-radius: 5px;
-        text-align: center;
-        font-size: 0.92em;
-      }
-      .cart-items-table input[type='checkbox'] {
-        width: 18px;
-        height: 18px;
-        accent-color: #4e342e;
-      }
-      .category-label {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 1.05em;
-        font-weight: 700;
-        color: #3e2723;
-        margin: 20px 0 6px 2px;
-        padding-bottom: 4px;
-        border-bottom: 2px solid #ffcc80;
-        display: inline-block;
-      }
-      .cart-note {
-        text-align: center;
-        color: #795548;
-        font-style: italic;
-        margin-bottom: 20px;
-        font-size: 0.95em;
-      }
-      .continue-link {
-        display: block;
-        text-align: center;
-        margin-bottom: 28px;
-      }
-      .continue-link a {
-        display: inline-block;
-      }
-      small.size {
-        color: #8d6e63;
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
       <div class="header-container">
         <a href="index.html" class="logo">
-          <img src="logo.svg" alt="CofeLang Logo" />
-          <div class="logo-text">
-            <h1>CofeLang</h1>
-            <p>Brew &amp; Bytes for Students</p>
-          </div>
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
         </a>
-        <nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html" class="active">Cart</a></li>
+            <li><a href="cart.html" aria-current="page">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
             <li><a href="developers.html">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <section
-      class="hero full-width"
-      style="min-height: 250px; padding: 70px 20px"
-    >
-      <h2>Your Cart</h2>
-      <p>Review your selected items and complete your order.</p>
-    </section>
+    <main id="main" tabindex="-1">
+      <section class="hero hero--compact">
+        <h1>Your Cart</h1>
+        <p>Review your selected items and complete your order.</p>
+      </section>
 
-    <section class="cart-section">
-      <h2 class="section-title">Order Summary</h2>
-      <p class="cart-note">
-        Tick the items you want to order, adjust quantities, then fill out your
-        details below.
-      </p>
-      <div class="continue-link">
-        <a href="products.html" class="product-btn">&larr; Continue Shopping</a>
-      </div>
+      <section class="section section--narrow" id="cartSection">
+        <h2 class="section-title">Order Summary</h2>
+        <noscript>
+          <p class="notice">The cart needs JavaScript. Please enable it in your browser to place an order.</p>
+        </noscript>
 
-      <!-- PASTRIES -->
-      <p class="category-label">Pastries</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="blueberry-cheesecake">
-            <td>
-              <input type="checkbox" name="item" value="blueberry-cheesecake" />
-            </td>
-            <td>Blueberry Cheesecake <small class="size">/slice</small></td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="cookies-cream-cheesecake">
-            <td>
-              <input
-                type="checkbox"
-                name="item"
-                value="cookies-cream-cheesecake"
-              />
-            </td>
-            <td>
-              Cookies &amp; Cream Cheesecake <small class="size">/slice</small>
-            </td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="classic-brownie">
-            <td>
-              <input type="checkbox" name="item" value="classic-brownie" />
-            </td>
-            <td>Classic Brownie</td>
-            <td>&#8369;55.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="chewy-caramel-bar">
-            <td>
-              <input type="checkbox" name="item" value="chewy-caramel-bar" />
-            </td>
-            <td>Chewy Caramel Bar</td>
-            <td>&#8369;60.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="sticky-cinnamon-bun">
-            <td>
-              <input type="checkbox" name="item" value="sticky-cinnamon-bun" />
-            </td>
-            <td>Sticky Cinnamon Bun</td>
-            <td>&#8369;90.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="choco-chip-cookie">
-            <td>
-              <input type="checkbox" name="item" value="choco-chip-cookie" />
-            </td>
-            <td>Chocolate Chip Cookie</td>
-            <td>&#8369;60.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="choco-chip-cookie-walnut">
-            <td>
-              <input
-                type="checkbox"
-                name="item"
-                value="choco-chip-cookie-walnut"
-              />
-            </td>
-            <td>Choco Chip Cookie w/ Walnut</td>
-            <td>&#8369;65.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="empty-state" id="cartEmpty" tabindex="-1" hidden>
+          <p>Your cart is empty.</p>
+          <a href="products.html" class="hero-btn">Browse the menu</a>
+        </div>
 
-      <!-- PIZZA -->
-      <p class="category-label">Pizza</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="hawaiian-pizza">
-            <td>
-              <input type="checkbox" name="item" value="hawaiian-pizza" />
-            </td>
-            <td>Hawaiian Pizza <small class="size">Solo 6.5"</small></td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="pepperoni-pizza">
-            <td>
-              <input type="checkbox" name="item" value="pepperoni-pizza" />
-            </td>
-            <td>Pepperoni Pizza <small class="size">Solo 6.5"</small></td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="bacon-mushroom-pizza">
-            <td>
-              <input type="checkbox" name="item" value="bacon-mushroom-pizza" />
-            </td>
-            <td>Bacon Mushroom Pizza <small class="size">Solo 6.5"</small></td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="spinach-cream-cheese-pizza">
-            <td>
-              <input
-                type="checkbox"
-                name="item"
-                value="spinach-cream-cheese-pizza"
-              />
-            </td>
-            <td>
-              Spinach w/ Cream Cheese Pizza
-              <small class="size">Solo 6.5"</small>
-            </td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div id="cartFilled" hidden>
+          <div class="table-wrap">
+            <table class="cart-table" role="table">
+              <caption class="visually-hidden">Items in your cart</caption>
+              <thead>
+                <tr role="row">
+                  <th scope="col" role="columnheader">Item</th>
+                  <th scope="col" role="columnheader">Size</th>
+                  <th scope="col" role="columnheader">Unit price</th>
+                  <th scope="col" role="columnheader">Quantity</th>
+                  <th scope="col" role="columnheader">Line total</th>
+                  <th scope="col" role="columnheader"><span class="visually-hidden">Remove</span></th>
+                </tr>
+              </thead>
+              <tbody id="cartBody" role="rowgroup"></tbody>
+            </table>
+          </div>
 
-      <!-- PASTA -->
-      <p class="category-label">Pasta</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="tuna-pesto">
-            <td><input type="checkbox" name="item" value="tuna-pesto" /></td>
-            <td>Tuna Pesto</td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="lasagna">
-            <td><input type="checkbox" name="item" value="lasagna" /></td>
-            <td>Lasagna</td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="carbonara">
-            <td><input type="checkbox" name="item" value="carbonara" /></td>
-            <td>Carbonara</td>
-            <td>&#8369;125.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <dl class="cart-totals">
+            <div><dt>Subtotal</dt><dd id="cartSubtotal">₱0.00</dd></div>
+            <div class="cart-totals-discount" id="cartDiscountRow" hidden>
+              <dt>Student discount (20%)</dt>
+              <dd id="cartDiscount">−₱0.00</dd>
+            </div>
+            <div><dt>Tax (12%)</dt><dd id="cartTax">₱0.00</dd></div>
+            <div class="cart-totals-grand"><dt>Total</dt><dd id="cartTotal">₱0.00</dd></div>
+          </dl>
 
-      <!-- RICE MEALS -->
-      <p class="category-label">Rice Meals</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="chicken-ala-king">
-            <td>
-              <input type="checkbox" name="item" value="chicken-ala-king" />
-            </td>
-            <td>Chicken Ala King</td>
-            <td>&#8369;140.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="beef-mushroom">
-            <td><input type="checkbox" name="item" value="beef-mushroom" /></td>
-            <td>Beef &amp; Mushroom</td>
-            <td>&#8369;140.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+          <div class="cart-actions">
+            <a href="products.html" class="btn-outline">&larr; Continue Shopping</a>
+            <button type="button" class="btn-outline btn-danger" id="clearCart">Clear Cart</button>
+          </div>
+        </div>
+      </section>
 
-      <!-- STARTERS -->
-      <p class="category-label">Starters</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="french-fries">
-            <td><input type="checkbox" name="item" value="french-fries" /></td>
-            <td>French Fries</td>
-            <td>&#8369;110.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="mozzarella-sticks">
-            <td>
-              <input type="checkbox" name="item" value="mozzarella-sticks" />
-            </td>
-            <td>Mozzarella Sticks</td>
-            <td>&#8369;170.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- HOT COFFEE -->
-      <p class="category-label">Hot Coffee</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="hazelnut-coffee">
-            <td>
-              <input type="checkbox" name="item" value="hazelnut-coffee" />
-            </td>
-            <td>Hazelnut</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="vanilla-coffee">
-            <td>
-              <input type="checkbox" name="item" value="vanilla-coffee" />
-            </td>
-            <td>Vanilla</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="caramel-coffee">
-            <td>
-              <input type="checkbox" name="item" value="caramel-coffee" />
-            </td>
-            <td>Caramel</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="mocha-coffee">
-            <td><input type="checkbox" name="item" value="mocha-coffee" /></td>
-            <td>Mocha</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="butterscotch-coffee">
-            <td>
-              <input type="checkbox" name="item" value="butterscotch-coffee" />
-            </td>
-            <td>Butterscotch</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="double-chocolate">
-            <td>
-              <input type="checkbox" name="item" value="double-chocolate" />
-            </td>
-            <td>Double Chocolate</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="hot-chocolate">
-            <td><input type="checkbox" name="item" value="hot-chocolate" /></td>
-            <td>Hot Chocolate</td>
-            <td>
-              &#8369;80.00 / &#8369;90.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- HOT TEA -->
-      <p class="category-label">Hot Tea</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="jasmine-tea">
-            <td><input type="checkbox" name="item" value="jasmine-tea" /></td>
-            <td>Jasmine Tea</td>
-            <td>&#8369;80.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="green-tea">
-            <td><input type="checkbox" name="item" value="green-tea" /></td>
-            <td>Green Tea</td>
-            <td>&#8369;80.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="peppermint-tea">
-            <td>
-              <input type="checkbox" name="item" value="peppermint-tea" />
-            </td>
-            <td>Peppermint Tea</td>
-            <td>&#8369;80.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="chamomile-tea">
-            <td><input type="checkbox" name="item" value="chamomile-tea" /></td>
-            <td>Chamomile Tea</td>
-            <td>&#8369;80.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- MILK TEA -->
-      <p class="category-label">Milk Tea</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="classic-milktea">
-            <td>
-              <input type="checkbox" name="item" value="classic-milktea" />
-            </td>
-            <td>Classic Milk Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;120.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="wintermelon-milktea">
-            <td>
-              <input type="checkbox" name="item" value="wintermelon-milktea" />
-            </td>
-            <td>Wintermelon Milk Tea</td>
-            <td>
-              &#8369;105.00 / &#8369;125.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="matcha-milktea">
-            <td>
-              <input type="checkbox" name="item" value="matcha-milktea" />
-            </td>
-            <td>Matcha Milk Tea</td>
-            <td>
-              &#8369;110.00 / &#8369;130.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="okinawa-milktea">
-            <td>
-              <input type="checkbox" name="item" value="okinawa-milktea" />
-            </td>
-            <td>Okinawa Milk Tea</td>
-            <td>
-              &#8369;110.00 / &#8369;130.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="dark-choco-milktea">
-            <td>
-              <input type="checkbox" name="item" value="dark-choco-milktea" />
-            </td>
-            <td>Dark Choco Milk Tea</td>
-            <td>
-              &#8369;110.00 / &#8369;130.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="thai-milktea">
-            <td><input type="checkbox" name="item" value="thai-milktea" /></td>
-            <td>Thai Milk Tea</td>
-            <td>
-              &#8369;110.00 / &#8369;130.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="caramel-milktea">
-            <td>
-              <input type="checkbox" name="item" value="caramel-milktea" />
-            </td>
-            <td>Caramel Milk Tea</td>
-            <td>
-              &#8369;110.00 / &#8369;130.00
-              <small class="size">Classic / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- ICED COFFEE -->
-      <p class="category-label">Iced Coffee</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="dark-special">
-            <td><input type="checkbox" name="item" value="dark-special" /></td>
-            <td>Dark Special</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="original-blend">
-            <td>
-              <input type="checkbox" name="item" value="original-blend" />
-            </td>
-            <td>Original Blend</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="choco-twist">
-            <td><input type="checkbox" name="item" value="choco-twist" /></td>
-            <td>Choco Twist</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="caramel-espresso">
-            <td>
-              <input type="checkbox" name="item" value="caramel-espresso" />
-            </td>
-            <td>Caramel Espresso</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="hazelnut-latte-iced">
-            <td>
-              <input type="checkbox" name="item" value="hazelnut-latte-iced" />
-            </td>
-            <td>Hazelnut Latte</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="tiramisu-iced">
-            <td><input type="checkbox" name="item" value="tiramisu-iced" /></td>
-            <td>Tiramisu</td>
-            <td>
-              &#8369;130.00 / &#8369;140.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="dark-mocha">
-            <td><input type="checkbox" name="item" value="dark-mocha" /></td>
-            <td>Dark Mocha</td>
-            <td>
-              &#8369;140.00 / &#8369;150.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- FRAPPE -->
-      <p class="category-label">Frappe</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="original-frappe">
-            <td>
-              <input type="checkbox" name="item" value="original-frappe" />
-            </td>
-            <td>Original Blend Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="choco-twist-frappe">
-            <td>
-              <input type="checkbox" name="item" value="choco-twist-frappe" />
-            </td>
-            <td>Choco Twist Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="caramel-espresso-frappe">
-            <td>
-              <input
-                type="checkbox"
-                name="item"
-                value="caramel-espresso-frappe"
-              />
-            </td>
-            <td>Caramel Espresso Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="hazelnut-frappe">
-            <td>
-              <input type="checkbox" name="item" value="hazelnut-frappe" />
-            </td>
-            <td>Hazelnut Latte Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="tiramisu-frappe">
-            <td>
-              <input type="checkbox" name="item" value="tiramisu-frappe" />
-            </td>
-            <td>Tiramisu Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="dark-mocha-frappe">
-            <td>
-              <input type="checkbox" name="item" value="dark-mocha-frappe" />
-            </td>
-            <td>Dark Mocha Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="java-chip-frappe">
-            <td>
-              <input type="checkbox" name="item" value="java-chip-frappe" />
-            </td>
-            <td>Java Chip Frappe</td>
-            <td>&#8369;160.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- FRUIT TEA -->
-      <p class="category-label">Fruit Tea</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="lychee-tea">
-            <td><input type="checkbox" name="item" value="lychee-tea" /></td>
-            <td>Lychee Fruit Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;110.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="mango-tea">
-            <td><input type="checkbox" name="item" value="mango-tea" /></td>
-            <td>Mango Fruit Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;110.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="green-apple-tea">
-            <td>
-              <input type="checkbox" name="item" value="green-apple-tea" />
-            </td>
-            <td>Green Apple Fruit Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;110.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="strawberry-tea">
-            <td>
-              <input type="checkbox" name="item" value="strawberry-tea" />
-            </td>
-            <td>Strawberry Fruit Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;110.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="passionfruit-tea">
-            <td>
-              <input type="checkbox" name="item" value="passionfruit-tea" />
-            </td>
-            <td>Passionfruit Fruit Tea</td>
-            <td>
-              &#8369;100.00 / &#8369;110.00 <small class="size">Reg / Lg</small>
-            </td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- SPARKLE -->
-      <p class="category-label">Sparkle</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="sweet-sakura">
-            <td><input type="checkbox" name="item" value="sweet-sakura" /></td>
-            <td>Sweet Sakura</td>
-            <td>&#8369;130.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="rouge-punch">
-            <td><input type="checkbox" name="item" value="rouge-punch" /></td>
-            <td>Rouge Punch</td>
-            <td>&#8369;130.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="sour-candy">
-            <td><input type="checkbox" name="item" value="sour-candy" /></td>
-            <td>Sour Candy</td>
-            <td>&#8369;130.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- ADD-ONS -->
-      <p class="category-label">Add-ons</p>
-      <table class="cart-items-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Product</th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="addon-milk">
-            <td><input type="checkbox" name="item" value="addon-milk" /></td>
-            <td>Milk</td>
-            <td>&#8369;15.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-nata">
-            <td><input type="checkbox" name="item" value="addon-nata" /></td>
-            <td>Nata</td>
-            <td>&#8369;15.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-pearl">
-            <td><input type="checkbox" name="item" value="addon-pearl" /></td>
-            <td>Pearl</td>
-            <td>&#8369;15.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-yakult">
-            <td><input type="checkbox" name="item" value="addon-yakult" /></td>
-            <td>Yakult</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-oreos">
-            <td><input type="checkbox" name="item" value="addon-oreos" /></td>
-            <td>Oreos</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-caramel">
-            <td><input type="checkbox" name="item" value="addon-caramel" /></td>
-            <td>Caramel Drizzle</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-cheesecake">
-            <td>
-              <input type="checkbox" name="item" value="addon-cheesecake" />
-            </td>
-            <td>Cheesecake Bits</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-creamcheese">
-            <td>
-              <input type="checkbox" name="item" value="addon-creamcheese" />
-            </td>
-            <td>Cream Cheese</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-poppingboba">
-            <td>
-              <input type="checkbox" name="item" value="addon-poppingboba" />
-            </td>
-            <td>Popping Boba</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-chocosyrup">
-            <td>
-              <input type="checkbox" name="item" value="addon-chocosyrup" />
-            </td>
-            <td>Choco Syrup</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-stevia">
-            <td><input type="checkbox" name="item" value="addon-stevia" /></td>
-            <td>Stevia</td>
-            <td>&#8369;10.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-muscovado">
-            <td>
-              <input type="checkbox" name="item" value="addon-muscovado" />
-            </td>
-            <td>Muscovado</td>
-            <td>&#8369;10.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-brownie">
-            <td><input type="checkbox" name="item" value="addon-brownie" /></td>
-            <td>Choco Brownie Bits</td>
-            <td>&#8369;20.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-espresso">
-            <td>
-              <input type="checkbox" name="item" value="addon-espresso" />
-            </td>
-            <td>Espresso Shot</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-chia">
-            <td><input type="checkbox" name="item" value="addon-chia" /></td>
-            <td>Chia Seeds</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-hersheys">
-            <td>
-              <input type="checkbox" name="item" value="addon-hersheys" />
-            </td>
-            <td>Hershey's Choco Syrup</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-honey">
-            <td><input type="checkbox" name="item" value="addon-honey" /></td>
-            <td>Honey</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-coffeejelly">
-            <td>
-              <input type="checkbox" name="item" value="addon-coffeejelly" />
-            </td>
-            <td>Coffee Jelly</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-whip">
-            <td><input type="checkbox" name="item" value="addon-whip" /></td>
-            <td>Whipped Cream</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-          <tr id="addon-chocokisses">
-            <td>
-              <input type="checkbox" name="item" value="addon-chocokisses" />
-            </td>
-            <td>Choco Kisses</td>
-            <td>&#8369;25.00</td>
-            <td>
-              <input type="number" name="qty" value="1" min="1" max="50" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- CHECKOUT FORM -->
-      <div class="cart-form">
-        <h2>Checkout Information</h2>
-        <form action="checkout-success.html" method="get">
-          <div class="form-row">
+      <section class="section section--narrow section--tight" id="checkoutSection" hidden>
+        <div class="form-card">
+          <h2>Your Details</h2>
+          <p class="form-intro">
+            Fields marked <span class="req" aria-hidden="true">*</span> are
+            required. Pay at the counter when you pick up or dine in.
+          </p>
+          <form id="checkoutForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="custName">Full name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="custName" name="name" autocomplete="name" maxlength="60" required aria-describedby="err-custName" />
+                <p class="field-error" id="err-custName" hidden></p>
+              </div>
+              <div class="form-group">
+                <label for="custPhone">Mobile number <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="custPhone" name="phone" autocomplete="tel" placeholder="0917 123 4567" required aria-describedby="hint-custPhone err-custPhone" />
+                <p class="field-hint" id="hint-custPhone">Philippine mobile number, e.g. 0917 123 4567 or +63 917 123 4567.</p>
+                <p class="field-error" id="err-custPhone" hidden></p>
+              </div>
+            </div>
+            <fieldset class="form-group" aria-describedby="err-orderType">
+              <legend>Order type <span class="req" aria-hidden="true">*</span></legend>
+              <div class="radio-group">
+                <label><input type="radio" name="orderType" value="Pickup" /> Pickup</label>
+                <label><input type="radio" name="orderType" value="Dine-in" /> Dine-in</label>
+              </div>
+              <p class="field-error" id="err-orderType" hidden></p>
+            </fieldset>
             <div class="form-group">
-              <label for="firstName">First Name *</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="Enter your first name"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name *</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Enter your last name"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="+63 9XX XXX XXXX"
-                required
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="address">Delivery Address *</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              placeholder="Enter your complete delivery address"
-              required
-            />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="course">Course/Program</label>
-              <select id="course" name="course">
-                <option value="">-- Select your course --</option>
-                <option value="bsit">BS Information Technology</option>
-                <option value="bscs">BS Computer Science</option>
-                <option value="bsba">BS Business Administration</option>
-                <option value="bsed">BS Education</option>
-                <option value="bsn">BS Nursing</option>
-                <option value="bsa">BS Accountancy</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="year">Year Level</label>
-              <select id="year" name="year">
-                <option value="">-- Select year --</option>
-                <option value="1">1st Year</option>
-                <option value="2">2nd Year</option>
-                <option value="3">3rd Year</option>
-                <option value="4">4th Year</option>
-                <option value="grad">Graduate</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Payment Method *</label>
-            <div class="radio-group">
-              <label
-                ><input type="radio" name="payment" value="cash" checked /> Cash
-                on Delivery</label
-              >
-              <label
-                ><input type="radio" name="payment" value="gcash" />
-                GCash</label
-              >
-              <label
-                ><input type="radio" name="payment" value="maya" /> Maya</label
-              >
-              <label
-                ><input type="radio" name="payment" value="bank" /> Bank
-                Transfer</label
-              >
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Cup Size *</label>
-            <div class="radio-group">
-              <label
-                ><input type="radio" name="cupsize" value="small" /> Small
-                (8oz)</label
-              >
-              <label
-                ><input type="radio" name="cupsize" value="medium" checked />
-                Medium (12oz)</label
-              >
-              <label
-                ><input type="radio" name="cupsize" value="large" /> Large
-                (16oz)</label
-              >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="instructions">Special Instructions</label>
-            <textarea
-              id="instructions"
-              name="instructions"
-              placeholder="e.g., Less sugar, extra ice, no whip, etc."
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" name="terms" value="agree" required />
-                I agree to the
-                <a href="#" style="color: #e65100; font-weight: bold"
-                  >Terms and Conditions</a
-                >
-                and
-                <a href="#" style="color: #e65100; font-weight: bold"
-                  >Privacy Policy</a
-                >
+              <label class="check-label" for="custStudent">
+                <input type="checkbox" id="custStudent" name="studentDiscount" aria-describedby="hint-custStudent" />
+                <span>I'm a student: apply the 20% student discount</span>
               </label>
+              <p class="field-hint" id="hint-custStudent">Please show a valid student ID at the counter. Staff will check it.</p>
             </div>
-          </div>
-          <button type="submit" class="submit-btn">Place Order</button>
-        </form>
-      </div>
-    </section>
+            <div class="form-group">
+              <label for="custCash">Cash you will pay with (₱) <span class="req" aria-hidden="true">*</span></label>
+              <input type="number" id="custCash" name="cash" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 500" required aria-describedby="hint-custCash err-custCash" />
+              <p class="field-hint" id="hint-custCash">
+                Amount due: <strong id="cashDue">₱0.00</strong> &middot;
+                Change: <strong id="cashChange" aria-live="polite">—</strong>
+              </p>
+              <p class="field-error" id="err-custCash" hidden></p>
+            </div>
+            <div class="form-group">
+              <label for="custNotes">Notes (optional)</label>
+              <textarea id="custNotes" name="notes" rows="3" maxlength="200" placeholder="e.g., less sugar, extra ice, no whip" aria-describedby="hint-custNotes err-custNotes"></textarea>
+              <p class="field-hint" id="hint-custNotes">Up to 200 characters.</p>
+              <p class="field-error" id="err-custNotes" hidden></p>
+            </div>
+            <p class="field-error form-error" id="checkoutError" role="alert" tabindex="-1" hidden></p>
+            <button type="submit" class="submit-btn">Place Order</button>
+            <p class="form-legal">
+              By placing an order you agree to our
+              <a href="terms.html">Terms of Service</a> and
+              <a href="privacy.html">Privacy Policy</a>. This is a student demo:
+              no payment is taken online, the cash amount is only used to work
+              out your change, and your order is saved only in this browser.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
-          <h4>CofeLang</h4>
+          <h2 class="footer-title">CofeLang</h2>
           <p>
             A student-friendly cafe offering quality brews, refreshing drinks,
             and delicious snacks at affordable prices.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a><a href="about.html">About Us</a
-          ><a href="products.html">Products</a><a href="cart.html">Cart</a
-          ><a href="developers.html">Developers</a>
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
+          <h2 class="footer-title">Contact Us</h2>
           <p>Aurora Blvd, beside TIP, Quezon City</p>
-          <p>+63 912 345 6789</p>
-          <p>info@cofelang.com</p>
+          <p>+63 955 078 6293 </p>
+          <p>Cofelang@gmail.com</p>
         </div>
         <div class="footer-col">
-          <h4>Hours</h4>
-          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
-          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
-          Development Team
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
         </p>
       </div>
     </footer>

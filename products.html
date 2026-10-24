@@ -1,16 +1,20 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CofeLang Menu - Browse our wide selection of pastries, pizza, pasta, rice meals, drinks, and more."
-    />
+    <title>Menu – Coffee, Milk Tea, Frappe, Pasta &amp; More | CofeLang</title>
+    <meta name="description" content="Browse the CofeLang menu of 78 items: hot and iced coffee, milk tea, frappes, fruit tea, pasta, pizza, rice meals and pastries. Search, filter and add to cart." />
     <meta name="author" content="CofeLang Web Development Team" />
-    <title>CofeLang - Products</title>
-    <link rel="icon" type="assets/icon/x-icon" href="assets/icon/logo.ico" />
-    <!-- Google Fonts -->
+    <meta name="theme-color" content="#3e2723" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="Menu – Coffee, Milk Tea, Frappe, Pasta &amp; More | CofeLang" />
+    <meta property="og:description" content="Browse the CofeLang menu of 78 items: hot and iced coffee, milk tea, frappes, fruit tea, pasta, pizza, rice meals and pastries. Search, filter and add to cart." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,1512 +22,1194 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .filter-input {
-        display: none;
-      }
-      .category-filter label {
-        display: inline-block;
-        padding: 10px 25px;
-        margin: 5px;
-        border: 2px solid #4e342e;
-        color: #4e342e;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 0.95em;
-        transition: all 0.3s ease;
-        font-family: 'Segoe UI', Arial, sans-serif;
-      }
-      .category-filter label:hover {
-        background-color: #4e342e;
-        color: #fff;
-      }
-      #f-all:checked ~ .category-filter label[for='f-all'],
-      #f-pastry:checked ~ .category-filter label[for='f-pastry'],
-      #f-pizza:checked ~ .category-filter label[for='f-pizza'],
-      #f-pasta:checked ~ .category-filter label[for='f-pasta'],
-      #f-rice:checked ~ .category-filter label[for='f-rice'],
-      #f-starter:checked ~ .category-filter label[for='f-starter'],
-      #f-hotcoffee:checked ~ .category-filter label[for='f-hotcoffee'],
-      #f-hottea:checked ~ .category-filter label[for='f-hottea'],
-      #f-milktea:checked ~ .category-filter label[for='f-milktea'],
-      #f-icedcoffee:checked ~ .category-filter label[for='f-icedcoffee'],
-      #f-frappe:checked ~ .category-filter label[for='f-frappe'],
-      #f-fruittea:checked ~ .category-filter label[for='f-fruittea'],
-      #f-sparkle:checked ~ .category-filter label[for='f-sparkle'],
-      #f-addons:checked ~ .category-filter label[for='f-addons'] {
-        background-color: #4e342e;
-        color: #fff;
-      }
-      #f-all:checked ~ .products-grid .product-card,
-      #f-pastry:checked ~ .products-grid .product-card.cat-pastry,
-      #f-pizza:checked ~ .products-grid .product-card.cat-pizza,
-      #f-pasta:checked ~ .products-grid .product-card.cat-pasta,
-      #f-rice:checked ~ .products-grid .product-card.cat-rice,
-      #f-starter:checked ~ .products-grid .product-card.cat-starter,
-      #f-hotcoffee:checked ~ .products-grid .product-card.cat-hotcoffee,
-      #f-hottea:checked ~ .products-grid .product-card.cat-hottea,
-      #f-milktea:checked ~ .products-grid .product-card.cat-milktea,
-      #f-icedcoffee:checked ~ .products-grid .product-card.cat-icedcoffee,
-      #f-frappe:checked ~ .products-grid .product-card.cat-frappe,
-      #f-fruittea:checked ~ .products-grid .product-card.cat-fruittea,
-      #f-sparkle:checked ~ .products-grid .product-card.cat-sparkle,
-      #f-addons:checked ~ .products-grid .product-card.cat-addons {
-        display: block;
-      }
-      #f-pastry:checked ~ .products-grid .product-card:not(.cat-pastry),
-      #f-pizza:checked ~ .products-grid .product-card:not(.cat-pizza),
-      #f-pasta:checked ~ .products-grid .product-card:not(.cat-pasta),
-      #f-rice:checked ~ .products-grid .product-card:not(.cat-rice),
-      #f-starter:checked ~ .products-grid .product-card:not(.cat-starter),
-      #f-hotcoffee:checked ~ .products-grid .product-card:not(.cat-hotcoffee),
-      #f-hottea:checked ~ .products-grid .product-card:not(.cat-hottea),
-      #f-milktea:checked ~ .products-grid .product-card:not(.cat-milktea),
-      #f-icedcoffee:checked ~ .products-grid .product-card:not(.cat-icedcoffee),
-      #f-frappe:checked ~ .products-grid .product-card:not(.cat-frappe),
-      #f-fruittea:checked ~ .products-grid .product-card:not(.cat-fruittea),
-      #f-sparkle:checked ~ .products-grid .product-card:not(.cat-sparkle),
-      #f-addons:checked ~ .products-grid .product-card:not(.cat-addons) {
-        display: none;
-      }
-      .product-count {
-        text-align: center;
-        color: #795548;
-        margin-bottom: 25px;
-        font-size: 0.95em;
-      }
-      .cart-hint {
-        text-align: center;
-        color: #795548;
-        font-style: italic;
-        margin-bottom: 15px;
-        font-size: 0.95em;
-      }
-      .size-note {
-        font-size: 0.8em;
-        color: #8d6e63;
-        margin-top: 4px;
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
       <div class="header-container">
         <a href="index.html" class="logo">
-          <img src="logo.svg" alt="CofeLang Logo" />
-          <div class="logo-text">
-            <h1>CofeLang</h1>
-            <p>Brew &amp; Bytes for Students</p>
-          </div>
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
         </a>
-        <nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="products.html" class="active">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="products.html" aria-current="page">Products</a></li>
+            <li><a href="cart.html">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
             <li><a href="developers.html">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <section
-      class="hero full-width"
-      style="min-height: 300px; padding: 80px 20px"
-    >
-      <h2>Our Menu</h2>
-      <p>Explore our wide selection of food and drinks crafted just for you.</p>
-    </section>
-    <section>
-      <h2 class="section-title">Delicious Menu</h2>
-      <p class="section-subtitle">
-        Browse through our complete menu of 79 items
-      </p>
-      <input
-        type="radio"
-        name="filter"
-        id="f-all"
-        class="filter-input"
-        checked
-      />
-      <input type="radio" name="filter" id="f-pastry" class="filter-input" />
-      <input type="radio" name="filter" id="f-pizza" class="filter-input" />
-      <input type="radio" name="filter" id="f-pasta" class="filter-input" />
-      <input type="radio" name="filter" id="f-rice" class="filter-input" />
-      <input type="radio" name="filter" id="f-starter" class="filter-input" />
-      <input type="radio" name="filter" id="f-hotcoffee" class="filter-input" />
-      <input type="radio" name="filter" id="f-hottea" class="filter-input" />
-      <input type="radio" name="filter" id="f-milktea" class="filter-input" />
-      <input
-        type="radio"
-        name="filter"
-        id="f-icedcoffee"
-        class="filter-input"
-      />
-      <input type="radio" name="filter" id="f-frappe" class="filter-input" />
-      <input type="radio" name="filter" id="f-fruittea" class="filter-input" />
-      <input type="radio" name="filter" id="f-sparkle" class="filter-input" />
-      <input type="radio" name="filter" id="f-addons" class="filter-input" />
-      <div class="category-filter">
-        <label for="f-all">All</label>
-        <label for="f-pastry">Pastries</label>
-        <label for="f-pizza">Pizza</label>
-        <label for="f-pasta">Pasta</label>
-        <label for="f-rice">Rice Meals</label>
-        <label for="f-starter">Starters</label>
-        <label for="f-hotcoffee">Hot Coffee</label>
-        <label for="f-hottea">Hot Tea</label>
-        <label for="f-milktea">Milk Tea</label>
-        <label for="f-icedcoffee">Iced Coffee</label>
-        <label for="f-frappe">Frappe</label>
-        <label for="f-fruittea">Fruit Tea</label>
-        <label for="f-sparkle">Sparkle</label>
-        <label for="f-addons">Add-ons</label>
-      </div>
-      <p class="product-count">
-        Showing all <strong>79</strong> items &mdash; choose a category above to
-        filter.
-      </p>
-      <p class="cart-hint">
-        Found something you like? Head over to our
-        <a
-          href="cart.html"
-          style="
-            color: #e65100;
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 1px solid #e65100;
-          "
-          >Cart</a
-        >
-        to place your order.
-      </p>
-      <div class="products-grid" id="productsGrid">
-        <!-- PASTRIES -->
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
-            alt="Blueberry Cheesecake"
-            class="product-img"
-          />
+
+    <main id="main" tabindex="-1">
+      <section class="hero hero--page">
+        <h1>Our Menu</h1>
+        <p>Explore our wide selection of food and drinks crafted just for you.</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Delicious Menu</h2>
+        <p class="section-subtitle">Browse our complete menu of 78 items</p>
+
+        <div class="menu-tools">
+          <div class="tool-field tool-field--search">
+            <label for="menuSearch">Search the menu</label>
+            <input type="search" id="menuSearch" placeholder="Try &quot;mocha&quot;, &quot;pizza&quot; or &quot;matcha&quot;" autocomplete="off" />
+          </div>
+          <div class="tool-field">
+            <label for="menuSort">Sort by</label>
+            <select id="menuSort">
+              <option value="default">Menu order</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="category-filter" role="group" aria-label="Filter by category">
+          <button type="button" class="filter-btn" data-category="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-category="pastries" aria-pressed="false">Pastries</button>
+          <button type="button" class="filter-btn" data-category="pizza" aria-pressed="false">Pizza</button>
+          <button type="button" class="filter-btn" data-category="pasta" aria-pressed="false">Pasta</button>
+          <button type="button" class="filter-btn" data-category="rice-meals" aria-pressed="false">Rice Meals</button>
+          <button type="button" class="filter-btn" data-category="starters" aria-pressed="false">Starters</button>
+          <button type="button" class="filter-btn" data-category="hot-coffee" aria-pressed="false">Hot Coffee</button>
+          <button type="button" class="filter-btn" data-category="hot-tea" aria-pressed="false">Hot Tea</button>
+          <button type="button" class="filter-btn" data-category="milk-tea" aria-pressed="false">Milk Tea</button>
+          <button type="button" class="filter-btn" data-category="iced-coffee" aria-pressed="false">Iced Coffee</button>
+          <button type="button" class="filter-btn" data-category="frappe" aria-pressed="false">Frappe</button>
+          <button type="button" class="filter-btn" data-category="fruit-tea" aria-pressed="false">Fruit Tea</button>
+          <button type="button" class="filter-btn" data-category="sparkle" aria-pressed="false">Sparkle</button>
+          <button type="button" class="filter-btn" data-category="add-ons" aria-pressed="false">Add-ons</button>
+        </div>
+
+        <p class="product-count" id="menuStatus" role="status" aria-live="polite">
+          Showing all 78 items
+        </p>
+        <p class="cart-hint">
+          Pick a size (where offered), tap Add to Cart, then head to your
+          <a href="cart.html">Cart</a> to place the order.
+        </p>
+
+        <div class="products-grid" id="productsGrid">
+        <article class="product-card" data-id="pastries-blueberry-cheesecake" data-name="Blueberry Cheesecake" data-category="pastries" data-category-label="Pastries" data-price="160.00" data-order="0" data-search="blueberry cheesecake pastries creamy new york-style cheesecake topped with sweet blueberry compote. rich, smooth, and perfectly tangy. milk egg gluten">
+          <img src="assets/products/pastries/blueberry-cheesecake.jpg" alt="Blueberry Cheesecake (Pastries)" class="product-img" width="554" height="554" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Blueberry Cheesecake</h3>
-            <p>
-              Creamy New York-style cheesecake topped with sweet blueberry
-              compote. Rich, smooth, and perfectly tangy.
-            </p>
-            <p class="product-price">
-              &#8369;160.00 <span class="size-note">/slice</span>
-            </p>
+            <p class="product-desc">Creamy New York-style cheesecake topped with sweet blueberry compote. Rich, smooth, and perfectly tangy.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱160.00 <span class="size-note">slice</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Blueberry Cheesecake</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/oreo-cheesecake-4.jpg"
-            alt="Cookies and Cream Cheesecake"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-cookies-cream-cheesecake" data-name="Cookies &amp; Cream Cheesecake" data-category="pastries" data-category-label="Pastries" data-price="160.00" data-order="1" data-search="cookies &amp; cream cheesecake pastries velvety cheesecake loaded with crushed chocolate sandwich cookies. a cookies lover&#x27;s dream dessert. milk egg gluten">
+          <img src="assets/products/pastries/cookies-cream-cheesecake.jpg" alt="Cookies &amp; Cream Cheesecake (Pastries)" class="product-img" width="600" height="904" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Cookies &amp; Cream Cheesecake</h3>
-            <p>
-              Velvety cheesecake loaded with crushed chocolate sandwich cookies.
-              A cookies lover's dream dessert.
-            </p>
-            <p class="product-price">
-              &#8369;160.00 <span class="size-note">/slice</span>
-            </p>
+            <p class="product-desc">Velvety cheesecake loaded with crushed chocolate sandwich cookies. A cookies lover&#x27;s dream dessert.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱160.00 <span class="size-note">slice</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Cookies &amp; Cream Cheesecake</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/classic-brownies.jpg"
-            alt="Classic Brownie"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-classic-brownie" data-name="Classic Brownie" data-category="pastries" data-category-label="Pastries" data-price="55.00" data-order="2" data-search="classic brownie pastries dense, fudgy chocolate brownie with a crackly top. deep chocolate flavor in every bite. milk egg gluten">
+          <img src="assets/products/pastries/classic-brownie.jpg" alt="Classic Brownie (Pastries)" class="product-img" width="396" height="505" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Classic Brownie</h3>
-            <p>
-              Dense, fudgy chocolate brownie with a crackly top. Deep chocolate
-              flavor in every bite.
-            </p>
-            <p class="product-price">&#8369;55.00</p>
+            <p class="product-desc">Dense, fudgy chocolate brownie with a crackly top. Deep chocolate flavor in every bite.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱55.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="55.00" data-size="">Add to Cart<span class="visually-hidden"> Classic Brownie</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/caramel-bar.jpg"
-            alt="Chewy Caramel Bar"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-chewy-caramel-bar" data-name="Chewy Caramel Bar" data-category="pastries" data-category-label="Pastries" data-price="60.00" data-order="3" data-search="chewy caramel bar pastries soft, chewy bar with buttery caramel filling. sweet, gooey, and utterly irresistible. milk egg gluten">
+          <img src="assets/products/pastries/caramel-bar.jpg" alt="Chewy Caramel Bar (Pastries)" class="product-img" width="1200" height="1600" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Chewy Caramel Bar</h3>
-            <p>
-              Soft, chewy bar with buttery caramel filling. Sweet, gooey, and
-              utterly irresistible.
-            </p>
-            <p class="product-price">&#8369;60.00</p>
+            <p class="product-desc">Soft, chewy bar with buttery caramel filling. Sweet, gooey, and utterly irresistible.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱60.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="60.00" data-size="">Add to Cart<span class="visually-hidden"> Chewy Caramel Bar</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/cinnamon-bun.jpg"
-            alt="Sticky Cinnamon Bun"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-sticky-cinnamon-bun" data-name="Sticky Cinnamon Bun" data-category="pastries" data-category-label="Pastries" data-price="90.00" data-order="4" data-search="sticky cinnamon bun pastries warm, soft bun swirled with cinnamon sugar and glazed with cream cheese frosting. pure comfort. milk egg gluten">
+          <img src="assets/products/pastries/cinnamon-bun.jpg" alt="Sticky Cinnamon Bun (Pastries)" class="product-img" width="678" height="452" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Sticky Cinnamon Bun</h3>
-            <p>
-              Warm, soft bun swirled with cinnamon sugar and glazed with cream
-              cheese frosting. Pure comfort.
-            </p>
-            <p class="product-price">&#8369;90.00</p>
+            <p class="product-desc">Warm, soft bun swirled with cinnamon sugar and glazed with cream cheese frosting. Pure comfort.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱90.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="90.00" data-size="">Add to Cart<span class="visually-hidden"> Sticky Cinnamon Bun</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/chocolate-chip.jpg"
-            alt="Chocolate Chip Cookie"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-chocolate-chip-cookie" data-name="Chocolate Chip Cookie" data-category="pastries" data-category-label="Pastries" data-price="60.00" data-order="5" data-search="chocolate chip cookie pastries classic chewy cookie loaded with semi-sweet chocolate chips. crispy edges, soft center. milk egg gluten">
+          <img src="assets/products/pastries/chocolate-chip-cookie.jpg" alt="Chocolate Chip Cookie (Pastries)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Chocolate Chip Cookie</h3>
-            <p>
-              Classic chewy cookie loaded with semi-sweet chocolate chips.
-              Crispy edges, soft center.
-            </p>
-            <p class="product-price">&#8369;60.00</p>
+            <p class="product-desc">Classic chewy cookie loaded with semi-sweet chocolate chips. Crispy edges, soft center.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱60.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="60.00" data-size="">Add to Cart<span class="visually-hidden"> Chocolate Chip Cookie</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pastry">
-          <img
-            src="assets/products/Pastries/pastries/chocolate-chip-cookie-walnut.webp"
-            alt="Chocolate Chip Cookie with Walnut"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pastries-chocolate-chip-cookie-w-walnut" data-name="Chocolate Chip Cookie w/ Walnut" data-category="pastries" data-category-label="Pastries" data-price="65.00" data-order="6" data-search="chocolate chip cookie w/ walnut pastries chewy chocolate chip cookie with crunchy walnut pieces. nutty, chocolatey, and perfectly balanced. milk egg gluten nuts">
+          <img src="assets/products/pastries/chocolate-chip-cookie-walnut.webp" alt="Chocolate Chip Cookie w/ Walnut (Pastries)" class="product-img" width="1280" height="1280" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pastries</span>
             <h3>Chocolate Chip Cookie w/ Walnut</h3>
-            <p>
-              Chewy chocolate chip cookie with crunchy walnut pieces. Nutty,
-              chocolatey, and perfectly balanced.
-            </p>
-            <p class="product-price">&#8369;65.00</p>
+            <p class="product-desc">Chewy chocolate chip cookie with crunchy walnut pieces. Nutty, chocolatey, and perfectly balanced.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten, nuts</p>
+            <p class="product-price">₱65.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="65.00" data-size="">Add to Cart<span class="visually-hidden"> Chocolate Chip Cookie w/ Walnut</span></button>
+            </div>
           </div>
         </article>
-        <!-- PIZZA -->
-        <article class="product-card cat-pizza">
-          <img
-            src="assets/products/Pizza/pizza/hawaiian-pizza.jpg"
-            alt="Hawaiian Pizza"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pizza-hawaiian-pizza" data-name="Hawaiian Pizza" data-category="pizza" data-category-label="Pizza" data-price="125.00" data-order="7" data-search="hawaiian pizza pizza solo size (6.5&quot;) pizza topped with ham, pineapple chunks, and mozzarella cheese. sweet and savory. milk gluten">
+          <img src="assets/products/pizza/hawaiian-pizza.jpg" alt="Hawaiian Pizza (Pizza)" class="product-img" width="1200" height="1200" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pizza</span>
             <h3>Hawaiian Pizza</h3>
-            <p>
-              Solo size (6.5") pizza topped with ham, pineapple chunks, and
-              mozzarella cheese. Sweet and savory.
-            </p>
-            <p class="product-price">
-              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
-            </p>
+            <p class="product-desc">Solo size (6.5&quot;) pizza topped with ham, pineapple chunks, and mozzarella cheese. Sweet and savory.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten</p>
+            <p class="product-price">₱125.00 <span class="size-note">Solo 6.5&quot;</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Hawaiian Pizza</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pizza">
-          <img
-            src="assets/products/Pizza/pizza/pepperoni-pizzaa.jpg"
-            alt="Pepperoni Pizza"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pizza-pepperoni-pizza" data-name="Pepperoni Pizza" data-category="pizza" data-category-label="Pizza" data-price="125.00" data-order="8" data-search="pepperoni pizza pizza solo size (6.5&quot;) pizza loaded with spicy pepperoni slices and melted mozzarella. a timeless classic. milk gluten">
+          <img src="assets/products/pizza/pepperoni-pizza.jpg" alt="Pepperoni Pizza (Pizza)" class="product-img" width="482" height="414" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pizza</span>
             <h3>Pepperoni Pizza</h3>
-            <p>
-              Solo size (6.5") pizza loaded with spicy pepperoni slices and
-              melted mozzarella. A timeless classic.
-            </p>
-            <p class="product-price">
-              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
-            </p>
+            <p class="product-desc">Solo size (6.5&quot;) pizza loaded with spicy pepperoni slices and melted mozzarella. A timeless classic.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten</p>
+            <p class="product-price">₱125.00 <span class="size-note">Solo 6.5&quot;</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Pepperoni Pizza</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pizza">
-          <img
-            src="assets/products/Pizza/pizza/bacon-mushroom-pizza.jpg"
-            alt="Bacon Mushroom Pizza"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pizza-bacon-mushroom-pizza" data-name="Bacon Mushroom Pizza" data-category="pizza" data-category-label="Pizza" data-price="125.00" data-order="9" data-search="bacon mushroom pizza pizza solo size (6.5&quot;) pizza with crispy bacon, sautéed mushrooms, and mozzarella. smoky and earthy. milk gluten">
+          <img src="assets/products/pizza/bacon-mushroom-pizza.jpg" alt="Bacon Mushroom Pizza (Pizza)" class="product-img" width="738" height="415" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pizza</span>
             <h3>Bacon Mushroom Pizza</h3>
-            <p>
-              Solo size (6.5") pizza with crispy bacon, sautéed mushrooms, and
-              mozzarella. Smoky and earthy.
-            </p>
-            <p class="product-price">
-              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
-            </p>
+            <p class="product-desc">Solo size (6.5&quot;) pizza with crispy bacon, sautéed mushrooms, and mozzarella. Smoky and earthy.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten</p>
+            <p class="product-price">₱125.00 <span class="size-note">Solo 6.5&quot;</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Bacon Mushroom Pizza</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pizza">
-          <img
-            src="assets/products/Pizza/pizza/spinach-w-cream-cheese-pizza.jpg"
-            alt="Spinach with Cream Cheese Pizza"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pizza-spinach-w-cream-cheese-pizza" data-name="Spinach w/ Cream Cheese Pizza" data-category="pizza" data-category-label="Pizza" data-price="125.00" data-order="10" data-search="spinach w/ cream cheese pizza pizza solo size (6.5&quot;) pizza with fresh spinach, creamy cream cheese, and mozzarella. unique and delicious. milk gluten">
+          <img src="assets/products/pizza/spinach-w-cream-cheese-pizza.jpg" alt="Spinach w/ Cream Cheese Pizza (Pizza)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pizza</span>
             <h3>Spinach w/ Cream Cheese Pizza</h3>
-            <p>
-              Solo size (6.5") pizza with fresh spinach, creamy cream cheese,
-              and mozzarella. Unique and delicious.
-            </p>
-            <p class="product-price">
-              &#8369;125.00 <span class="size-note">Solo 6.5"</span>
-            </p>
+            <p class="product-desc">Solo size (6.5&quot;) pizza with fresh spinach, creamy cream cheese, and mozzarella. Unique and delicious.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten</p>
+            <p class="product-price">₱125.00 <span class="size-note">Solo 6.5&quot;</span></p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Spinach w/ Cream Cheese Pizza</span></button>
+            </div>
           </div>
         </article>
-        <!-- PASTA -->
-        <article class="product-card cat-pasta">
-          <img
-            src="assets/products/Pasta/pasta/tuna-pesto.jpg"
-            alt="Tuna Pesto"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pasta-tuna-pesto" data-name="Tuna Pesto" data-category="pasta" data-category-label="Pasta" data-price="125.00" data-order="11" data-search="tuna pesto pasta al dente pasta tossed in homemade basil pesto with flaky tuna chunks. herbaceous and savory. milk gluten nuts">
+          <img src="assets/products/pasta/tuna-pesto.jpg" alt="Tuna Pesto (Pasta)" class="product-img" width="1200" height="1628" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pasta</span>
             <h3>Tuna Pesto</h3>
-            <p>
-              Al dente pasta tossed in homemade basil pesto with flaky tuna
-              chunks. Herbaceous and savory.
-            </p>
-            <p class="product-price">&#8369;125.00</p>
+            <p class="product-desc">Al dente pasta tossed in homemade basil pesto with flaky tuna chunks. Herbaceous and savory.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten, nuts</p>
+            <p class="product-price">₱125.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Tuna Pesto</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pasta">
-          <img
-            src="assets/products/Pasta/pasta/lasgna.webp"
-            alt="Lasagna"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pasta-lasagna" data-name="Lasagna" data-category="pasta" data-category-label="Pasta" data-price="125.00" data-order="12" data-search="lasagna pasta layers of pasta sheets, rich meat sauce, béchamel, and melted cheese. baked until golden and bubbly. milk egg gluten">
+          <img src="assets/products/pasta/lasagna.webp" alt="Lasagna (Pasta)" class="product-img" width="3129" height="3129" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pasta</span>
             <h3>Lasagna</h3>
-            <p>
-              Layers of pasta sheets, rich meat sauce, béchamel, and melted
-              cheese. Baked until golden and bubbly.
-            </p>
-            <p class="product-price">&#8369;125.00</p>
+            <p class="product-desc">Layers of pasta sheets, rich meat sauce, béchamel, and melted cheese. Baked until golden and bubbly.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱125.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Lasagna</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-pasta">
-          <img
-            src="assets/products/Pasta/pasta/carbonara.jpg"
-            alt="Carbonara"
-            class="product-img"
-          />
+        <article class="product-card" data-id="pasta-carbonara" data-name="Carbonara" data-category="pasta" data-category-label="Pasta" data-price="125.00" data-order="13" data-search="carbonara pasta creamy pasta with bacon bits, parmesan cheese, and egg-based sauce. rich, silky, and indulgent. milk egg gluten">
+          <img src="assets/products/pasta/carbonara.jpg" alt="Carbonara (Pasta)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Pasta</span>
             <h3>Carbonara</h3>
-            <p>
-              Creamy pasta with bacon bits, parmesan cheese, and egg-based
-              sauce. Rich, silky, and indulgent.
-            </p>
-            <p class="product-price">&#8369;125.00</p>
+            <p class="product-desc">Creamy pasta with bacon bits, parmesan cheese, and egg-based sauce. Rich, silky, and indulgent.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱125.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="125.00" data-size="">Add to Cart<span class="visually-hidden"> Carbonara</span></button>
+            </div>
           </div>
         </article>
-        <!-- RICE MEALS -->
-        <article class="product-card cat-rice">
-          <img
-            src="assets/products/Rice Meal/rice-meal/chicken-ala-king.jpg"
-            alt="Chicken Ala King"
-            class="product-img"
-          />
+        <article class="product-card" data-id="rice-meals-chicken-ala-king" data-name="Chicken Ala King" data-category="rice-meals" data-category-label="Rice Meals" data-price="140.00" data-order="14" data-search="chicken ala king rice meals tender chicken pieces in creamy sauce with vegetables, served over steaming white rice. hearty and filling. milk gluten">
+          <img src="assets/products/rice-meals/chicken-ala-king.jpg" alt="Chicken Ala King (Rice Meals)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Rice Meals</span>
             <h3>Chicken Ala King</h3>
-            <p>
-              Tender chicken pieces in creamy sauce with vegetables, served over
-              steaming white rice. Hearty and filling.
-            </p>
-            <p class="product-price">&#8369;140.00</p>
+            <p class="product-desc">Tender chicken pieces in creamy sauce with vegetables, served over steaming white rice. Hearty and filling.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, gluten</p>
+            <p class="product-price">₱140.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="140.00" data-size="">Add to Cart<span class="visually-hidden"> Chicken Ala King</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-rice">
-          <img
-            src="assets/products/Rice Meal/rice-meal/beef-&-mushroom--rice-meal.jpg"
-            alt="Beef and Mushroom"
-            class="product-img"
-          />
+        <article class="product-card" data-id="rice-meals-beef-mushroom" data-name="Beef &amp; Mushroom" data-category="rice-meals" data-category-label="Rice Meals" data-price="140.00" data-order="15" data-search="beef &amp; mushroom rice meals sliced beef sautéed with mushrooms in a savory brown sauce, served with rice. rich and satisfying. gluten">
+          <img src="assets/products/rice-meals/beef-mushroom-rice-meal.jpg" alt="Beef &amp; Mushroom (Rice Meals)" class="product-img" width="462" height="663" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Rice Meals</span>
             <h3>Beef &amp; Mushroom</h3>
-            <p>
-              Sliced beef sautéed with mushrooms in a savory brown sauce, served
-              with rice. Rich and satisfying.
-            </p>
-            <p class="product-price">&#8369;140.00</p>
+            <p class="product-desc">Sliced beef sautéed with mushrooms in a savory brown sauce, served with rice. Rich and satisfying.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: gluten</p>
+            <p class="product-price">₱140.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="140.00" data-size="">Add to Cart<span class="visually-hidden"> Beef &amp; Mushroom</span></button>
+            </div>
           </div>
         </article>
-        <!-- STARTERS -->
-        <article class="product-card cat-starter">
-          <img
-            src="assets/products/Starters/starter/french-fries.jpg"
-            alt="French Fries"
-            class="product-img"
-          />
+        <article class="product-card" data-id="starters-french-fries" data-name="French Fries" data-category="starters" data-category-label="Starters" data-price="110.00" data-order="16" data-search="french fries starters golden, crispy potato fries seasoned to perfection. the ultimate comfort snack. ">
+          <img src="assets/products/starters/french-fries.jpg" alt="French Fries (Starters)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Starters</span>
             <h3>French Fries</h3>
-            <p>
-              Golden, crispy potato fries seasoned to perfection. The ultimate
-              comfort snack.
-            </p>
-            <p class="product-price">&#8369;110.00</p>
+            <p class="product-desc">Golden, crispy potato fries seasoned to perfection. The ultimate comfort snack.</p>
+            <p class="product-price">₱110.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="110.00" data-size="">Add to Cart<span class="visually-hidden"> French Fries</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-starter">
-          <img
-            src="assets/products/Starters/starter/mozzarella-sticks.jpg"
-            alt="Mozzarella Sticks"
-            class="product-img"
-          />
+        <article class="product-card" data-id="starters-mozzarella-sticks" data-name="Mozzarella Sticks" data-category="starters" data-category-label="Starters" data-price="170.00" data-order="17" data-search="mozzarella sticks starters golden-fried mozzarella sticks with a crispy breadcrumb coating. gooey cheese inside, crunchy outside. milk egg gluten">
+          <img src="assets/products/starters/mozzarella-sticks.jpg" alt="Mozzarella Sticks (Starters)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Starters</span>
             <h3>Mozzarella Sticks</h3>
-            <p>
-              Golden-fried mozzarella sticks with a crispy breadcrumb coating.
-              Gooey cheese inside, crunchy outside.
-            </p>
-            <p class="product-price">&#8369;170.00</p>
+            <p class="product-desc">Golden-fried mozzarella sticks with a crispy breadcrumb coating. Gooey cheese inside, crunchy outside.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱170.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="170.00" data-size="">Add to Cart<span class="visually-hidden"> Mozzarella Sticks</span></button>
+            </div>
           </div>
         </article>
-        <!-- HOT COFFEE -->
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/hazelnut-hot.jpg"
-            alt="Hazelnut Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-hazelnut" data-name="Hazelnut" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="18" data-search="hazelnut hot coffee rich hazelnut-flavored hot coffee. nutty, warm, and aromatic. milk nuts">
+          <img src="assets/products/hot-coffee/hazelnut-hot.jpg" alt="Hazelnut (Hot Coffee)" class="product-img" width="259" height="194" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Hazelnut</h3>
-            <p>Rich hazelnut-flavored hot coffee. Nutty, warm, and aromatic.</p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Rich hazelnut-flavored hot coffee. Nutty, warm, and aromatic.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, nuts</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-hazelnut">Size for Hazelnut</label><select id="size-hot-coffee-hazelnut" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Hazelnut</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/vanillla-latte.jpg"
-            alt="Vanilla Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-vanilla" data-name="Vanilla" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="19" data-search="vanilla hot coffee sweet vanilla-infused hot coffee. smooth, fragrant, and comforting. milk">
+          <img src="assets/products/hot-coffee/vanilla-latte.jpg" alt="Vanilla (Hot Coffee)" class="product-img" width="597" height="335" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Vanilla</h3>
-            <p>
-              Sweet vanilla-infused hot coffee. Smooth, fragrant, and
-              comforting.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Sweet vanilla-infused hot coffee. Smooth, fragrant, and comforting.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-vanilla">Size for Vanilla</label><select id="size-hot-coffee-vanilla" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Vanilla</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
-            alt="Caramel Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-caramel" data-name="Caramel" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="20" data-search="caramel hot coffee buttery caramel-flavored hot coffee. sweet, rich, and indulgent. milk">
+          <img src="assets/products/hot-coffee/caramel.jpg" alt="Caramel (Hot Coffee)" class="product-img" width="1001" height="1231" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Caramel</h3>
-            <p>
-              Buttery caramel-flavored hot coffee. Sweet, rich, and indulgent.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Buttery caramel-flavored hot coffee. Sweet, rich, and indulgent.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-caramel">Size for Caramel</label><select id="size-hot-coffee-caramel" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Caramel</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/mocha-hot.jpg"
-            alt="Mocha Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-mocha" data-name="Mocha" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="21" data-search="mocha hot coffee chocolate and espresso blended with steamed milk. a classic mocha lovers&#x27; favorite. milk">
+          <img src="assets/products/hot-coffee/mocha-hot.jpg" alt="Mocha (Hot Coffee)" class="product-img" width="1600" height="900" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Mocha</h3>
-            <p>
-              Chocolate and espresso blended with steamed milk. A classic mocha
-              lovers' favorite.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Chocolate and espresso blended with steamed milk. A classic mocha lovers&#x27; favorite.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-mocha">Size for Mocha</label><select id="size-hot-coffee-mocha" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Mocha</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/butterscotch-hot.jpg"
-            alt="Butterscotch Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-butterscotch" data-name="Butterscotch" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="22" data-search="butterscotch hot coffee sweet butterscotch-flavored hot coffee. creamy, caramelized, and delightful. milk">
+          <img src="assets/products/hot-coffee/butterscotch-hot.jpg" alt="Butterscotch (Hot Coffee)" class="product-img" width="554" height="554" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Butterscotch</h3>
-            <p>
-              Sweet butterscotch-flavored hot coffee. Creamy, caramelized, and
-              delightful.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Sweet butterscotch-flavored hot coffee. Creamy, caramelized, and delightful.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-butterscotch">Size for Butterscotch</label><select id="size-hot-coffee-butterscotch" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Butterscotch</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/double-chocolate.jpg"
-            alt="Double Chocolate Hot Coffee"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-double-chocolate" data-name="Double Chocolate" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="23" data-search="double chocolate hot coffee double dose of rich chocolate blended with hot coffee. deep, intense, and chocolatey. milk">
+          <img src="assets/products/hot-coffee/double-chocolate.jpg" alt="Double Chocolate (Hot Coffee)" class="product-img" width="365" height="547" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Double Chocolate</h3>
-            <p>
-              Double dose of rich chocolate blended with hot coffee. Deep,
-              intense, and chocolatey.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Double dose of rich chocolate blended with hot coffee. Deep, intense, and chocolatey.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-double-chocolate">Size for Double Chocolate</label><select id="size-hot-coffee-double-chocolate" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Double Chocolate</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hotcoffee">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/hot-chocolate.jpg"
-            alt="Hot Chocolate"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-coffee-hot-chocolate" data-name="Hot Chocolate" data-category="hot-coffee" data-category-label="Hot Coffee" data-price="80.00" data-order="24" data-search="hot chocolate hot coffee premium cocoa blended with steamed milk. warm, velvety, and pure chocolate bliss. milk">
+          <img src="assets/products/hot-coffee/hot-chocolate.jpg" alt="Hot Chocolate (Hot Coffee)" class="product-img" width="555" height="553" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Coffee</span>
             <h3>Hot Chocolate</h3>
-            <p>
-              Premium cocoa blended with steamed milk. Warm, velvety, and pure
-              chocolate bliss.
-            </p>
-            <p class="product-price">
-              &#8369;80.00 / &#8369;90.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Premium cocoa blended with steamed milk. Warm, velvety, and pure chocolate bliss.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱80.00 / ₱90.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-hot-coffee-hot-chocolate">Size for Hot Chocolate</label><select id="size-hot-coffee-hot-chocolate" class="size-select"><option value="Regular" data-price="80.00">Regular – ₱80.00</option><option value="Large" data-price="90.00">Large – ₱90.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Hot Chocolate</span></button>
+            </div>
           </div>
         </article>
-        <!-- HOT TEA -->
-        <article class="product-card cat-hottea">
-          <img
-            src="assets/products/hot-tea/jasmine-tea.jpg"
-            alt="Jasmine Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-tea-jasmine-tea" data-name="Jasmine Tea" data-category="hot-tea" data-category-label="Hot Tea" data-price="80.00" data-order="25" data-search="jasmine tea hot tea fragrant jasmine-scented green tea. floral, light, and soothing. ">
+          <img src="assets/products/hot-tea/jasmine-tea.jpg" alt="Jasmine Tea (Hot Tea)" class="product-img" width="547" height="365" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Tea</span>
             <h3>Jasmine Tea</h3>
-            <p>
-              Fragrant jasmine-scented green tea. Floral, light, and soothing.
-            </p>
-            <p class="product-price">&#8369;80.00</p>
+            <p class="product-desc">Fragrant jasmine-scented green tea. Floral, light, and soothing.</p>
+            <p class="product-price">₱80.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="80.00" data-size="">Add to Cart<span class="visually-hidden"> Jasmine Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hottea">
-          <img
-            src="assets/products/hot-tea/green-tea.jpg"
-            alt="Green Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-tea-green-tea" data-name="Green Tea" data-category="hot-tea" data-category-label="Hot Tea" data-price="80.00" data-order="26" data-search="green tea hot tea premium japanese green tea. earthy, refreshing, and packed with antioxidants. ">
+          <img src="assets/products/hot-tea/green-tea.jpg" alt="Green Tea (Hot Tea)" class="product-img" width="678" height="452" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Tea</span>
             <h3>Green Tea</h3>
-            <p>
-              Premium Japanese green tea. Earthy, refreshing, and packed with
-              antioxidants.
-            </p>
-            <p class="product-price">&#8369;80.00</p>
+            <p class="product-desc">Premium Japanese green tea. Earthy, refreshing, and packed with antioxidants.</p>
+            <p class="product-price">₱80.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="80.00" data-size="">Add to Cart<span class="visually-hidden"> Green Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hottea">
-          <img
-            src="assets/products/hot-tea/peppermint-tea.jpg"
-            alt="Peppermint Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-tea-peppermint-tea" data-name="Peppermint Tea" data-category="hot-tea" data-category-label="Hot Tea" data-price="80.00" data-order="27" data-search="peppermint tea hot tea cool peppermint leaves steeped in hot water. minty, refreshing, and calming. ">
+          <img src="assets/products/hot-tea/peppermint-tea.jpg" alt="Peppermint Tea (Hot Tea)" class="product-img" width="447" height="447" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Tea</span>
             <h3>Peppermint Tea</h3>
-            <p>
-              Cool peppermint leaves steeped in hot water. Minty, refreshing,
-              and calming.
-            </p>
-            <p class="product-price">&#8369;80.00</p>
+            <p class="product-desc">Cool peppermint leaves steeped in hot water. Minty, refreshing, and calming.</p>
+            <p class="product-price">₱80.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="80.00" data-size="">Add to Cart<span class="visually-hidden"> Peppermint Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-hottea">
-          <img
-            src="assets/products/hot-tea/chamomile-tea.jpg"
-            alt="Chamomile Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="hot-tea-chamomile-tea" data-name="Chamomile Tea" data-category="hot-tea" data-category-label="Hot Tea" data-price="80.00" data-order="28" data-search="chamomile tea hot tea gentle chamomile flower tea. relaxing, floral, and perfect for winding down. ">
+          <img src="assets/products/hot-tea/chamomile-tea.jpg" alt="Chamomile Tea (Hot Tea)" class="product-img" width="447" height="447" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Hot Tea</span>
             <h3>Chamomile Tea</h3>
-            <p>
-              Gentle chamomile flower tea. Relaxing, floral, and perfect for
-              winding down.
-            </p>
-            <p class="product-price">&#8369;80.00</p>
+            <p class="product-desc">Gentle chamomile flower tea. Relaxing, floral, and perfect for winding down.</p>
+            <p class="product-price">₱80.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="80.00" data-size="">Add to Cart<span class="visually-hidden"> Chamomile Tea</span></button>
+            </div>
           </div>
         </article>
-        <!-- MILK TEA -->
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/classic-mtea.jpg"
-            alt="Classic Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-classic-milk-tea" data-name="Classic Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="100.00" data-order="29" data-search="classic milk tea milk tea the original milk tea. smooth black tea blended with creamy milk. simple yet satisfying. milk">
+          <img src="assets/products/milk-tea/classic-mtea.jpg" alt="Classic Milk Tea (Milk Tea)" class="product-img" width="444" height="450" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Classic Milk Tea</h3>
-            <p>
-              The original milk tea. Smooth black tea blended with creamy milk.
-              Simple yet satisfying.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;120.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">The original milk tea. Smooth black tea blended with creamy milk. Simple yet satisfying.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱100.00 / ₱120.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-classic-milk-tea">Size for Classic Milk Tea</label><select id="size-milk-tea-classic-milk-tea" class="size-select"><option value="Classic" data-price="100.00">Classic – ₱100.00</option><option value="Large" data-price="120.00">Large – ₱120.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Classic Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/wintermelon-mtea.jpg"
-            alt="Wintermelon Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-wintermelon-milk-tea" data-name="Wintermelon Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="105.00" data-order="30" data-search="wintermelon milk tea milk tea sweet wintermelon syrup blended with milk tea. fruity, unique, and refreshing. milk">
+          <img src="assets/products/milk-tea/wintermelon-mtea.jpg" alt="Wintermelon Milk Tea (Milk Tea)" class="product-img" width="480" height="640" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Wintermelon Milk Tea</h3>
-            <p>
-              Sweet wintermelon syrup blended with milk tea. Fruity, unique, and
-              refreshing.
-            </p>
-            <p class="product-price">
-              &#8369;105.00 / &#8369;125.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Sweet wintermelon syrup blended with milk tea. Fruity, unique, and refreshing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱105.00 / ₱125.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-wintermelon-milk-tea">Size for Wintermelon Milk Tea</label><select id="size-milk-tea-wintermelon-milk-tea" class="size-select"><option value="Classic" data-price="105.00">Classic – ₱105.00</option><option value="Large" data-price="125.00">Large – ₱125.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Wintermelon Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/matcha.jpg"
-            alt="Matcha Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-matcha-milk-tea" data-name="Matcha Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="110.00" data-order="31" data-search="matcha milk tea milk tea premium matcha blended with creamy milk tea. earthy, smooth, and antioxidant-rich. milk">
+          <img src="assets/products/milk-tea/matcha.jpg" alt="Matcha Milk Tea (Milk Tea)" class="product-img" width="554" height="554" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Matcha Milk Tea</h3>
-            <p>
-              Premium matcha blended with creamy milk tea. Earthy, smooth, and
-              antioxidant-rich.
-            </p>
-            <p class="product-price">
-              &#8369;110.00 / &#8369;130.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Premium matcha blended with creamy milk tea. Earthy, smooth, and antioxidant-rich.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱110.00 / ₱130.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-matcha-milk-tea">Size for Matcha Milk Tea</label><select id="size-milk-tea-matcha-milk-tea" class="size-select"><option value="Classic" data-price="110.00">Classic – ₱110.00</option><option value="Large" data-price="130.00">Large – ₱130.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Matcha Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/okininam-mtea.jpg"
-            alt="Okinawa Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-okinawa-milk-tea" data-name="Okinawa Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="110.00" data-order="32" data-search="okinawa milk tea milk tea roasted okinawa brown sugar milk tea. caramel-like, rich, and deeply satisfying. milk">
+          <img src="assets/products/milk-tea/okinawa-mtea.jpg" alt="Okinawa Milk Tea (Milk Tea)" class="product-img" width="365" height="547" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Okinawa Milk Tea</h3>
-            <p>
-              Roasted Okinawa brown sugar milk tea. Caramel-like, rich, and
-              deeply satisfying.
-            </p>
-            <p class="product-price">
-              &#8369;110.00 / &#8369;130.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Roasted Okinawa brown sugar milk tea. Caramel-like, rich, and deeply satisfying.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱110.00 / ₱130.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-okinawa-milk-tea">Size for Okinawa Milk Tea</label><select id="size-milk-tea-okinawa-milk-tea" class="size-select"><option value="Classic" data-price="110.00">Classic – ₱110.00</option><option value="Large" data-price="130.00">Large – ₱130.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Okinawa Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/dark-choco-mtea.jpg"
-            alt="Dark Choco Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-dark-choco-milk-tea" data-name="Dark Choco Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="110.00" data-order="33" data-search="dark choco milk tea milk tea intense dark chocolate blended with milk tea. bold, cocoa-rich, and indulgent. milk">
+          <img src="assets/products/milk-tea/dark-choco-mtea.jpg" alt="Dark Choco Milk Tea (Milk Tea)" class="product-img" width="403" height="496" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Dark Choco Milk Tea</h3>
-            <p>
-              Intense dark chocolate blended with milk tea. Bold, cocoa-rich,
-              and indulgent.
-            </p>
-            <p class="product-price">
-              &#8369;110.00 / &#8369;130.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Intense dark chocolate blended with milk tea. Bold, cocoa-rich, and indulgent.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱110.00 / ₱130.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-dark-choco-milk-tea">Size for Dark Choco Milk Tea</label><select id="size-milk-tea-dark-choco-milk-tea" class="size-select"><option value="Classic" data-price="110.00">Classic – ₱110.00</option><option value="Large" data-price="130.00">Large – ₱130.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Dark Choco Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/thai-mtea.jpg"
-            alt="Thai Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-thai-milk-tea" data-name="Thai Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="110.00" data-order="34" data-search="thai milk tea milk tea traditional thai tea blended with milk. vibrant orange color, sweet and aromatic. milk">
+          <img src="assets/products/milk-tea/thai-mtea.jpg" alt="Thai Milk Tea (Milk Tea)" class="product-img" width="554" height="554" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Thai Milk Tea</h3>
-            <p>
-              Traditional Thai tea blended with milk. Vibrant orange color,
-              sweet and aromatic.
-            </p>
-            <p class="product-price">
-              &#8369;110.00 / &#8369;130.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Traditional Thai tea blended with milk. Vibrant orange color, sweet and aromatic.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱110.00 / ₱130.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-thai-milk-tea">Size for Thai Milk Tea</label><select id="size-milk-tea-thai-milk-tea" class="size-select"><option value="Classic" data-price="110.00">Classic – ₱110.00</option><option value="Large" data-price="130.00">Large – ₱130.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Thai Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-milktea">
-          <img
-            src="assets/products/milktea/caramel-mtea.jpg"
-            alt="Caramel Milk Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="milk-tea-caramel-milk-tea" data-name="Caramel Milk Tea" data-category="milk-tea" data-category-label="Milk Tea" data-price="110.00" data-order="35" data-search="caramel milk tea milk tea buttery caramel blended with creamy milk tea. sweet, smooth, and heavenly. milk">
+          <img src="assets/products/milk-tea/caramel-mtea.jpg" alt="Caramel Milk Tea (Milk Tea)" class="product-img" width="554" height="554" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Milk Tea</span>
             <h3>Caramel Milk Tea</h3>
-            <p>
-              Buttery caramel blended with creamy milk tea. Sweet, smooth, and
-              heavenly.
-            </p>
-            <p class="product-price">
-              &#8369;110.00 / &#8369;130.00
-              <span class="size-note">Classic / Large</span>
-            </p>
+            <p class="product-desc">Buttery caramel blended with creamy milk tea. Sweet, smooth, and heavenly.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱110.00 / ₱130.00 <span class="size-note">Classic / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-milk-tea-caramel-milk-tea">Size for Caramel Milk Tea</label><select id="size-milk-tea-caramel-milk-tea" class="size-select"><option value="Classic" data-price="110.00">Classic – ₱110.00</option><option value="Large" data-price="130.00">Large – ₱130.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Caramel Milk Tea</span></button>
+            </div>
           </div>
         </article>
-        <!-- ICED COFFEE -->
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/dark-special.jpg"
-            alt="Dark Special"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-dark-special" data-name="Dark Special" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="36" data-search="dark special iced coffee bold dark-roasted iced coffee with a rich, full-bodied flavor. for the true coffee lover. ">
+          <img src="assets/products/iced-coffee/dark-special.jpg" alt="Dark Special (Iced Coffee)" class="product-img" width="678" height="452" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Dark Special</h3>
-            <p>
-              Bold dark-roasted iced coffee with a rich, full-bodied flavor. For
-              the true coffee lover.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Bold dark-roasted iced coffee with a rich, full-bodied flavor. For the true coffee lover.</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-dark-special">Size for Dark Special</label><select id="size-iced-coffee-dark-special" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Dark Special</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/dark-special.jpg"
-            alt="Original Blend"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-original-blend" data-name="Original Blend" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="37" data-search="original blend iced coffee our signature iced coffee blend. smooth, balanced, and perfectly chilled. ">
+          <img src="assets/products/iced-coffee/dark-special.jpg" alt="Original Blend (Iced Coffee)" class="product-img" width="678" height="452" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Original Blend</h3>
-            <p>
-              Our signature iced coffee blend. Smooth, balanced, and perfectly
-              chilled.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Our signature iced coffee blend. Smooth, balanced, and perfectly chilled.</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-original-blend">Size for Original Blend</label><select id="size-iced-coffee-original-blend" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Original Blend</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/choco-twist.jpg"
-            alt="Choco Twist"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-choco-twist" data-name="Choco Twist" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="38" data-search="choco twist iced coffee chocolate-infused iced coffee with a twist. sweet, creamy, and refreshing. milk">
+          <img src="assets/products/iced-coffee/choco-twist.jpg" alt="Choco Twist (Iced Coffee)" class="product-img" width="335" height="597" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Choco Twist</h3>
-            <p>
-              Chocolate-infused iced coffee with a twist. Sweet, creamy, and
-              refreshing.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Chocolate-infused iced coffee with a twist. Sweet, creamy, and refreshing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-choco-twist">Size for Choco Twist</label><select id="size-iced-coffee-choco-twist" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Choco Twist</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/caramel-espresso.jpg"
-            alt="Caramel Espresso"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-caramel-espresso" data-name="Caramel Espresso" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="39" data-search="caramel espresso iced coffee caramel-flavored espresso over ice with a splash of milk. sweet and energizing. milk">
+          <img src="assets/products/iced-coffee/caramel-espresso.jpg" alt="Caramel Espresso (Iced Coffee)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Caramel Espresso</h3>
-            <p>
-              Caramel-flavored espresso over ice with a splash of milk. Sweet
-              and energizing.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Caramel-flavored espresso over ice with a splash of milk. Sweet and energizing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-caramel-espresso">Size for Caramel Espresso</label><select id="size-iced-coffee-caramel-espresso" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Caramel Espresso</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/hazelnut-latite.jpg"
-            alt="Hazelnut Latte"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-hazelnut-latte" data-name="Hazelnut Latte" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="40" data-search="hazelnut latte iced coffee toasted hazelnut-flavored iced latte. nutty, smooth, and refreshing. milk nuts">
+          <img src="assets/products/iced-coffee/hazelnut-latte.jpg" alt="Hazelnut Latte (Iced Coffee)" class="product-img" width="480" height="638" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Hazelnut Latte</h3>
-            <p>
-              Toasted hazelnut-flavored iced latte. Nutty, smooth, and
-              refreshing.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Toasted hazelnut-flavored iced latte. Nutty, smooth, and refreshing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, nuts</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-hazelnut-latte">Size for Hazelnut Latte</label><select id="size-iced-coffee-hazelnut-latte" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Hazelnut Latte</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/tiramissu.jpg"
-            alt="Tiramisu"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-tiramisu" data-name="Tiramisu" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="130.00" data-order="41" data-search="tiramisu iced coffee tiramisu-flavored iced coffee with cocoa and cream. dessert in a cup. milk">
+          <img src="assets/products/iced-coffee/tiramisu.jpg" alt="Tiramisu (Iced Coffee)" class="product-img" width="500" height="500" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Tiramisu</h3>
-            <p>
-              Tiramisu-flavored iced coffee with cocoa and cream. Dessert in a
-              cup.
-            </p>
-            <p class="product-price">
-              &#8369;130.00 / &#8369;140.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Tiramisu-flavored iced coffee with cocoa and cream. Dessert in a cup.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱130.00 / ₱140.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-tiramisu">Size for Tiramisu</label><select id="size-iced-coffee-tiramisu" class="size-select"><option value="Regular" data-price="130.00">Regular – ₱130.00</option><option value="Large" data-price="140.00">Large – ₱140.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Tiramisu</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-icedcoffee">
-          <img
-            src="assets/products/iced-coffee/dark-mocha.jpg"
-            alt="Dark Mocha"
-            class="product-img"
-          />
+        <article class="product-card" data-id="iced-coffee-dark-mocha" data-name="Dark Mocha" data-category="iced-coffee" data-category-label="Iced Coffee" data-price="140.00" data-order="42" data-search="dark mocha iced coffee dark chocolate blended with espresso and milk over ice. rich and indulgent. milk">
+          <img src="assets/products/iced-coffee/dark-mocha.jpg" alt="Dark Mocha (Iced Coffee)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Iced Coffee</span>
             <h3>Dark Mocha</h3>
-            <p>
-              Dark chocolate blended with espresso and milk over ice. Rich and
-              indulgent.
-            </p>
-            <p class="product-price">
-              &#8369;140.00 / &#8369;150.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Dark chocolate blended with espresso and milk over ice. Rich and indulgent.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱140.00 / ₱150.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-iced-coffee-dark-mocha">Size for Dark Mocha</label><select id="size-iced-coffee-dark-mocha" class="size-select"><option value="Regular" data-price="140.00">Regular – ₱140.00</option><option value="Large" data-price="150.00">Large – ₱150.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Dark Mocha</span></button>
+            </div>
           </div>
         </article>
-        <!-- FRAPPE -->
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/orig.jpg"
-            alt="Original Blend Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-original-blend-frappe" data-name="Original Blend Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="43" data-search="original blend frappe frappe our signature coffee blended with ice and milk. smooth, creamy, and perfectly chilled. milk">
+          <img src="assets/products/frappe/orig.jpg" alt="Original Blend Frappe (Frappe)" class="product-img" width="365" height="547" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Original Blend Frappe</h3>
-            <p>
-              Our signature coffee blended with ice and milk. Smooth, creamy,
-              and perfectly chilled.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Our signature coffee blended with ice and milk. Smooth, creamy, and perfectly chilled.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Original Blend Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/choco-twist.jpg"
-            alt="Choco Twist Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-choco-twist-frappe" data-name="Choco Twist Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="44" data-search="choco twist frappe frappe chocolate-flavored blended ice coffee. sweet, chocolaty, and refreshing. milk">
+          <img src="assets/products/frappe/choco-twist.jpg" alt="Choco Twist Frappe (Frappe)" class="product-img" width="386" height="518" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Choco Twist Frappe</h3>
-            <p>
-              Chocolate-flavored blended ice coffee. Sweet, chocolaty, and
-              refreshing.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Chocolate-flavored blended ice coffee. Sweet, chocolaty, and refreshing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Choco Twist Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/orig.jpg"
-            alt="Caramel Espresso Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-caramel-espresso-frappe" data-name="Caramel Espresso Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="45" data-search="caramel espresso frappe frappe caramel-flavored espresso blended with ice. sweet, frosty, and energizing. milk">
+          <img src="assets/products/frappe/orig.jpg" alt="Caramel Espresso Frappe (Frappe)" class="product-img" width="365" height="547" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Caramel Espresso Frappe</h3>
-            <p>
-              Caramel-flavored espresso blended with ice. Sweet, frosty, and
-              energizing.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Caramel-flavored espresso blended with ice. Sweet, frosty, and energizing.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Caramel Espresso Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/hazelnut.jpg"
-            alt="Hazelnut Latte Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-hazelnut-latte-frappe" data-name="Hazelnut Latte Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="46" data-search="hazelnut latte frappe frappe toasted hazelnut blended with ice and milk. nutty, creamy, and delightful. milk nuts">
+          <img src="assets/products/frappe/hazelnut.jpg" alt="Hazelnut Latte Frappe (Frappe)" class="product-img" width="335" height="597" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Hazelnut Latte Frappe</h3>
-            <p>
-              Toasted hazelnut blended with ice and milk. Nutty, creamy, and
-              delightful.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Toasted hazelnut blended with ice and milk. Nutty, creamy, and delightful.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, nuts</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Hazelnut Latte Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/tiramisu.jpg"
-            alt="Tiramisu Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-tiramisu-frappe" data-name="Tiramisu Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="47" data-search="tiramisu frappe frappe tiramisu-flavored blended drink with cocoa and cream. dessert in a glass. milk">
+          <img src="assets/products/frappe/tiramisu.jpg" alt="Tiramisu Frappe (Frappe)" class="product-img" width="387" height="516" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Tiramisu Frappe</h3>
-            <p>
-              Tiramisu-flavored blended drink with cocoa and cream. Dessert in a
-              glass.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Tiramisu-flavored blended drink with cocoa and cream. Dessert in a glass.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Tiramisu Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/dark-mocha.jpg"
-            alt="Dark Mocha Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-dark-mocha-frappe" data-name="Dark Mocha Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="48" data-search="dark mocha frappe frappe dark chocolate blended with espresso and ice. rich, bold, and indulgent. milk">
+          <img src="assets/products/frappe/dark-mocha.jpg" alt="Dark Mocha Frappe (Frappe)" class="product-img" width="554" height="554" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Dark Mocha Frappe</h3>
-            <p>
-              Dark chocolate blended with espresso and ice. Rich, bold, and
-              indulgent.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Dark chocolate blended with espresso and ice. Rich, bold, and indulgent.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Dark Mocha Frappe</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-frappe">
-          <img
-            src="assets/products/frappe/java.jpg"
-            alt="Java Chip Frappe"
-            class="product-img"
-          />
+        <article class="product-card" data-id="frappe-java-chip-frappe" data-name="Java Chip Frappe" data-category="frappe" data-category-label="Frappe" data-price="160.00" data-order="49" data-search="java chip frappe frappe chocolate chips blended with coffee and ice. crunchy, creamy, and irresistible. milk">
+          <img src="assets/products/frappe/java.jpg" alt="Java Chip Frappe (Frappe)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Frappe</span>
             <h3>Java Chip Frappe</h3>
-            <p>
-              Chocolate chips blended with coffee and ice. Crunchy, creamy, and
-              irresistible.
-            </p>
-            <p class="product-price">&#8369;160.00</p>
+            <p class="product-desc">Chocolate chips blended with coffee and ice. Crunchy, creamy, and irresistible.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱160.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="160.00" data-size="">Add to Cart<span class="visually-hidden"> Java Chip Frappe</span></button>
+            </div>
           </div>
         </article>
-        <!-- FRUIT TEA -->
-        <article class="product-card cat-fruittea">
-          <img
-            src="assets/products/fruit-tea/lychee.jpg"
-            alt="Lychee Fruit Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="fruit-tea-lychee-fruit-tea" data-name="Lychee Fruit Tea" data-category="fruit-tea" data-category-label="Fruit Tea" data-price="100.00" data-order="50" data-search="lychee fruit tea fruit tea sweet lychee fruit tea with real lychee pieces. tropical, refreshing, and naturally sweet. ">
+          <img src="assets/products/fruit-tea/lychee.jpg" alt="Lychee Fruit Tea (Fruit Tea)" class="product-img" width="468" height="654" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Fruit Tea</span>
             <h3>Lychee Fruit Tea</h3>
-            <p>
-              Sweet lychee fruit tea with real lychee pieces. Tropical,
-              refreshing, and naturally sweet.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;110.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Sweet lychee fruit tea with real lychee pieces. Tropical, refreshing, and naturally sweet.</p>
+            <p class="product-price">₱100.00 / ₱110.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-fruit-tea-lychee-fruit-tea">Size for Lychee Fruit Tea</label><select id="size-fruit-tea-lychee-fruit-tea" class="size-select"><option value="Regular" data-price="100.00">Regular – ₱100.00</option><option value="Large" data-price="110.00">Large – ₱110.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Lychee Fruit Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-fruittea">
-          <img
-            src="assets/products/fruit-tea/mango.jpg"
-            alt="Mango Fruit Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="fruit-tea-mango-fruit-tea" data-name="Mango Fruit Tea" data-category="fruit-tea" data-category-label="Fruit Tea" data-price="100.00" data-order="51" data-search="mango fruit tea fruit tea fresh mango blended with tea. tropical, sweet, and utterly delicious. ">
+          <img src="assets/products/fruit-tea/mango.jpg" alt="Mango Fruit Tea (Fruit Tea)" class="product-img" width="494" height="619" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Fruit Tea</span>
             <h3>Mango Fruit Tea</h3>
-            <p>
-              Fresh mango blended with tea. Tropical, sweet, and utterly
-              delicious.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;110.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Fresh mango blended with tea. Tropical, sweet, and utterly delicious.</p>
+            <p class="product-price">₱100.00 / ₱110.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-fruit-tea-mango-fruit-tea">Size for Mango Fruit Tea</label><select id="size-fruit-tea-mango-fruit-tea" class="size-select"><option value="Regular" data-price="100.00">Regular – ₱100.00</option><option value="Large" data-price="110.00">Large – ₱110.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Mango Fruit Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-fruittea">
-          <img
-            src="assets/products/fruit-tea/green-apple.jpg"
-            alt="Green Apple Fruit Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="fruit-tea-green-apple-fruit-tea" data-name="Green Apple Fruit Tea" data-category="fruit-tea" data-category-label="Fruit Tea" data-price="100.00" data-order="52" data-search="green apple fruit tea fruit tea tart green apple blended with tea. crisp, refreshing, and tangy. ">
+          <img src="assets/products/fruit-tea/green-apple.jpg" alt="Green Apple Fruit Tea (Fruit Tea)" class="product-img" width="387" height="516" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Fruit Tea</span>
             <h3>Green Apple Fruit Tea</h3>
-            <p>
-              Tart green apple blended with tea. Crisp, refreshing, and tangy.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;110.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Tart green apple blended with tea. Crisp, refreshing, and tangy.</p>
+            <p class="product-price">₱100.00 / ₱110.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-fruit-tea-green-apple-fruit-tea">Size for Green Apple Fruit Tea</label><select id="size-fruit-tea-green-apple-fruit-tea" class="size-select"><option value="Regular" data-price="100.00">Regular – ₱100.00</option><option value="Large" data-price="110.00">Large – ₱110.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Green Apple Fruit Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-fruittea">
-          <img
-            src="assets/products/fruit-tea/strawberry.jpg"
-            alt="Strawberry Fruit Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="fruit-tea-strawberry-fruit-tea" data-name="Strawberry Fruit Tea" data-category="fruit-tea" data-category-label="Fruit Tea" data-price="100.00" data-order="53" data-search="strawberry fruit tea fruit tea fresh strawberry tea with real fruit pieces. sweet, fruity, and refreshing. ">
+          <img src="assets/products/fruit-tea/strawberry.jpg" alt="Strawberry Fruit Tea (Fruit Tea)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Fruit Tea</span>
             <h3>Strawberry Fruit Tea</h3>
-            <p>
-              Fresh strawberry tea with real fruit pieces. Sweet, fruity, and
-              refreshing.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;110.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Fresh strawberry tea with real fruit pieces. Sweet, fruity, and refreshing.</p>
+            <p class="product-price">₱100.00 / ₱110.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-fruit-tea-strawberry-fruit-tea">Size for Strawberry Fruit Tea</label><select id="size-fruit-tea-strawberry-fruit-tea" class="size-select"><option value="Regular" data-price="100.00">Regular – ₱100.00</option><option value="Large" data-price="110.00">Large – ₱110.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Strawberry Fruit Tea</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-fruittea">
-          <img
-            src="assets/products/fruit-tea/passion-fruit.jpg"
-            alt="Passionfruit Fruit Tea"
-            class="product-img"
-          />
+        <article class="product-card" data-id="fruit-tea-passionfruit-fruit-tea" data-name="Passionfruit Fruit Tea" data-category="fruit-tea" data-category-label="Fruit Tea" data-price="100.00" data-order="54" data-search="passionfruit fruit tea fruit tea tropical passionfruit blended with tea. tart, aromatic, and exotic. ">
+          <img src="assets/products/fruit-tea/passion-fruit.jpg" alt="Passionfruit Fruit Tea (Fruit Tea)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
             <span class="product-category">Fruit Tea</span>
             <h3>Passionfruit Fruit Tea</h3>
-            <p>
-              Tropical passionfruit blended with tea. Tart, aromatic, and
-              exotic.
-            </p>
-            <p class="product-price">
-              &#8369;100.00 / &#8369;110.00
-              <span class="size-note">Regular / Large</span>
-            </p>
+            <p class="product-desc">Tropical passionfruit blended with tea. Tart, aromatic, and exotic.</p>
+            <p class="product-price">₱100.00 / ₱110.00 <span class="size-note">Regular / Large</span></p>
+            <div class="product-actions">
+              <label class="visually-hidden" for="size-fruit-tea-passionfruit-fruit-tea">Size for Passionfruit Fruit Tea</label><select id="size-fruit-tea-passionfruit-fruit-tea" class="size-select"><option value="Regular" data-price="100.00">Regular – ₱100.00</option><option value="Large" data-price="110.00">Large – ₱110.00</option></select>
+              <button type="button" class="product-btn add-to-cart">Add to Cart<span class="visually-hidden"> Passionfruit Fruit Tea</span></button>
+            </div>
           </div>
         </article>
-        <!-- SPARKLE SERIES -->
-        <article class="product-card cat-sparkle">
-          <img
-            src="assets/products/sparkle-series/sparkle-sakura.jpg"
-            alt="Sweet Sakura"
-            class="product-img"
-          />
+        <article class="product-card" data-id="sparkle-sweet-sakura" data-name="Sweet Sakura" data-category="sparkle" data-category-label="Sparkle" data-price="130.00" data-order="55" data-search="sweet sakura sparkle delicate cherry blossom-flavored sparkling drink. floral, sweet, and effervescent. ">
+          <img src="assets/products/sparkle/sparkle-sakura.jpg" alt="Sweet Sakura (Sparkle)" class="product-img" width="452" height="678" loading="lazy" />
           <div class="product-info">
-            <span class="product-category">Sparkle Series</span>
+            <span class="product-category">Sparkle</span>
             <h3>Sweet Sakura</h3>
-            <p>
-              Delicate cherry blossom-flavored sparkling drink. Floral, sweet,
-              and effervescent.
-            </p>
-            <p class="product-price">&#8369;130.00</p>
+            <p class="product-desc">Delicate cherry blossom-flavored sparkling drink. Floral, sweet, and effervescent.</p>
+            <p class="product-price">₱130.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="130.00" data-size="">Add to Cart<span class="visually-hidden"> Sweet Sakura</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-sparkle">
-          <img
-            src="assets/products/sparkle-series/rouge-punch.jpg"
-            alt="Rouge Punch"
-            class="product-img"
-          />
+        <article class="product-card" data-id="sparkle-rouge-punch" data-name="Rouge Punch" data-category="sparkle" data-category-label="Sparkle" data-price="130.00" data-order="56" data-search="rouge punch sparkle bold berry-flavored sparkling punch. fruity, vibrant, and refreshing. ">
+          <img src="assets/products/sparkle/rouge-punch.jpg" alt="Rouge Punch (Sparkle)" class="product-img" width="494" height="619" loading="lazy" />
           <div class="product-info">
-            <span class="product-category">Sparkle Series</span>
+            <span class="product-category">Sparkle</span>
             <h3>Rouge Punch</h3>
-            <p>
-              Bold berry-flavored sparkling punch. Fruity, vibrant, and
-              refreshing.
-            </p>
-            <p class="product-price">&#8369;130.00</p>
+            <p class="product-desc">Bold berry-flavored sparkling punch. Fruity, vibrant, and refreshing.</p>
+            <p class="product-price">₱130.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="130.00" data-size="">Add to Cart<span class="visually-hidden"> Rouge Punch</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-sparkle">
-          <img
-            src="assets/products/sparkle-series/sour-candy.jpg"
-            alt="Sour Candy"
-            class="product-img"
-          />
+        <article class="product-card" data-id="sparkle-sour-candy" data-name="Sour Candy" data-category="sparkle" data-category-label="Sparkle" data-price="130.00" data-order="57" data-search="sour candy sparkle sour candy-flavored sparkling drink. tangy, sweet, and fun. ">
+          <img src="assets/products/sparkle/sour-candy.jpg" alt="Sour Candy (Sparkle)" class="product-img" width="415" height="739" loading="lazy" />
           <div class="product-info">
-            <span class="product-category">Sparkle Series</span>
+            <span class="product-category">Sparkle</span>
             <h3>Sour Candy</h3>
-            <p>Sour candy-flavored sparkling drink. Tangy, sweet, and fun.</p>
-            <p class="product-price">&#8369;130.00</p>
+            <p class="product-desc">Sour candy-flavored sparkling drink. Tangy, sweet, and fun.</p>
+            <p class="product-price">₱130.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="130.00" data-size="">Add to Cart<span class="visually-hidden"> Sour Candy</span></button>
+            </div>
           </div>
         </article>
-        <!-- ADD-ONS -->
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/milktea/matcha.jpg"
-            alt="Milk add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-milk" data-name="Milk" data-category="add-ons" data-category-label="Add-ons" data-price="15.00" data-order="58" data-search="milk add-ons add creamy milk to any drink. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Milk</h3>
-            <p>Add creamy milk to any drink.</p>
-            <p class="product-price">&#8369;15.00</p>
+            <p class="product-desc">Add creamy milk to any drink.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱15.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="15.00" data-size="">Add to Cart<span class="visually-hidden"> Milk</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/fruit-tea/lychee.jpg"
-            alt="Nata add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-nata" data-name="Nata" data-category="add-ons" data-category-label="Add-ons" data-price="15.00" data-order="59" data-search="nata add-ons chewy nata de coco topping. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Nata</h3>
-            <p>Chewy nata de coco topping.</p>
-            <p class="product-price">&#8369;15.00</p>
+            <p class="product-desc">Chewy nata de coco topping.</p>
+            <p class="product-price">₱15.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="15.00" data-size="">Add to Cart<span class="visually-hidden"> Nata</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/milktea/classic-mtea.jpg"
-            alt="Pearl add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-pearl" data-name="Pearl" data-category="add-ons" data-category-label="Add-ons" data-price="15.00" data-order="60" data-search="pearl add-ons classic tapioca boba pearls. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Pearl</h3>
-            <p>Classic tapioca boba pearls.</p>
-            <p class="product-price">&#8369;15.00</p>
+            <p class="product-desc">Classic tapioca boba pearls.</p>
+            <p class="product-price">₱15.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="15.00" data-size="">Add to Cart<span class="visually-hidden"> Pearl</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/fruit-tea/strawberry.jpg"
-            alt="Yakult add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-yakult" data-name="Yakult" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="61" data-search="yakult add-ons probiotic yakult shot. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Yakult</h3>
-            <p>Probiotic Yakult shot.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Probiotic Yakult shot.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Yakult</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/frappe/dark-mocha.jpg"
-            alt="Oreos add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-oreos" data-name="Oreos" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="62" data-search="oreos add-ons crushed oreo cookie topping. gluten milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Oreos</h3>
-            <p>Crushed Oreo cookie topping.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Crushed Oreo cookie topping.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: gluten, milk</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Oreos</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
-            alt="Caramel drizzle add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-caramel-drizzle" data-name="Caramel Drizzle" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="63" data-search="caramel drizzle add-ons sweet caramel sauce drizzle. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Caramel Drizzle</h3>
-            <p>Sweet caramel sauce drizzle.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Sweet caramel sauce drizzle.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Caramel Drizzle</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
-            alt="Cheesecake bits add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-cheesecake-bits" data-name="Cheesecake Bits" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="64" data-search="cheesecake bits add-ons creamy cheesecake chunks. milk egg gluten">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Cheesecake Bits</h3>
-            <p>Creamy cheesecake chunks.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Creamy cheesecake chunks.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Cheesecake Bits</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Pastries/pastries/blueberry-cheesecake.jpg"
-            alt="Cream cheese add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-cream-cheese" data-name="Cream Cheese" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="65" data-search="cream cheese add-ons creamy cheese foam topping. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Cream Cheese</h3>
-            <p>Creamy cheese foam topping.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Creamy cheese foam topping.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Cream Cheese</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/fruit-tea/mango.jpg"
-            alt="Popping boba add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-popping-boba" data-name="Popping Boba" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="66" data-search="popping boba add-ons fruit-flavored popping boba. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Popping Boba</h3>
-            <p>Fruit-flavored popping boba.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Fruit-flavored popping boba.</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Popping Boba</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/frappe/choco-twist.jpg"
-            alt="Chocolate syrup add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-choco-syrup" data-name="Choco Syrup" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="67" data-search="choco syrup add-ons rich chocolate syrup drizzle. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Choco Syrup</h3>
-            <p>Rich chocolate syrup drizzle.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Rich chocolate syrup drizzle.</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Choco Syrup</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/hot-tea/green-tea.jpg"
-            alt="Stevia add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-stevia" data-name="Stevia" data-category="add-ons" data-category-label="Add-ons" data-price="10.00" data-order="68" data-search="stevia add-ons natural stevia sweetener. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Stevia</h3>
-            <p>Natural stevia sweetener.</p>
-            <p class="product-price">&#8369;10.00</p>
+            <p class="product-desc">Natural stevia sweetener.</p>
+            <p class="product-price">₱10.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="10.00" data-size="">Add to Cart<span class="visually-hidden"> Stevia</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/caramel.jpg"
-            alt="Muscovado add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-muscovado" data-name="Muscovado" data-category="add-ons" data-category-label="Add-ons" data-price="10.00" data-order="69" data-search="muscovado add-ons raw muscovado sugar. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Muscovado</h3>
-            <p>Raw muscovado sugar.</p>
-            <p class="product-price">&#8369;10.00</p>
+            <p class="product-desc">Raw muscovado sugar.</p>
+            <p class="product-price">₱10.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="10.00" data-size="">Add to Cart<span class="visually-hidden"> Muscovado</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Pastries/pastries/classic-brownies.jpg"
-            alt="Chocolate brownie bits add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-choco-brownie-bits" data-name="Choco Brownie Bits" data-category="add-ons" data-category-label="Add-ons" data-price="20.00" data-order="70" data-search="choco brownie bits add-ons crumbled brownie pieces. milk egg gluten">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Choco Brownie Bits</h3>
-            <p>Crumbled brownie pieces.</p>
-            <p class="product-price">&#8369;20.00</p>
+            <p class="product-desc">Crumbled brownie pieces.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk, egg, gluten</p>
+            <p class="product-price">₱20.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="20.00" data-size="">Add to Cart<span class="visually-hidden"> Choco Brownie Bits</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Hot Coffee/hot-coffee/double-chocolate.jpg"
-            alt="Espresso shot add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-espresso-shot" data-name="Espresso Shot" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="71" data-search="espresso shot add-ons extra shot of espresso. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Espresso Shot</h3>
-            <p>Extra shot of espresso.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Extra shot of espresso.</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Espresso Shot</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/hot-tea/jasmine-tea.jpg"
-            alt="Chia seeds add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-chia-seeds" data-name="Chia Seeds" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="72" data-search="chia seeds add-ons healthy chia seeds topping. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Chia Seeds</h3>
-            <p>Healthy chia seeds topping.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Healthy chia seeds topping.</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Chia Seeds</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/frappe/dark-mocha.jpg"
-            alt="Hershey's chocolate syrup add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-hershey-s-choco-syrup" data-name="Hershey&#x27;s Choco Syrup" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="73" data-search="hershey&#x27;s choco syrup add-ons hershey&#x27;s chocolate syrup drizzle. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
-            <h3>Hershey's Choco Syrup</h3>
-            <p>Hershey's chocolate syrup drizzle.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <h3>Hershey&#x27;s Choco Syrup</h3>
+            <p class="product-desc">Hershey&#x27;s chocolate syrup drizzle.</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Hershey&#x27;s Choco Syrup</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/fruit-tea/lychee.jpg"
-            alt="Honey add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-honey" data-name="Honey" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="74" data-search="honey add-ons natural honey sweetener. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Honey</h3>
-            <p>Natural honey sweetener.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Natural honey sweetener.</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Honey</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/iced-coffee/dark-special.jpg"
-            alt="Coffee jelly add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-coffee-jelly" data-name="Coffee Jelly" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="75" data-search="coffee jelly add-ons chewy coffee jelly cubes. ">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Coffee Jelly</h3>
-            <p>Chewy coffee jelly cubes.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Chewy coffee jelly cubes.</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Coffee Jelly</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/frappe/tiramisu.jpg"
-            alt="Whipped cream add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-whipped-cream" data-name="Whipped Cream" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="76" data-search="whipped cream add-ons fluffy whipped cream topping. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Whipped Cream</h3>
-            <p>Fluffy whipped cream topping.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Fluffy whipped cream topping.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Whipped Cream</span></button>
+            </div>
           </div>
         </article>
-        <article class="product-card cat-addons">
-          <img
-            src="assets/products/Pastries/pastries/chocolate-chip.jpg"
-            alt="Chocolate kisses add-on"
-            class="product-img"
-          />
+        <article class="product-card product-card--compact" data-id="add-ons-choco-kisses" data-name="Choco Kisses" data-category="add-ons" data-category-label="Add-ons" data-price="25.00" data-order="77" data-search="choco kisses add-ons mini chocolate kisses topping. milk">
           <div class="product-info">
             <span class="product-category">Add-ons</span>
             <h3>Choco Kisses</h3>
-            <p>Mini chocolate kisses topping.</p>
-            <p class="product-price">&#8369;25.00</p>
+            <p class="product-desc">Mini chocolate kisses topping.</p>
+            <p class="allergen-note"><span class="visually-hidden">Allergens: </span>Contains: milk</p>
+            <p class="product-price">₱25.00</p>
+            <div class="product-actions">
+              
+              <button type="button" class="product-btn add-to-cart" data-price="25.00" data-size="">Add to Cart<span class="visually-hidden"> Choco Kisses</span></button>
+            </div>
           </div>
         </article>
-      </div>
-    </section>
-    <section>
-      <div class="highlight-box">
-        <strong>References:</strong><br />
-        <a
-          href="https://docs.google.com/document/d/1bAOBsGORXabjt-4GBjxnJicpuPSB8hUdk8Zm9PhINow/edit?usp=sharing"
-          >Our Product List's References</a
-        ><br />
-        <a
-      </div>
-    </section>
-    <footer>
+        </div>
+
+        <div class="empty-state" id="menuEmpty" hidden>
+          <p>No items match your search.</p>
+          <button type="button" class="btn-outline" id="menuReset">Clear search and filters</button>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="highlight-box">
+          <strong>References:</strong><br />
+          <a href="https://docs.google.com/document/d/1bAOBsGORXabjt-4GBjxnJicpuPSB8hUdk8Zm9PhINow/edit?usp=sharing" rel="noopener" target="_blank">Our Product List's References</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
-          <h4>CofeLang</h4>
+          <h2 class="footer-title">CofeLang</h2>
           <p>
             A student-friendly cafe offering quality brews, refreshing drinks,
             and delicious snacks at affordable prices.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a><a href="about.html">About Us</a
-          ><a href="products.html">Products</a><a href="cart.html">Cart</a
-          ><a href="developers.html">Developers</a>
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>123 University Ave., near campus</p>
-          <p>+63 912 345 6789</p>
-          <p>info@cofelang.com</p>
+          <h2 class="footer-title">Contact Us</h2>
+          <p>Aurora Blvd, beside TIP, Quezon City</p>
+          <p>+63 955 078 6293</p>
+          <p>cofelang@gmail.com</p>
         </div>
         <div class="footer-col">
-          <h4>Hours</h4>
-          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
-          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
-          Development Team
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
         </p>
       </div>
     </footer>

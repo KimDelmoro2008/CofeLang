@@ -1,202 +1,213 @@
-﻿<!doctype html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Learn more about CofeLang - our mission, vision, and story."
-    />
+    <title>About Us – CofeLang</title>
+    <meta name="description" content="Learn about CofeLang: how a group of IT students built a student-friendly cafe beside TIP in Quezon City, and the values behind every cup." />
     <meta name="author" content="CofeLang Web Development Team" />
-    <title>CofeLang - About Us</title>
-    <link rel="icon" type="assets/icon/x-icon" href="assets/icon/logo.ico" />
-    <!-- Google Fonts -->
+    <meta name="theme-color" content="#3e2723" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="About Us – CofeLang" />
+    <meta property="og:description" content="Learn about CofeLang: how a group of IT students built a student-friendly cafe beside TIP in Quezon City, and the values behind every cup." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- External CSS Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
-    <!-- Internal CSS -->
-    <style>
-      .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
-      }
-      .value-item {
-        background: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        text-align: center;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-      }
-      .value-item span {
-        font-size: 2.5em;
-        display: none;
-        margin-bottom: 10px;
-      }
-      .value-item h4 {
-        color: #4e342e;
-        margin-bottom: 8px;
-      }
-      .value-item p {
-        color: #6d4c41;
-        font-size: 0.9em;
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header -->
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
       <div class="header-container">
         <a href="index.html" class="logo">
-          <img src="logo.svg" alt="CofeLang Logo" />
-          <div class="logo-text">
-            <h1>CofeLang</h1>
-            <p>Brew &amp; Bytes for Students</p>
-          </div>
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
         </a>
-        <nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="about.html" aria-current="page">About Us</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="cart.html">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
             <li><a href="developers.html">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Page Banner -->
-    <section
-      class="hero full-width"
-      style="min-height: 300px; padding: 80px 20px"
-    >
-      <h2>About CofeLang</h2>
-      <p>Learn about our story, mission, and the passion behind every cup.</p>
-    </section>
+    <main id="main" tabindex="-1">
+      <section class="hero hero--page">
+        <h1>About CofeLang</h1>
+        <p>Learn about our story, mission, and the passion behind every cup.</p>
+      </section>
 
-    <!-- Company Background -->
-    <section>
-      <h2 class="section-title">Our Story</h2>
-      <p class="section-subtitle">How CofeLang came to be</p>
-      <div class="about-content">
-        <div class="about-text">
-          <h3>The Beginning</h3>
-          <p>
-            CofeLang started as a small dream among IT students who wanted to
-            create a space where their fellow students could enjoy quality
-            coffee and snacks without worrying about their budget. Founded in
-            2026, the name "CofeLang" is a combination of "Coffee" and "Lang" (a
-            Filipino term for conversation), symbolizing our belief that every
-            cup of coffee brings people together.
-          </p>
-          <p>
-            What began as a small stall near the university campus quickly grew
-            into a beloved cafe known for its warm atmosphere, friendly staff,
-            and affordable menu. Today, CofeLang serves hundreds of students
-            daily, providing them with the perfect environment to study,
-            socialize, and recharge.
-          </p>
+      <section class="section">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">How CofeLang came to be</p>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>The Beginning</h3>
+            <p>
+              CofeLang started as a small dream among IT students who wanted to
+              create a space where their fellow students could enjoy quality
+              coffee and snacks without worrying about their budget. Founded in
+              2026, the name "CofeLang" is a combination of "Coffee" and "Lang"
+              (a Filipino term for conversation), symbolizing our belief that
+              every cup of coffee brings people together.
+            </p>
+            <p>
+              What began as a small stall near the university campus quickly
+              grew into a beloved cafe known for its warm atmosphere, friendly
+              staff, and affordable menu. Today, CofeLang serves hundreds of
+              students daily, providing them with the perfect environment to
+              study, socialize, and recharge.
+            </p>
 
-          <h3>What We Stand For</h3>
-          <p>
-            At CofeLang, we believe that every student deserves access to
-            quality beverages and a comfortable space to thrive. Our cafe is
-            more than just a place to grab coffee &mdash; it's a community hub
-            where friendships are formed, ideas are born, and memories are made.
-          </p>
-          <p>
-            We are committed to maintaining a safe, clean, and inclusive
-            environment where every student feels welcome. Our team is
-            passionate about delivering excellent service and continuously
-            improving our menu to cater to diverse tastes and preferences.
-          </p>
+            <h3>What We Stand For</h3>
+            <p>
+              At CofeLang, we believe that every student deserves access to
+              quality beverages and a comfortable space to thrive. Our cafe is
+              more than just a place to grab coffee &mdash; it's a community hub
+              where friendships are formed, ideas are born, and memories are
+              made.
+            </p>
+            <p>
+              We are committed to maintaining a safe, clean, and inclusive
+              environment where every student feels welcome. Our team is
+              passionate about delivering excellent service and continuously
+              improving our menu to cater to diverse tastes and preferences.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/cozy-cafe-interior.avif"
+              alt="Cozy CofeLang cafe interior with coffee and pastries" width="3000" height="4500"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="about-image">
-          <img
-            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=500"
-            alt="CofeLang cafe interior"
-          />
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">The principles that guide everything we do</p>
+        <div class="values-grid">
+          <article class="value-item">
+            <h3>Quality</h3>
+            <p>We use only the finest ingredients to ensure every product meets our high standards.</p>
+          </article>
+          <article class="value-item">
+            <h3>Affordability</h3>
+            <p>Great taste shouldn't break the bank. Our prices are designed for student budgets.</p>
+          </article>
+          <article class="value-item">
+            <h3>Inclusivity</h3>
+            <p>Everyone is welcome at CofeLang regardless of background or identity.</p>
+          </article>
+          <article class="value-item">
+            <h3>Innovation</h3>
+            <p>We continuously improve our menu and services to better serve our community.</p>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Core Values -->
-    <section>
-      <h2 class="section-title">Our Core Values</h2>
-      <p class="section-subtitle">The principles that guide everything we do</p>
-      <div class="values-grid">
-        <article class="value-item">
-          <h4>Quality</h4>
-          <p>
-            We use only the finest ingredients to ensure every product meets our
-            high standards.
+      <section class="section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Questions or feedback? Send us a note.</p>
+        <div class="form-card contact-card">
+          <p class="notice" role="note">
+            <strong>Demo form:</strong> this is a student project with no
+            server. Your message is not sent or stored anywhere.
           </p>
-        </article>
-        <article class="value-item">
-          <h4>Affordability</h4>
-          <p>
-            Great taste shouldn't break the bank. Our prices are designed for
-            student budgets.
-          </p>
-        </article>
-        <article class="value-item">
-          <h4>Inclusivity</h4>
-          <p>
-            Everyone is welcome at CofeLang regardless of background or
-            identity.
-          </p>
-        </article>
-        <article class="value-item">
-          <h4>Innovation</h4>
-          <p>
-            We continuously improve our menu and services to better serve our
-            community.
-          </p>
-        </article>
-      </div>
-    </section>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName">Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="contactName" name="name" autocomplete="name" required aria-describedby="err-contactName" />
+              <p class="field-error" id="err-contactName" hidden></p>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="contactEmail" name="email" autocomplete="email" required aria-describedby="err-contactEmail" />
+              <p class="field-error" id="err-contactEmail" hidden></p>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="contactMessage" name="message" rows="5" maxlength="1000" required aria-describedby="err-contactMessage"></textarea>
+              <p class="field-error" id="err-contactMessage" hidden></p>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+          <div id="contactThanks" class="thanks" role="status" tabindex="-1" hidden>
+            <h3>Thank you!</h3>
+            <p id="contactThanksText"></p>
+            <button type="button" class="btn-outline" id="contactAgain">Write another message</button>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
-          <h4>CofeLang</h4>
+          <h2 class="footer-title">CofeLang</h2>
           <p>
             A student-friendly cafe offering quality brews, refreshing drinks,
             and delicious snacks at affordable prices.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="products.html">Products</a>
-          <a href="cart.html">Cart</a>
-          <a href="developers.html">Developers</a>
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>123 University Ave., near campus</p>
-          <p>+63 912 345 6789</p>
-          <p>info@cofelang.com</p>
+          <h2 class="footer-title">Contact Us</h2>
+          <p>Aurora Blvd, beside TIP, Quezon City</p>
+          <p>+63 955 078 6293</p>
+          <p>Cofelang@gmail.com</p>
         </div>
         <div class="footer-col">
-          <h4>Hours</h4>
-          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
-          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
-          Development Team
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
         </p>
       </div>
     </footer>

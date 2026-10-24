@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Dependencies and build output (not used by this project, ignored just in case)
+node_modules/
+dist/
+
+# Vercel local config
+.vercel/
+
+# Environment and logs
+.env
+.env.*
+*.log

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login – CofeLang</title>
+    <meta name="description" content="Log in to CofeLang as a customer, or as staff with a tip.edu.ph email to open the order dashboard. Demo login only." />
+    <meta name="author" content="CofeLang Web Development Team" />
+    <meta name="theme-color" content="#3e2723" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="Login – CofeLang" />
+    <meta property="og:description" content="Log in to CofeLang as a customer, or as staff with a tip.edu.ph email to open the order dashboard. Demo login only." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html" aria-current="page">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero hero--compact">
+        <h1>Login</h1>
+        <p>Sign in as a customer, or as staff to open the order dashboard.</p>
+      </section>
+
+      <section class="section section--form">
+        <div class="form-card">
+          </p>
+
+          <form id="loginForm" novalidate>
+            <div class="form-group">
+              <label for="loginEmail">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="loginEmail" name="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="hint-loginEmail err-loginEmail" />
+              <p class="field-hint" id="hint-loginEmail">Emails ending in @tip.edu.ph go straight to the staff dashboard. Any other email signs in as a customer.</p>
+              <p class="field-error" id="err-loginEmail" hidden></p>
+            </div>
+            <p class="field-error form-error" id="loginError" role="alert" hidden></p>
+            <button type="submit" class="submit-btn">Log in</button>
+          </form>
+
+          <div id="loginDone" class="thanks" tabindex="-1" hidden>
+            <h3>You're logged in</h3>
+            <p id="loginDoneText"></p>
+            <div class="login-actions">
+              <a href="dashboard.html" class="hero-btn" id="loginDashboardLink" hidden>Open Dashboard</a>
+              <a href="products.html" class="btn-outline">Browse Menu</a>
+              <a href="login.html?logout=1" class="btn-outline btn-danger">Log out</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h2 class="footer-title">CofeLang</h2>
+          <p>
+            A student-friendly cafe offering quality brews, refreshing drinks,
+            and delicious snacks at affordable prices.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-title">Contact Us</h2>
+          <p>Aurora Blvd, beside TIP, Quezon City</p>
+          <p>+63 955 078 6293</p>
+          <p>Cofelang@gmail.com</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

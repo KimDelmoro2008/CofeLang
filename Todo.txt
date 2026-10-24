@@ -1,0 +1,23 @@
+To do : 
+1. Fix terms.html
+    - Fix kung ano lang meron sa comments
+    Assigned For :
+        - Shaun
+        - Ramos
+        - Lano
+2. Fix Privacy
+    - Same lang din sa terms.html, ayusin nyo lang kung ano yung nasa baba ng comments
+    Assigned For :
+        - Kobs
+        - DexterMiratite
+        - Ranieltite
+3. Fix Contacts on every .html file. ✅
+    - Every .html file has contacts dun sa pinaka baba ng codes
+    Assigned for :
+        - Everyone 
+    What to fix : 
+        - Change email sa contacts (Cofelang@gmail.com) ✅
+        - Number (+63 955 078 6293 ) ✅
+4. Fix your developer page (Optional)
+    - Fix your own dev page (so far so good, burado na si lance) 
+

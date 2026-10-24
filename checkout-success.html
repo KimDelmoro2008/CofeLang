@@ -1,160 +1,114 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Your CofeLang order has been placed successfully!"
-    />
-    <title>CofeLang - Order Successful</title>
-    <link rel="icon" type="assets/icon/x-icon" href="assets/icon/logo.ico" />
-    <!-- Google Fonts -->
+    <title>Order Placed – CofeLang</title>
+    <meta name="description" content="Your CofeLang order has been placed. Here is your order number and a summary of what you ordered." />
+    <meta name="author" content="CofeLang Web Development Team" />
+    <meta name="theme-color" content="#3e2723" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CofeLang" />
+    <meta property="og:title" content="Order Placed – CofeLang" />
+    <meta property="og:description" content="Your CofeLang order has been placed. Here is your order number and a summary of what you ordered." />
+    <meta property="og:image" content="https://cofelang.vercel.app/assets/og-image.png" />
+    <meta property="og:image:alt" content="CofeLang logo on a coffee-brown background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/x-icon" href="assets/icon/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- External CSS Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .success-section {
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 60px 24px;
-      }
-      .success-card {
-        background: #fff;
-        border-radius: 20px;
-        padding: 56px 48px;
-        text-align: center;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        max-width: 520px;
-        width: 100%;
-      }
-      .success-icon {
-        font-size: 4em;
-        margin-bottom: 20px;
-        display: block;
-      }
-      .success-card h2 {
-        color: #3e2723;
-        font-size: 2em;
-        margin-bottom: 14px;
-      }
-      .success-card p {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        color: #6d4c41;
-        margin-bottom: 10px;
-        line-height: 1.7;
-        font-size: 1em;
-      }
-      .success-actions {
-        display: flex;
-        gap: 14px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 28px;
-      }
-      .btn-outline {
-        display: inline-block;
-        padding: 12px 28px;
-        border: 2px solid #4e342e;
-        color: #4e342e;
-        text-decoration: none;
-        border-radius: 30px;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        font-size: 0.95em;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-      .btn-outline:hover {
-        background-color: #4e342e;
-        color: #fff;
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <!-- Header with Navigation -->
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
       <div class="header-container">
         <a href="index.html" class="logo">
-          <img src="logo.svg" alt="CofeLang Logo" />
-          <div class="logo-text">
-            <h1>CofeLang</h1>
-            <p>Brew &amp; Bytes for Students</p>
-          </div>
+          <img src="assets/logo.svg" alt="CofeLang logo" width="48" height="48" />
+          <span class="logo-text">
+            <span class="brand-name">CofeLang</span>
+            <span class="brand-tagline">Brew &amp; Bytes for Students</span>
+          </span>
         </a>
-        <nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="cart.html">Cart<span class="cart-badge" data-cart-count hidden>0</span><span class="visually-hidden" data-cart-count-label></span></a></li>
+            <li><a href="orders.html">My Orders</a></li>
             <li><a href="developers.html">Developers</a></li>
+            <li data-staff-nav hidden><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Success Section -->
-    <section class="success-section">
-      <div class="success-card">
-        <span class="success-icon"></span>
-        <h2>Order Placed Successfully!</h2>
-        <p>
-          Thank you for ordering from <strong>CofeLang</strong>. Your order is
-          being prepared and will be ready shortly.
-        </p>
-        <p>
-          You will receive a confirmation shortly. If you have any questions,
-          feel free to contact us at <strong>info@cofelang.com</strong>.
-        </p>
-        <div class="success-actions">
-          <a href="index.html" class="hero-btn">Return Home</a>
-          <a href="products.html" class="btn-outline">Browse Menu</a>
+    <main id="main" tabindex="-1">
+      <section class="section success-section">
+        <h1 class="visually-hidden">Order confirmation</h1>
+        <div class="success-card" id="orderRoot">
+          <p id="orderLoading">Loading your order&hellip;</p>
+          <noscript>
+            <p>We need JavaScript to show your order. <a href="orders.html">Open My Orders</a> or <a href="index.html">return home</a>.</p>
+          </noscript>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
-          <h4>CofeLang</h4>
+          <h2 class="footer-title">CofeLang</h2>
           <p>
             A student-friendly cafe offering quality brews, refreshing drinks,
             and delicious snacks at affordable prices.
           </p>
         </div>
         <div class="footer-col">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="products.html">Products</a>
-          <a href="cart.html">Cart</a>
-          <a href="developers.html">Developers</a>
+          <h2 class="footer-title">Quick Links</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="developers.html">Developers</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact Us</h4>
-          <p>123 University Ave., near campus</p>
-          <p>+63 912 345 6789</p>
-          <p>info@cofelang.com</p>
+          <h2 class="footer-title">Contact Us</h2>
+          <p>Aurora Blvd, beside TIP, Quezon City</p>
+          <p>+63 955 078 6293 </p>
+          <p>Cofelang@gmail.com</p>
         </div>
         <div class="footer-col">
-          <h4>Hours</h4>
-          <p>Mon - Fri: 7:00 AM - 10:00 PM</p>
-          <p>Sat - Sun: 8:00 AM - 11:00 PM</p>
+          <h2 class="footer-title">Hours</h2>
+          <p>Mon–Fri 7:00 AM–10:00 PM</p>
+          <p>Sat–Sun 8:00 AM–11:00 PM</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 CofeLang. All rights reserved. | Designed by CofeLang Web
-          Development Team
+          &copy; 2026 CofeLang. All rights reserved. Designed by the CofeLang
+          Web Development Team.
+        </p>
+        <p class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
         </p>
       </div>
     </footer>
