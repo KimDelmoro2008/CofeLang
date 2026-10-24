@@ -1,7 +1,7 @@
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=CofeLang&fontSize=64&fontColor=FFF3E0&fontAlignY=38&desc=Brew%20and%20Bytes%20for%20Students&descSize=20&descAlignY=60&animation=fadeIn" alt="CofeLang banner" width="100%" />
+<img src="assets/banner.svg" alt="CofeLang - Brew and Bytes for Students" width="100%" />
 
 <img src="logo.svg" alt="CofeLang logo" width="110" />
 
@@ -248,7 +248,6 @@ We are IT students and co-founders of CofeLang, and **Group 5** built every page
 | **Madelaine Lano** | UI &amp; Logo Designer | Visual design, color scheme, logo creation |
 | **Cleo Ken Miguel Ramos** | Content Strategist | Product descriptions, About page narrative, meta descriptions |
 | **Justin Kobe Litonjua** | Web Tester | Cross-browser and cross-device testing, accessibility checks |
-| **Lance Jairus Jamito** | Documentation Lead | Project documentation, technical report, milestone coordination |
 
 ---
 
@@ -280,6 +279,6 @@ If you like this project, consider giving it a star
 
 <br />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=120&section=footer" alt="footer wave" width="100%" />
+<img src="assets/banner-footer.svg" alt="" width="100%" />
 
 </div>
