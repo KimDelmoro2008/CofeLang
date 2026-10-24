@@ -10,7 +10,7 @@ CofeLang is a student-friendly café website developed as a group project by BS 
 
 The project presents a café concept designed for students who want affordable food and drinks in a comfortable place to study, relax, and spend time with friends.
 
-**Live Website:** [Visit CofeLang](https://cofe-lang-three.vercel.app/)
+**Live Website:** [Visit CofeLang](https://cofelang.vercel.app/)
 
 ## Table of Contents
 
